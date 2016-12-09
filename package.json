@@ -1,0 +1,9 @@
+{
+  "name": "platform-zhxx",
+  "devDependencies": {
+    "prism": "^1.0.0"
+  },
+  "dependencies": {
+    "v-render": "^1.0.3"
+  }
+}
