@@ -14,7 +14,7 @@ var ModuleView = VRender.Fragment.extend(module, {
         // if (view)
         //     view.render(this.$el);
         // else
-            this.$el.writeTmpl("./module.tmpl");
+        //     this.$el.writeTmpl("./module.tmpl");
     },
 
     getView: function () {

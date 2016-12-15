@@ -1,10 +1,10 @@
-
 var VRender = require("v-render");
 var HeaderView = require("./HeaderView");
 var SideMenuView = require("./SideMenuView");
 var ModuleView = require("./ModuleView");
 var ContainerView = require("./ContainerView");
-var CustomerView = require("../../modules/customer/CustomerView");
+var DetailView = require("./DetailView");
+var CustomerView = require("../../../modules/customer/CustomerView");
 
 
 var MainView = VRender.SinglePageView.extend(module, {
@@ -35,7 +35,7 @@ var MainView = VRender.SinglePageView.extend(module, {
     renderBody: function (body) {
         MainView.__super__.renderBody.call(this, body);
 
-        var mainBody = VRender.$("<div id='main-body'></div>").appendTo(body);
+        var mainBody = VRender.$("<div class='main-body'></div>").appendTo(body);
 
         new HeaderView(this).render(mainBody);
 
@@ -44,6 +44,11 @@ var MainView = VRender.SinglePageView.extend(module, {
         this.moduleView.render(mainBody);
 
         new ContainerView(this).render(mainBody);
+
+        var mainDetail = VRender.$("<div class='main-detail'></div>").appendTo(body);
+
+
+        new DetailView(this).render(mainDetail);
 
         // var mainContainer = VRender.$("<div id='main-conatiner'>container</div>").appendTo(mainBody);
 
@@ -57,5 +62,5 @@ var MainView = VRender.SinglePageView.extend(module, {
     }
 });
 
-MainView.import(["/theme/css/style.css", "/theme/css/main.css","/iconfont/iconfont.css"]);
-MainView.import(["/js/main.js","/iconfont/iconfont.js"]);
+MainView.import(["/theme/css/style.css", "/theme/css/main.css", "/iconfont/iconfont.css"]);
+MainView.import(["../../frame.js", "/js/main.js", "/iconfont/iconfont.js"]);

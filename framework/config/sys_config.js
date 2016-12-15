@@ -14,7 +14,7 @@ module.exports = {
     uplifyExpires: 1000,
 
     modules: {
-        "aaa": "./modules/customer",
-        "bbb": "./modules/member"
+        "mobile": "./modules/mobile",
+        "work": "./modules/work"
     }
 };

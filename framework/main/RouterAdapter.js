@@ -33,21 +33,21 @@ RouterAdapter.prototype.before = function (pathname, params) {
 // @return 为 true 时表示文件请求被接管，必须执行callback()方法；为 false 时表示请求未受理
 RouterAdapter.prototype.router = function (name, params, path, callback) {
     var names = name.substr(1).split("/");
-    if (names[0] === "docs") {
-        callback(VRender.RouterStatus.OK, "./framework/main/MainView");
+    if (names[0] === "admin") {
+        // callback(VRender.RouterStatus.OK, "./framework/main/MainView");
+        callback(VRender.RouterStatus.OK, "./framework/portal/admin/MainView");
         return true;
     }
-    else if (names[0] === "mobile") {
-
-    }
-    else {
-        var ModuleView = SysConfig.modules[names[0]];
+    else if (names[0] === "module") {
+        var moduleName = names[1];
+        var ModuleView = SysConfig.modules[moduleName];
         if (ModuleView) {
             callback(VRender.RouterStatus.OK, ModuleView);
         }
         else {
 
         }
+        return true;
     }
     return false;
 };

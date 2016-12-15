@@ -14,49 +14,49 @@ var SideMenuView = VRender.Fragment.extend(module, {
                 {
                     grp: "账号安全",
                     icon: "#icon-exit",
-                    routerUrl: "aaa",
+                    module: "safe",
                     children: [
-                        {name: "移动设备管理", routerUrl: "aaa/a1a1a1"},
-                        {name: "登陆日志", routerUrl: "aaa/a2a2a2"}
+                        {name: "移动设备管理", moduleName: "mobile"},
+                        {name: "登陆日志", moduleName: "login"}
                     ]
                 }, {
                     grp: "企业设置",
                     icon: "#icon-search",
-                    routerUrl: "bbb",
+                    module: "company",
                     children: [
-                        {name: "工作设置", routerUrl: "bbb/b1b1b1"},
-                        {name: "企业信息", routerUrl: "bbb/b2b2b2"}
+                        {name: "工作信息", moduleName: "work"},
+                        {name: "企业设置", moduleName: "setting"}
                     ]
                 }, {
                     grp: "系统设置",
                     icon: "#icon-search",
-                    routerUrl: "ccc",
+                    module: "ccc",
                     children: [
-                        {name: "工作设置", routerUrl: "ccc/b1b121b1"},
-                        {name: "工作设置", routerUrl: "ccc/b1b132b1"},
-                        {name: "工作设置", routerUrl: "ccc/2"},
-                        {name: "工作设置", routerUrl: "ccc/b11b1b31"},
-                        {name: "工作设置", routerUrl: "ccc/b132b1b1"},
-                        {name: "工作设置", routerUrl: "ccc/b1b12b1"},
-                        {name: "企业信息", routerUrl: "ccc/b2b22b2"}
+                        {name: "工作设置", moduleName: "ccc/b1b121b1"},
+                        {name: "工作设置", moduleName: "ccc/b1b132b1"},
+                        {name: "工作设置", moduleName: "ccc/2"},
+                        {name: "工作设置", moduleName: "ccc/b11b1b31"},
+                        {name: "工作设置", moduleName: "ccc/b132b1b1"},
+                        {name: "工作设置", moduleName: "ccc/b1b12b1"},
+                        {name: "企业信息", moduleName: "ccc/b2b22b2"}
                     ]
                 }, {
                     grp: "系统设置",
                     icon: "#icon-search",
-                    routerUrl: "ddd",
+                    module: "ddd",
                     children: [
-                        {name: "工作设置", routerUrl: "ddd/b11b1"},
-                        {name: "工作设置", routerUrl: "ddd/b1b12b1"},
-                        {name: "工作设置", routerUrl: "ddd/b123b1b1"},
-                        {name: "工作设置", routerUrl: "ddd/beb1"},
-                        {name: "工作设置", routerUrl: "ddd/b1bw1b1"},
-                        {name: "工作设置", routerUrl: "ddd/b1bw1"},
-                        {name: "工作设置", routerUrl: "ddd/b1b14b1"},
-                        {name: "工作设置", routerUrl: "ddd/b1sb1b1"},
-                        {name: "工作设置", routerUrl: "ddd/b1b1sb1"},
-                        {name: "工作设置", routerUrl: "ddd/b1bxx1b1"},
-                        {name: "工作设置", routerUrl: "ddd/b1bx1b1"},
-                        {name: "企业信息", routerUrl: "ddd/b2bz2b2"}
+                        {name: "工作设置", moduleName: "ddd/b11b1"},
+                        {name: "工作设置", moduleName: "ddd/b1b12b1"},
+                        {name: "工作设置", moduleName: "ddd/b123b1b1"},
+                        {name: "工作设置", moduleName: "ddd/beb1"},
+                        {name: "工作设置", moduleName: "ddd/b1bw1b1"},
+                        {name: "工作设置", moduleName: "ddd/b1bw1"},
+                        {name: "工作设置", moduleName: "ddd/b1b14b1"},
+                        {name: "工作设置", moduleName: "ddd/b1sb1b1"},
+                        {name: "工作设置", moduleName: "ddd/b1b1sb1"},
+                        {name: "工作设置", moduleName: "ddd/b1bxx1b1"},
+                        {name: "工作设置", moduleName: "ddd/b1bx1b1"},
+                        {name: "企业信息", moduleName: "ddd/b2bz2b2"}
                     ]
                 }
             ];
@@ -74,16 +74,16 @@ var SideMenuView = VRender.Fragment.extend(module, {
             var firstMenuItem = menuList.appendAndGet("<li class='first-menu'></li>");
             var item = firstMenuItem.appendAndGet("<a><svg class='icon icon-left'><use xlink:href='#icon-search'></use></svg> " + data.grp + "</a>");
             if (data) {
-                item.attr("router-url", data.routerUrl).write("<svg class='icon icon-right icon-size-1_5'><use xlink:href='#icon-down'></use></svg>")
+                item.attr("module", data.module).write("<svg class='icon icon-right icon-size-1_5'><use xlink:href='#icon-down'></use></svg>")
             }
 
-            var secondMenuList = firstMenuItem.appendAndGet("<ul class='second-menu-list hide'></ul>");
+            var secondMenuList = firstMenuItem.appendAndGet("<ul class='second-menu-list'></ul>");
             Utils.each(data.children, function (data) {
                 var secondMenuItem = secondMenuList.appendAndGet("<li class='second-menu'></li>");
-                var item = secondMenuItem.appendAndGet("<a> " + data.name + "</a>")
-                item.attr("router-url", data.routerUrl);
+                var item = secondMenuItem.appendAndGet("<a> " + data.name + "</a>");
+                item.attr("moduleName", data.moduleName);
                 if (data.name === currentMenu)
-                    secondMenuItem.addClass("selected");
+                    secondMenuItem.addClass("second-menu-selected");
             });
         });
 
