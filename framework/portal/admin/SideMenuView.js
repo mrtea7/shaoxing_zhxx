@@ -12,9 +12,9 @@ var SideMenuView = VRender.Fragment.extend(module, {
         setTimeout(function () {
             self.menus = [
                 {
-                    grp: "账号安全",
+                    grp: "工单汇总",
                     icon: "#icon-exit",
-                    module: "safe",
+                    module: "WO",
                     children: [
                         {name: "移动设备管理", moduleName: "mobile"},
                         {name: "登陆日志", moduleName: "login"}
@@ -29,7 +29,7 @@ var SideMenuView = VRender.Fragment.extend(module, {
                     ]
                 }, {
                     grp: "系统设置",
-                    icon: "#icon-search",
+                    icon: "#icon-myshape",
                     module: "ccc",
                     children: [
                         {name: "工作设置", moduleName: "ccc/b1b121b1"},
@@ -41,23 +41,9 @@ var SideMenuView = VRender.Fragment.extend(module, {
                         {name: "企业信息", moduleName: "ccc/b2b22b2"}
                     ]
                 }, {
-                    grp: "系统设置",
+                    grp: "阿茶设置",
                     icon: "#icon-search",
-                    module: "ddd",
-                    children: [
-                        {name: "工作设置", moduleName: "ddd/b11b1"},
-                        {name: "工作设置", moduleName: "ddd/b1b12b1"},
-                        {name: "工作设置", moduleName: "ddd/b123b1b1"},
-                        {name: "工作设置", moduleName: "ddd/beb1"},
-                        {name: "工作设置", moduleName: "ddd/b1bw1b1"},
-                        {name: "工作设置", moduleName: "ddd/b1bw1"},
-                        {name: "工作设置", moduleName: "ddd/b1b14b1"},
-                        {name: "工作设置", moduleName: "ddd/b1sb1b1"},
-                        {name: "工作设置", moduleName: "ddd/b1b1sb1"},
-                        {name: "工作设置", moduleName: "ddd/b1bxx1b1"},
-                        {name: "工作设置", moduleName: "ddd/b1bx1b1"},
-                        {name: "企业信息", moduleName: "ddd/b2bz2b2"}
-                    ]
+                    module: "ddd"
                 }
             ];
             self.ready("main.sideMenu");
@@ -72,8 +58,8 @@ var SideMenuView = VRender.Fragment.extend(module, {
         var menuList = VRender.$("<ul class='menu-list'></ul>").appendTo(this.$el);
         Utils.each(this.menus, function (data) {
             var firstMenuItem = menuList.appendAndGet("<li class='first-menu'></li>");
-            var item = firstMenuItem.appendAndGet("<a><svg class='icon icon-left'><use xlink:href='#icon-search'></use></svg> " + data.grp + "</a>");
-            if (data) {
+            var item = firstMenuItem.appendAndGet("<a><svg class='icon icon-left'><use xlink:href='" + data.icon + "'></use></svg> " + data.grp + "</a>");
+            if (data.children) {
                 item.attr("module", data.module).write("<svg class='icon icon-right icon-size-1_5'><use xlink:href='#icon-down'></use></svg>")
             }
 
