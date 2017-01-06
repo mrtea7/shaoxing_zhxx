@@ -1,0 +1,5 @@
+bin/_work
+logs/*.log
+node_modules
+zl.sublime-project
+zl.sublime-workspace
