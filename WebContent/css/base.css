@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+
+* { box-sizing: border-box; -moz-box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+html, body { width: 100%; height: 100%; overflow: hidden; background-color: #ffffff; color: #222; position: relative; font-size: 14px; }
+body { font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif; margin: 0px; background-color: #e7e8eb;
+	-webkit-font-smoothing: antialiased; }
+body, div, p, form, ul, ol, dl, dt, dd, img, a, iframe, span, td { margin: 0px; padding: 0px; border: 0px; }
+div, header, section, footer, li, span, a { position: relative; }
+
+img, iframe { width: 100%; height: 100%; }
+/*span { line-height: 16px; }*/
+
+/* 超链接 */
+a { text-decoration: none; display: inline-block; color: #459ae9; }
+a:hover { text-decoration: underline; cursor: pointer; }
+/* 列表中直接子标签A作为布局，使用默认样式 */
+li > a, li > a:hover, li > a:visited { color: inherit; text-decoration: none; }
+
+input, textarea { font-size: 14px; font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif; }
+input { height: 32px; margin: 0px; border: 1px solid #ddd; padding: 0px 2px 0px 10px; line-height: 30px; color: #383838; }
+input[readonly='readonly'] { background-color: #FFF1D8; }
+input:focus { border-color: #66afe9; }
+label + input { margin-left: 20px; }
+textarea { border: 1px solid #ddd; padding: 5px 2px 5px 10px; resize: none; line-height: 16px; }
+textarea:focus { border-color: #66afe9; }
+
+table { border-collapse: collapse; }
+
+
+
+
+
+
+
+
