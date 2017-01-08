@@ -1,66 +1,69 @@
+/**********************************************************
+ * 主视图设计，包含页面头部、脚部、模块菜单、工作区和详情区
+ * 该页面为单例应用，功能模块之间的切换不会刷新页面，动态更新工作区内容
+ *********************************************************/
+
 var VRender = require("v-render");
 var HeaderView = require("./HeaderView");
 var SideMenuView = require("./SideMenuView");
-var ModuleView = require("./ModuleView");
-var ContainerView = require("./ContainerView");
-var DetailView = require("./DetailView");
-var CustomerView = require("../../../modules/customer/CustomerView");
 
+
+var Utils = VRender.Utils;
 
 var MainView = VRender.SinglePageView.extend(module, {
-    readyCode: "mainView",
+    readyCode: "view.main",
 
     doInit: function () {
         MainView.__super__.doInit.call(this);
 
+        // 初始化相关视图，因为可能涉及到视图内部的异步加载，我们在 doInit() 中创建
+        this.headerView = new HeaderView(this, this.options);
+        this.sideMenuView = new SideMenuView(this, this.options);
+        this.moduleView = this.getCurrentModuleView();
+
         var self = this;
-
-
-        var paths = this.options.pathname.substr(1).split("/");
-
-        this.moduleName = this.options.moduleName = paths[2];
-
-        this.moduleView = new ModuleView(this, this.options);
-
-        this.sideMenu = new SideMenuView(this, {active: this.moduleName});
-        // this.sideMenu.ready(function () {
-        //     self.ready("mainView");
-        // });
-
-        this.allReady([this.moduleView, this.sideMenu], function () {
-            self.ready("mainView");
+        this.allReady([this.headerView, this.sideMenuView, this.moduleView], function () {
+            self.ready("view.main");
         });
+    },
+
+    // 根据路由信息获取当前的模块视图
+    getCurrentModuleView: function () {
+        return "<div>welcome</div>";
     },
 
     renderBody: function (body) {
         MainView.__super__.renderBody.call(this, body);
 
-        var mainBody = VRender.$("<div class='main-body'></div>").appendTo(body);
+        var mainBody = VRender.$("<div id='main-body'></div>").appendTo(body);
 
-        new HeaderView(this).render(mainBody);
+        if (this.headerView)
+            this.headerView.render(mainBody);
 
-        this.sideMenu.render(mainBody);
+        var mainContainer = VRender.$("<div class='main-container'></div>").appendTo(mainBody);
 
-        this.moduleView.render(mainBody);
+        if (this.sideMenuView)
+            this.sideMenuView.render(mainContainer);
 
-        new ContainerView(this).render(mainBody);
+        var container = VRender.$("<div class='container'></div>").appendTo(mainContainer);
+        if (this.moduleView) {
+            if (Utils.isFunction(this.moduleView.render))
+                this.moduleView.render(container);
+            else
+                container.write(this.moduleView);
+        }
 
-        var mainDetail = VRender.$("<div class='main-detail'></div>").appendTo(body);
-
-
-        new DetailView(this).render(mainDetail);
-
-        // var mainContainer = VRender.$("<div id='main-conatiner'>container</div>").appendTo(mainBody);
-
-        // body.append("<div id='main-detail'>detail</div>");
-
-        // new CustomerView(this).render(ContainerView);
+        mainBody.write("<div class='main-detail'></div>");
     },
 
     getSinglePageContainer: function () {
         return ".main-container";
+    },
+
+    getPageTitle: function () {
+        return "综合信息管理系统";
     }
 });
 
-MainView.import(["/theme/css/style.css", "/theme/css/main.css", "/iconfont/iconfont.css"]);
-MainView.import(["../../frame.js", "/js/main.js", "/iconfont/iconfont.js"]);
+MainView.import(["/css/base.css", "/css/main.css", "/css/iconfont.css"], {group: "main"});
+MainView.import(["../../frame.js", "/js/main.js"], {group: "main"});

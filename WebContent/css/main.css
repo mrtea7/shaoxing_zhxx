@@ -1,0 +1,48 @@
+
+#main-body { width: 100%; height: 100%; overflow: auto; padding-top: 60px; }
+
+#main-body > .main-header { position: fixed; left: 0px; right: 0px; top: 0px; height: 60px; background-color: #f4f5f9; 
+	box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2); z-index: 1; }
+#main-body > .main-header > .company { display: inline-block; top: 10px; left: 10px; }
+#main-body > .main-header > .company > .logo { width: 40px; height: 40px; vertical-align: middle; border-radius: 100px; }
+#main-body > .main-header > .company > .name { font-size: 16px; margin-left: 10px; color: #787878; }
+#main-body > .main-header > .userinfo { position: absolute; font-size: 16px; top: 18px; right: 30px; }
+#main-body > .main-header > .userinfo > ul { display: inline-block; font-size: 22px; vertical-align: middle; margin-right: 10px; }
+#main-body > .main-header > .userinfo > ul > li { display: inline-block; line-height: 24px; margin-left: 5px; 
+	cursor: pointer; color: #787878; width: 24px; }
+#main-body > .main-header > .userinfo > ul > li:hover { color: #000; font-size: 24px; }
+#main-body > .main-header > .userinfo > ul > li:active { background-color: #ddd; }
+#main-body > .main-header > .userinfo > .head-lnk { cursor: pointer; padding: 0px 3px; }
+#main-body > .main-header > .userinfo > .head-lnk:hover { text-decoration: underline; }
+#main-body > .main-header > .userinfo > .username { color: #0060ff; }
+#main-body > .main-header > .userinfo > .exit { border-left: 1px solid #999; }
+
+#main-body > .main-container { width: 100%; height: 100%; display: flex; }
+#main-body > .main-container > .sidemenu { width: 200px; background-color: #333444; overflow: auto; }
+#main-body > .main-container > .sidemenu > .menu-list { color: #ccc; }
+#main-body > .main-container > .sidemenu > .menu-list .submenu-list { display: none; }
+#main-body > .main-container > .sidemenu > .menu-list .menu > .title { font-size: 16px;
+    line-height: 54px; padding-left: 50px; cursor: pointer; }
+#main-body > .main-container > .sidemenu > .menu-list .menu > .title:hover { color: #009aff; background-color: #2b2c3a; }
+#main-body > .main-container > .sidemenu > .menu-list .menu > .title > .icon { position: absolute;
+    left: 15px; top: 0px; font-size: 22px; color: #fff; }
+#main-body > .main-container > .sidemenu > .menu-list .submenu > .title { font-size: 14px; line-height: 36px; }
+#main-body > .main-container > .sidemenu > .menu-list .submenu.selected > .title { background-color: #21222c; color: #009aff; }
+#main-body > .main-container > .sidemenu > .menu-list .submenu.selected > .title:before { content: ""; position: absolute;
+    left: 0px; top: 1px; bottom: 1px; width: 5px; background-color: #009aff; }
+#main-body > .main-container > .sidemenu > .menu-list .has-child > .title:after { content: ""; position: absolute; 
+	width: 16px; height: 16px; top: 19px; right: 10px; background-image: url('/icons/ic/arrow_down_c0.png'); 
+	background-size: 12px; background-position: center; background-repeat: no-repeat; }
+#main-body > .main-container > .sidemenu > .menu-list > .menu.selected { background-color: #2b2c3a; }
+#main-body > .main-container > .sidemenu > .menu-list > .menu.selected > .title { color: #009aff; }
+#main-body > .main-container > .sidemenu > .menu-list > .menu.selected > .title:after { 
+	background-image: url('/icons/ic/arrow_up_c0.png'); }
+#main-body > .main-container > .sidemenu > .menu-list > .menu.open > .submenu-list { display: block; }
+#main-body > .main-container > .container { flex: 1; overflow: auto; }
+
+#main-body > .main-detail { position: fixed; top: 61px; bottom: 2px; right: 0px; width: 45%; min-width: 400px; 
+	box-shadow: 0px 2px 3px 1px #999; background-color: #fff; padding: 20px; overflow: auto; z-index: 5; 
+	display: none; transition: right .4s; }
+
+
+
