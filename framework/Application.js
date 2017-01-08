@@ -24,7 +24,7 @@ var vrenderInstance = null;
 // 启动应用程序，设置启动时初始化参数
 // 默认参数都已经在“/framework/config/sys_config.js”中配置
 Application.setup = function (options) {
-    var params = Utils.extend({}, SysConfig, options);
+    var params = Utils.extend(true, {}, SysConfig, options);
     Application.configs = params;
     vrenderInstance = VRender.create().initialize(params).run();
 };
