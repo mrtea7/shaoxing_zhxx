@@ -4,8 +4,8 @@
  *********************************************************/
 
 var VRender = require("v-render");
-var SysConfig = require("../config/sys_config");
 var ServiceManager = require("./ServiceManager");
+var ModuleManager = require("./ModuleManager");
 
 
 var Utils = VRender.Utils;
@@ -62,29 +62,30 @@ var routerAsAdmin = function (routers, params, callback) {
 
 // 模块路由方法，一般返回的是网页片段，比如单例页面模块之间的切换
 var routerAsModule = function (routers, params, callback) {
-    // var names = name.substr(1).split("/");
-    // var moduleName = names[1];
-    //     var ModuleView = SysConfig.modules[moduleName];
-    //     if (ModuleView) {
-    //         callback(VRender.RouterStatus.OK, ModuleView);
-    //     }
-    //     else {
-
-    //     }
-    // callback(VRender.RouterStatus.OK, {data: "It's a module"});
-    return false;
+    Utils.exec([isUserValidate, tryUserInfo], params, function (err) {
+        if (err === "invalid")
+            callback(VRender.RouterStatus.NOAUTH, "请登录");
+        else {
+            var moduleName = routers[1] || "index";
+            var actionName = routers.slice(2).join(".");
+            var module = ModuleManager.getModuleFile(moduleName, actionName);
+            callback(VRender.RouterStatus.OK, (module || "./modules/_default"));
+        }
+    });
+    return true;
 };
 
 ///////////////////////////////////////////////////////////
 // 判断当前用户是否有效（已登录、未过期）
 var isUserValidate = function (params, callback) {
-    var session = params.session;
-    if (session && session.loginDate) {
-        callback(false, params); // 用户已登录
-    }
-    else {
-        callback("invalid", params);
-    }
+    callback(false, params);
+    // var session = params.session;
+    // if (session && session.loginDate) {
+    //     callback(false, params); // 用户已登录
+    // }
+    // else {
+    //     callback("invalid", params);
+    // }
 };
 
 // 试图加载用户信息，以防 NodeJS 重启用户信息丢失

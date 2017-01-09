@@ -24,9 +24,8 @@ module.exports = {
         fetchAsPost: true
     },
 
-    // 系统模块配置
+    // 模块路由配置
     modules: {
-        "mobile": "./modules/mobile",
-        "work": "./modules/work"
+        "workorder": "./modules/workorder"
     }
 };

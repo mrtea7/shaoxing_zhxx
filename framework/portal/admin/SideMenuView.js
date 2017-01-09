@@ -7,7 +7,7 @@ var VRender = require("v-render");
 
 var Utils = VRender.Utils;
 
-var default_menus = require("../../config/sys_menus").menus;
+var default_menus = require("../../config/sys_modules").modules;
 
 var SideMenuView = VRender.UIView.extend(module, {
     className: "sidemenu",
@@ -25,7 +25,7 @@ var SideMenuView = VRender.UIView.extend(module, {
     renderView: function () {
         SideMenuView.__super__.renderView.call(this);
 
-        var routers = this.getSession().currentRouter || "";
+        var routers = this.getSession().currentRouter || "/";
         routers = routers.substr(1).split("/");
 
         var self = this;

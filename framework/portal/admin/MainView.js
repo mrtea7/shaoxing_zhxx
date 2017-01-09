@@ -6,6 +6,7 @@
 var VRender = require("v-render");
 var HeaderView = require("./HeaderView");
 var SideMenuView = require("./SideMenuView");
+var ModuleManager = require("../../main/ModuleManager");
 
 
 var Utils = VRender.Utils;
@@ -29,7 +30,27 @@ var MainView = VRender.SinglePageView.extend(module, {
 
     // 根据路由信息获取当前的模块视图
     getCurrentModuleView: function () {
-        return "<div>welcome</div>";
+        var routers = this.getSession().currentRouter || "/";
+        routers = routers.substr(1).split("/");
+
+        var moduleName = routers[1] || "";
+        var actionName = routers.slice(2).join(".");
+
+        var moduleFile = ModuleManager.getModuleFile(moduleName, actionName);
+        if (!moduleFile)
+            moduleFile = "./modules/_default";
+        moduleFile = this.getContext().getBasedPath(moduleFile);
+
+        try {
+            var ModuleView = require(moduleFile);
+            return new ModuleView(this, this.options);
+        }
+        catch (e) {
+            VRender.logger.error("<MainView.getCurrentModuleView>", e.toString());
+            return "<div class='text-error'>" + e.toString() + "</div>";
+        }
+
+        return "出错了！！";
     },
 
     renderBody: function (body) {
@@ -57,7 +78,7 @@ var MainView = VRender.SinglePageView.extend(module, {
     },
 
     getSinglePageContainer: function () {
-        return ".main-container";
+        return "#main-body > .main-container > .container";
     },
 
     getPageTitle: function () {
