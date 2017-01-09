@@ -28,8 +28,7 @@ textarea:focus { border-color: #66afe9; }
 
 table { border-collapse: collapse; }
 
-
-
+.text-error { color: #f00; }
 
 
 

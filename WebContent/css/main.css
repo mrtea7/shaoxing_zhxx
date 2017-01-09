@@ -6,16 +6,16 @@
 #main-body > .main-header > .company { display: inline-block; top: 10px; left: 10px; }
 #main-body > .main-header > .company > .logo { width: 40px; height: 40px; vertical-align: middle; border-radius: 100px; }
 #main-body > .main-header > .company > .name { font-size: 16px; margin-left: 10px; color: #787878; }
-#main-body > .main-header > .userinfo { position: absolute; font-size: 16px; top: 18px; right: 30px; }
+#main-body > .main-header > .userinfo { position: absolute; font-size: 14px; top: 18px; right: 30px; }
 #main-body > .main-header > .userinfo > ul { display: inline-block; font-size: 22px; vertical-align: middle; margin-right: 10px; }
 #main-body > .main-header > .userinfo > ul > li { display: inline-block; line-height: 24px; margin-left: 5px; 
 	cursor: pointer; color: #787878; width: 24px; }
 #main-body > .main-header > .userinfo > ul > li:hover { color: #000; font-size: 24px; }
 #main-body > .main-header > .userinfo > ul > li:active { background-color: #ddd; }
-#main-body > .main-header > .userinfo > .head-lnk { cursor: pointer; padding: 0px 3px; }
+#main-body > .main-header > .userinfo > .head-lnk { cursor: pointer; padding: 0px 10px; }
 #main-body > .main-header > .userinfo > .head-lnk:hover { text-decoration: underline; }
 #main-body > .main-header > .userinfo > .username { color: #0060ff; }
-#main-body > .main-header > .userinfo > .exit { border-left: 1px solid #999; }
+#main-body > .main-header > .userinfo > .exit { border-left: 1px solid #999; margin-left: 10px; }
 
 #main-body > .main-container { width: 100%; height: 100%; display: flex; }
 #main-body > .main-container > .sidemenu { width: 200px; background-color: #333444; overflow: auto; }
@@ -33,10 +33,10 @@
 #main-body > .main-container > .sidemenu > .menu-list .has-child > .title:after { content: ""; position: absolute; 
 	width: 16px; height: 16px; top: 19px; right: 10px; background-image: url('/icons/ic/arrow_down_c0.png'); 
 	background-size: 12px; background-position: center; background-repeat: no-repeat; }
+#main-body > .main-container > .sidemenu > .menu-list .has-child.open > .title:after { 
+	background-image: url('/icons/ic/arrow_up_c0.png'); }
 #main-body > .main-container > .sidemenu > .menu-list > .menu.selected { background-color: #2b2c3a; }
 #main-body > .main-container > .sidemenu > .menu-list > .menu.selected > .title { color: #009aff; }
-#main-body > .main-container > .sidemenu > .menu-list > .menu.selected > .title:after { 
-	background-image: url('/icons/ic/arrow_up_c0.png'); }
 #main-body > .main-container > .sidemenu > .menu-list > .menu.open > .submenu-list { display: block; }
 #main-body > .main-container > .container { flex: 1; overflow: auto; }
 
