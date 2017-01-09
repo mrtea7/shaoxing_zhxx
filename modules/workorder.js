@@ -19,12 +19,15 @@ var WorkOrderModule = ModuleBase.extend(module, {
 
 	///////////////////////////////////////////////////////
 	getSummaryView: function (module, action, params) {
-		var WorkorderSummaryView = this.use("./views/workorder/WorkorderSummaryView");
-		return new WorkorderSummaryView(this);
+		return this.getCurrentModuleView(function (mview) {
+			return __dirname + "/views/workorder/WorkorderSummaryView";
+		});
 	},
 
 	///////////////////////////////////////////////////////
 	getOrdersView: function (module, action, params) {
-
+		return this.getCurrentModuleView(function (mview) {
+			return __dirname + "/views/workorder/orders/WorkorderListView";
+		});
 	}
 });
