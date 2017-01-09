@@ -59,7 +59,7 @@ var SideMenuView = VRender.UIView.extend(module, {
         title.text(data.title || data.name || "未知");
 
         if (data.icon) {
-            title.append("<span class='icon'><i class='iconfont icon-" + 
+            title.append("<span class='icon'><i class='iconfont " + 
                 data.icon + "'></i></span>");
         }
 

@@ -25,6 +25,7 @@ ModuleManager.getModuleInfos = function (moduleName, actionName) {
 	});
 	if (module) {
 		result.icon = module.icon;
+		result.desc = module.desc;
 		result.viewpath = module.viewpath;
 		result.names.push(module.title || module.name);
 		result.items = [module];
@@ -35,6 +36,8 @@ ModuleManager.getModuleInfos = function (moduleName, actionName) {
 				return tmp.name === actions[0];
 			});
 			if (module) {
+				// result.icon = module.icon || result.icon;
+				result.desc = module.desc || result.desc;
 				result.viewpath = module.viewpath || result.viewpath;
 				result.names.push(module.title || module.name);
 				result.items.push(module);

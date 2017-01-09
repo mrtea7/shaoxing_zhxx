@@ -22,10 +22,5 @@ module.exports = {
 
         // 一律按 POST 方式向后台发送请求
         fetchAsPost: true
-    },
-
-    // 模块路由配置
-    modules: {
-        "workorder": "./modules/workorder"
     }
 };

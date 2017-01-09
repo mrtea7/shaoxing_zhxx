@@ -32,7 +32,7 @@ var ModuleBase = VRender.Fragment.extend(module, {
     // 初始化模块视图信息，根据当前模块路由信息获取相应的视图
     initView: function () {
         var view = this.getView(this.moduleName, this.actionName, this.params);
-        if (view instanceof VRender.UIView) {
+        if (view && Utils.isFunction(view.ready)) {
             var self = this;
             view.ready(function () {
                 self.ready("module.base");
@@ -54,10 +54,14 @@ var ModuleBase = VRender.Fragment.extend(module, {
         this.$el.addClass("app-module");
 
         if (this.moduleView) {
-            if (this.moduleView instanceof VRender.UIView)
-                this.moduleView.render(this.$el);
+            var moduleView = this.moduleView;
+            if (Utils.isFunction(moduleView.render)) {
+                if (moduleView instanceof ModuleView)
+                    this.$el.addClass("show-head");
+                moduleView.render(this.$el);
+            }
             else
-                this.$el.append(this.moduleView);
+                this.$el.append(moduleView);
         }
     },
 
@@ -65,10 +69,39 @@ var ModuleBase = VRender.Fragment.extend(module, {
     getModuleView: function (module, action, params, viewHandler) {
         var moduleView = new ModuleView(this);
         var moduleInfo = ModuleManager.getModuleInfos(module, action);
-        return moduleView;
+        if (moduleInfo) {
+            moduleView.setIcon(moduleInfo.icon);
+            moduleView.setTitle(this.getModuleTitle(moduleInfo));
+            moduleView.setDescription(moduleInfo.desc);
+            if (Utils.isFunction(viewHandler)) {
+                var viewpath = viewHandler(moduleView);
+                if (Utils.isNotBlank(viewpath)) {
+                    if (typeof viewpath === "string") {
+                        var PageView = this.use(viewpath);
+                        moduleView.setContentView(new PageView(this, params));
+                    }
+                    else if (viewpath instanceof VRender.UIView) {
+                        moduleView.setContentView(viewpath);
+                    }
+                    else if (viewpath.hasOwnProperty("html")) {
+                        moduleView.setContentView(viewpath.html);
+                    }
+                    else {
+                        moduleView.setContentView(viewpath);
+                    }
+                }
+            }
+        }
+        return moduleView.end();
     },
 
     getCurrentModuleView: function (viewHandler) {
         return this.getModuleView(this.moduleName, this.actionName, this.params, viewHandler);
+    },
+
+    getModuleTitle: function (moduleInfo) {
+        return Utils.map(moduleInfo.items, function (item) {
+            return "<span class='item'>" + item.title + "</span>";
+        }).join("");
     }
 });

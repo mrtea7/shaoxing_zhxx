@@ -3,10 +3,10 @@
  *********************************************************/
 
 exports.modules = [{
-	name: "general", title: "概况", icon: "yunyingguanli",
+	name: "general", title: "概况", icon: "icon-yunyingguanli",
 	desc: "金佛但是佛二维佛何物饭盒哦i我姐夫i偶尔未婚夫i二级我i费用未婚夫i偶尔未婚夫i饿坏我风无痕i复合物"
 }, {
-	name: "workorder", title: "工单汇总", icon: "jiankong",
+	name: "workorder", title: "工单汇总", icon: "icon-jiankong",
 	viewpath: "./modules/workorder",
 	desc: "金佛i上飞机诶哦我姐夫i哦恩",
 	children: [{
@@ -15,9 +15,10 @@ exports.modules = [{
 		name: "orders", title: "工单列表", desc: "就分手冻结"
 	}]
 }, {
-	name: "organize", title: "部门和员工", icon: "shuju"
+	name: "organize", title: "部门和员工", icon: "icon-shuju",
+	viewpath: "./modules/organize"
 }, {
-	name: "settings", title: "系统设置", icon: "dashuju",
+	name: "settings", title: "系统设置", icon: "icon-dashuju",
 	children: [{
 		name: "basic", title: "基本信息"
 	}, {
