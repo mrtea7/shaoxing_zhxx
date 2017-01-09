@@ -28,7 +28,7 @@ RouterAdapter.prototype.action = function (name, params, callback) {
 RouterAdapter.prototype.before = function (pathname, params) {
     VRender.logger.debug("<RouterAdapter.before>", "pathname:", pathname);
     if (pathname === "/")
-        return "/admin/index"; // 用户访问域名地址，进入首页
+        return "/admin/general";
 };
 
 // 路由方法，获取相应的页面视图
