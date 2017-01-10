@@ -31,6 +31,11 @@ table { border-collapse: collapse; }
 .text-error { color: #f00; }
 
 
-
+.ui-datagrid > table > tbody > tr.row-primary { background-color: #d1e5f9; }
+.ui-datagrid > table > tbody > tr.row-warn { background-color: #ffedd3; }
+.ui-datagrid > table > tbody > tr.row-error { background-color: #ffdbdb; }
+.ui-datagrid > table > tbody > tr:hover { background-color: #f6f6f6; }
+.ui-datagrid > table > tbody > tr.selected { background-color: #eee; color: #000; }
+.ui-datagrid > table > tbody > tr.selected > td.col-op > a { color: #459ae9; }
 
 
