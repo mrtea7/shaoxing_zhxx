@@ -23,11 +23,12 @@
 .app-tmpl-listview > header > .btnbar > .btn > .dropdown > .btn > .iconfont { display: none; }
 
 .app-tmpl-listview > .listview { flex: 1; overflow: auto; }
+.app-tmpl-listview > .listview > .ui-datagrid { border-width: 0px 0px 1px; }
 
-
-
-
-
+.app-tmpl-listview > .pageview { height: 44px; background-color: #f3f3f3; padding: 7px 15px 0px; }
+.app-tmpl-listview > .pageview > .ui-paginator { text-align: right; }
+.app-tmpl-listview > .pageview > .ui-paginator > .pages > .disabled { display:  none; }
+.app-tmpl-listview > .pageview > .ui-paginator > .status { position: absolute; left: 0px; top: 0px; margin: 0px; }
 
 
 

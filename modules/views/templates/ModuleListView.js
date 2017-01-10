@@ -7,6 +7,8 @@ var BaseView = require("../BaseView");
 
 
 var Utils = VRender.Utils;
+var UIDatagrid = VRender.UIDatagrid;
+var UIPaginator = VRender.UIPaginator;
 
 var ModuleListView = BaseView.extend(module, {
 	getTitle: function () {
@@ -25,11 +27,11 @@ var ModuleListView = BaseView.extend(module, {
 		// 返回列表的列定义信息
 	},
 
-	getApiName: function () {
+	getListApiName: function () {
 		// 返回列表数据接口名称
 	},
 
-	getApiParams: function () {
+	getListApiParams: function () {
 		// 返回列表的（初始）查询参数
 	},
 
@@ -47,6 +49,7 @@ var ModuleListView = BaseView.extend(module, {
 		this.renderListView(this.$el);
 	},
 
+	// ====================================================
 	renderHeaderView: function (target) {
 		var title = this.getTitle();
 		var buttons = Utils.toArray(this.getTopButtons());
@@ -89,15 +92,73 @@ var ModuleListView = BaseView.extend(module, {
 		}
 	},
 
+	// ====================================================
 	renderSearchView: function (target) {
 
 	},
 
-	renderListView: function (target) {
-		var listView = target.appendAndGet("<div class='listview'></div>");
+	getSearchView: function () {
+
 	},
 
+	// ====================================================
+	renderListView: function (target) {
+		var listView = target.appendAndGet("<div class='listview'></div>");
+		var pageView = target.appendAndGet("<div class='pageview'></div>");
+
+		var datas = Utils.toArray(this.getListData());
+
+		var list = this.getListView(datas);
+		var pager = this.getPageView(datas);
+
+		if (pager) {
+			if (list && Utils.isFunction(list.setPaginator))
+				list.setPaginator(pager);
+
+			if (pager instanceof VRender.UIView)
+				pager.render(pageView);
+			else
+				pageView.append(pager);
+		}
+
+		if (list) {
+			if (this.searchView && UIView.isFunction(list.setSearcher))
+				list.setSearcher(this.searchView);
+
+			if (list instanceof VRender.UIView)
+				list.render(listView);
+			else
+				listView.append(list);
+		}
+	},
+
+	getListView: function (datas) {
+		var grid = new UIDatagrid(this, {chkbox: true, multi: true});
+
+		grid.setColumns(Utils.toArray(this.getColumns()));
+
+		grid.setApiName(this.getListApiName());
+		grid.setApiParams(this.getListApiParams());
+
+		if (datas.length > 0) {
+			grid.setViewData(datas);
+			grid.setAutoLoad(false);
+		}
+
+		return grid;
+	},
+
+	getPageView: function (datas) {
+		var pager = new UIPaginator(this, {status: true});
+		pager.setPageNo(parseInt(this.options.page) || 1);
+		pager.setPageSize(parseInt(this.options.rows) || 20);
+		pager.setTotalCount(datas ? datas.length : 0);
+		return pager;
+	},
+
+	// ====================================================
 	getFrontComponentName: function () {
 		return "tmpl.listview";
 	}
+
 });
