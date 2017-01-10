@@ -22,4 +22,9 @@ define(function ($, VR, Utils) {
 			return "row-error";
 	});
 
+	///////////////////////////////////////////////////////
+	listView && listView.on("itemclick", function (e, data) {
+		frame.showDetails("/module/workorder/orders/detail", {id: data.id});
+	});
+
 });

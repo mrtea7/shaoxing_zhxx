@@ -8,6 +8,9 @@ define("frame", function ($, VR, Utils) {
 
     var frame = window.frame = function () {};
 
+    // 当前主页视图
+    var mainView = null;
+
     ///////////////////////////////////////////////////////
     // 路由方法，实现模块切换，页面跳转
     // @params state 路由信息，包含：portal, module, action, params，也可以是URL
@@ -102,8 +105,16 @@ define("frame", function ($, VR, Utils) {
     };
 
     ///////////////////////////////////////////////////////
+    frame.showDetails = function (url, params, callback) {
+        if (mainView && Utils.isFunction(mainView.showDetails))
+            mainView.showDetails(url, params, callback);
+    };
+
+    ///////////////////////////////////////////////////////
     $(function () {
         frame.currentRouter = getRouterByUrl(window.location.href);
+
+        requirejs("mainview", function (View) { mainView = View; });
     });
 
 });

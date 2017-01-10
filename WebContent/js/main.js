@@ -2,7 +2,7 @@
  * 应用框架主视图前端脚本设计
  *********************************************************/
 
-define(function ($, VR, Utils) {
+define("mainview", function ($, VR, Utils) {
     
     var view = $("#main-body");
 
@@ -48,6 +48,10 @@ define(function ($, VR, Utils) {
     	return false;
     });
 
+    view.on("click", ".main-detail", function () {
+        return false;
+    });
+
     ///////////////////////////////////////////////////////
     (function () {
     	// 初始化单例模式
@@ -72,5 +76,35 @@ define(function ($, VR, Utils) {
     		});
     	}
     })();
+
+    ///////////////////////////////////////////////////////
+    // 加载并显示详细视图
+    var showDetails = function (pathname, params, callback) { //console.log(url, params);
+        var target = view.children(".main-detail").empty().addClass("loading");
+
+        var url = pathname;
+        if (params)
+            url += (url.indexOf("?") < 0 ? "?" : "&") + $.param(params);
+        VR.require(url, function (err, ret) {
+            target.removeClass("loading");
+            target.html(err ? ("<div class='text-error'>" + err + "</div>") : ret);
+            if (Utils.isFunction(callback))
+                callback(err, ret);
+        });
+
+        var body = $("body").off("click.maindetails");
+        view.addClass("show-detail");
+        setTimeout(function () {
+            body.on("click.maindetails", function () {
+                body.off("click.maindetails");
+                view.removeClass("show-detail");
+            });
+        }, 0);
+    };
+
+    ///////////////////////////////////////////////////////
+    return {
+        showDetails: showDetails
+    };
 
 });

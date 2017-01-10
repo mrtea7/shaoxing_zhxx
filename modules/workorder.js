@@ -11,7 +11,7 @@ var Utils = VRender.Utils;
 var WorkOrderModule = ModuleBase.extend(module, {
 	id: "app-workorder",
 
-	getView: function (module, action, params) {
+	getView: function (module, action, params) { console.log(params);
 		if (/orders/.test(action))
 			return this.getOrdersView(module, action, params);
 		return this.getSummaryView(module, action, params);
@@ -27,6 +27,8 @@ var WorkOrderModule = ModuleBase.extend(module, {
 	///////////////////////////////////////////////////////
 	getOrdersView: function (module, action, params) {
 		return this.getCurrentModuleView(function (mview) {
+			if (action === "orders.detail")
+				return __dirname + "/views/workorder/orders/WorkorderDetailView";
 			return __dirname + "/views/workorder/orders/WorkorderListView";
 		});
 	}
