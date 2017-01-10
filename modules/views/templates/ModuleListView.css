@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+
+.app-tmpl-listview { width: 100%; height: 100%; display: flex; flex-direction: column; }
+
+.app-tmpl-listview > header { height: 60px; border-bottom: 1px solid #eee; background-color: #fcfcfc; 
+	padding: 0px 0px 0px 20px; }
+.app-tmpl-listview > header > .title { display: inline-block; line-height: 60px; font-size: 16px; }
+.app-tmpl-listview > header > .btnbar { position: absolute; top: 15px; right: 20px; }
+.app-tmpl-listview > header > .btnbar .btn.disabled { color: #ccc; cursor: default; pointer-events: none; }
+.app-tmpl-listview > header > .btnbar > .btn { display: inline-block; height: 30px; line-height: 30px; 
+	color: #3487e2; padding: 0px 10px; cursor: pointer; }
+.app-tmpl-listview > header > .btnbar > .btn:hover { background-color: #f3f3f3; }
+.app-tmpl-listview > header > .btnbar > .btn:active { background-color: #eee; color: #0276fb; }
+.app-tmpl-listview > header > .btnbar > .btn > .iconfont { font-size: 18px; vertical-align: middle; margin-right: 3px; }
+.app-tmpl-listview > header > .btnbar > .btn > .dropdown { position: absolute; top: 36px; right: 0px; color: #444; 
+	border: 1px solid #ddd; border-radius: 3px; box-shadow: 0px 0px 3px 0px #ccc; background-color: #fff; 
+	padding: 5px 0px 10px; font-size: 13px; z-index: 1000; cursor: default; display: none; }
+.app-tmpl-listview > header > .btnbar > .btn > .dropdown > .btn { line-height: 30px; white-space: nowrap;
+	padding: 0px 15px; cursor: pointer; }
+.app-tmpl-listview > header > .btnbar > .btn > .dropdown > .btn:hover { background-color: #f3f3f3; }
+.app-tmpl-listview > header > .btnbar > .btn > .dropdown > .btn:active { background-color: #eee; }
+.app-tmpl-listview > header > .btnbar > .btn > .dropdown > .btn > .iconfont { display: none; }
+
+.app-tmpl-listview > .listview { flex: 1; overflow: auto; }
+
+
+
+
+
+
+
+
+
+
+

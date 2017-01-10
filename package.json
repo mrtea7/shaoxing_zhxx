@@ -2,6 +2,6 @@
   "name": "platform-zhxx",
   "devDependencies": {},
   "dependencies": {
-    "v-render": "^1.0.7"
+    "v-render": "^1.0.8"
   }
 }

@@ -57,5 +57,5 @@
 #main-body > .main-container > .container > .app-module { width: 100%; height: 100%; }
 #main-body > .main-container > .container > .app-module.show-head { padding: 68px 0px 3px 15px; }
 #main-body > .main-container > .container > .app-module > .app-module-content { width: 100%; height: 100%; border-radius: 3px; 
-	background-color: #fff; overflow: auto; }
+	background-color: #fff; overflow: auto; border: 1px solid #ddd; }
 

@@ -42,7 +42,7 @@ var MainView = VRender.SinglePageView.extend(module, {
         moduleFile = this.getContext().getBasedPath(moduleFile);
 
         try {
-            var ModuleView = require(moduleFile);
+            var ModuleView = this.use(moduleFile);
             return new ModuleView(this, this.options);
         }
         catch (e) {
@@ -86,5 +86,5 @@ var MainView = VRender.SinglePageView.extend(module, {
     }
 });
 
-MainView.import(["/css/base.css", "/css/main.css", "/css/iconfont.css"], {group: "main"});
-MainView.import(["../../frame.js", "/js/main.js"], {group: "main"});
+MainView.import(["/css/base.css", "/css/main.css", "/css/iconfont.css"], {group: "main", index: 0});
+MainView.import(["../../frame.js", "/js/main.js"], {group: "main", index: 0});
