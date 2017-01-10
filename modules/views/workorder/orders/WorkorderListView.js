@@ -24,5 +24,18 @@ var WorkorderListView = ModuleListView.extend(module, {
 		buttons.push({name: "ee", label: "奇偶风刀霜剑藕粉奇偶", icon: "icon-jiankong"});
 		buttons.push({name: "ff", label: "就佛教房间饿哦", icon: "icon-jiankong"});
 		return buttons;
+	},
+
+	getColumns: function () {
+		var columns = [];
+		columns.push({name: "name", title: "名称"});
+		columns.push({name: "singer", title: "歌手"});
+		columns.push({name: "album", title: "专辑"});
+		columns.push({name: "op", title: "操作"});
+		return columns;
+	},
+
+	getListApiName: function () {
+		return "test.data.array";
 	}
 });
