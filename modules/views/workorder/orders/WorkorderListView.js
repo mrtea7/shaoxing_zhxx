@@ -17,7 +17,7 @@ var WorkorderListView = ModuleListView.extend(module, {
 
 	getTopButtons: function () {
 		var buttons = [];
-		buttons.push({name: "aa", label: "金佛电视剧", icon: "icon-jiankong"});
+		buttons.push({name: "create", label: "新建工单", icon: "icon-jiankong"});
 		buttons.push({name: "bb", label: "来得及送", icon: "icon-jiankong"});
 		buttons.push({name: "cc", label: "奇偶分担说", icon: "icon-jiankong"});
 		buttons.push({name: "dd", label: "哦吃少", icon: "icon-jiankong", disabled: true});

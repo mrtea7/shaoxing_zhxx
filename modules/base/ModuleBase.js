@@ -56,8 +56,10 @@ var ModuleBase = VRender.Fragment.extend(module, {
         if (this.moduleView) {
             var moduleView = this.moduleView;
             if (Utils.isFunction(moduleView.render)) {
-                if (moduleView instanceof ModuleView)
-                    this.$el.addClass("show-head");
+                if (moduleView instanceof ModuleView) {
+                    if (this.params && !!this.params.need_title)
+                        this.$el.addClass("show-head");
+                }
                 moduleView.render(this.$el);
             }
             else
@@ -68,6 +70,7 @@ var ModuleBase = VRender.Fragment.extend(module, {
     // 获取带有标题栏的模块视图
     getModuleView: function (module, action, params, viewHandler) {
         var moduleView = new ModuleView(this);
+        moduleView.setHeaderVisible(params && params.need_title);
         var moduleInfo = ModuleManager.getModuleInfos(module, action);
         if (moduleInfo) {
             moduleView.setIcon(moduleInfo.icon);

@@ -48,10 +48,18 @@ var ModuleView = VRender.View.extend(module, {
 		return this;
 	},
 
+	isHeaderVisible: function () {
+		return Utils.isTrue(this._showheader);
+	},
+	setHeaderVisible: function (value) {
+		this._showheader = value;
+	},
+
 	///////////////////////////////////////////////////////
 	render: function (output) {
 		ModuleView.__super__.render.call(this, output);
-		this.renderHeader(output);
+		if (this.isHeaderVisible())
+			this.renderHeader(output);
 		this.renderContent(output);
 	},
 

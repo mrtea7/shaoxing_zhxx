@@ -64,6 +64,7 @@ define("mainview", function ($, VR, Utils) {
     				pathname += "/" + state.action.replace(/\./g, "/");
     			if (state.params)
     				pathname += "?" + $.param(state.params);
+                pathname += (pathname.indexOf("?") < 0 ? "?" : "&") + "need_title=1";
     			VR.require(pathname, function (err, ret) {
     				if (err) {
     					// frame.tooltip(err);

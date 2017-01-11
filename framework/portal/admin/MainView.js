@@ -43,7 +43,11 @@ var MainView = VRender.SinglePageView.extend(module, {
 
         try {
             var ModuleView = this.use(moduleFile);
-            return new ModuleView(this, this.options);
+            var options = this.options || {};
+            if (!options.requestData)
+                options.requestData = {};
+            options.requestData.need_title = 1;
+            return new ModuleView(this, options);
         }
         catch (e) {
             VRender.logger.error("<MainView.getCurrentModuleView>", e.toString());

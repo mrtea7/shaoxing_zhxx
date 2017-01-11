@@ -23,8 +23,22 @@ define(function ($, VR, Utils) {
 	});
 
 	///////////////////////////////////////////////////////
+	// 点击行，显示详情页面
 	listView && listView.on("itemclick", function (e, data) {
 		frame.showDetails("/module/workorder/orders/detail", {id: data.id});
 	});
+
+	// 点击操作按钮
+	view.on("click", "header > .btnbar .btn", function (e) {
+		var btnName = $(e.currentTarget).attr("name");
+		if (btnName === "create")
+			showEditView();
+	});
+
+	///////////////////////////////////////////////////////
+	var showEditView = function (data) {
+		var dialog = VR.Component.Dialog.create({title: "工单编辑", 
+			module: "/module/workorder/orders/edit"});
+	}
 
 });

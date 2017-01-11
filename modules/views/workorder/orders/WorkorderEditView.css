@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+
+.view-workorder-edit > .form > dl { position: relative; padding-left: 100px; margin-bottom: 15px; }
+.view-workorder-edit > .form > dl > dt { position: absolute; line-height: 32px; top: 0px; left: 0px; }
+.view-workorder-edit > .form > dl > dd > .ui-radgrp { line-height: 32px; }
+
+
+
+
+
+
+
+
+
+
+
+
+

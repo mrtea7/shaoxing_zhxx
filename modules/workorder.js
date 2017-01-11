@@ -29,6 +29,8 @@ var WorkOrderModule = ModuleBase.extend(module, {
 		return this.getCurrentModuleView(function (mview) {
 			if (action === "orders.detail")
 				return __dirname + "/views/workorder/orders/WorkorderDetailView";
+			if (action === "orders.edit")
+				return __dirname + "/views/workorder/orders/WorkorderEditView";
 			return __dirname + "/views/workorder/orders/WorkorderListView";
 		});
 	}
