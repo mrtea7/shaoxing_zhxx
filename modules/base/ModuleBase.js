@@ -78,7 +78,7 @@ var ModuleBase = VRender.Fragment.extend(module, {
                 if (Utils.isNotBlank(viewpath)) {
                     if (typeof viewpath === "string") {
                         var PageView = this.use(viewpath);
-                        moduleView.setContentView(new PageView(this, params));
+                        moduleView.setContentView(new PageView(this, {params: params}));
                     }
                     else if (viewpath instanceof VRender.UIView) {
                         moduleView.setContentView(viewpath);

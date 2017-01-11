@@ -17,6 +17,13 @@ TestService.do = function (session, name, data, callback) {
 };
 
 ///////////////////////////////////////////////////////////
+TestService.getById = function (session, id, callback) {
+	var ret = Utils.find(data_musics, function (tmp) {
+		return tmp.id == id;
+	});
+	callback(false, ret);
+};
+
 TestService.getArrayData = function (session, data, callback) {
 	callback(false, data_musics);
 };

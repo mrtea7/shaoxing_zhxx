@@ -11,7 +11,7 @@ var Utils = VRender.Utils;
 var WorkOrderModule = ModuleBase.extend(module, {
 	id: "app-workorder",
 
-	getView: function (module, action, params) { console.log(params);
+	getView: function (module, action, params) {
 		if (/orders/.test(action))
 			return this.getOrdersView(module, action, params);
 		return this.getSummaryView(module, action, params);
