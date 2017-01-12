@@ -28,6 +28,12 @@ define(function ($, VR, Utils) {
 		frame.showDetails("/module/workorder/orders/detail", {id: data.id});
 	});
 
+	listView && listView.on("oper", function (e, name, data) {
+		if (name === "edit")
+			showEditView(data);
+		return false;
+	});
+
 	// 点击操作按钮
 	view.on("click", "header > .btnbar .btn", function (e) {
 		var btnName = $(e.currentTarget).attr("name");
@@ -37,8 +43,15 @@ define(function ($, VR, Utils) {
 
 	///////////////////////////////////////////////////////
 	var showEditView = function (data) {
-		var dialog = VR.Component.Dialog.create({title: "工单编辑",
-			module: "/module/workorder/orders/edit",style:'abc'});
+		var moduleUrl = "/module/workorder/orders/edit";
+		if (data)
+			moduleUrl += "?id=" + data.id;
+
+		var dialog = VR.Component.Dialog.create({title: "工单编辑", module: moduleUrl});
+
+		dialog.on("view_submit", function (e) {
+			listView.reload();
+		});
 	}
 
 });

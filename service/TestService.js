@@ -12,6 +12,8 @@ var TestService = module.exports;
 TestService.do = function (session, name, data, callback) {
 	if (name === "test.data.array")
 		TestService.getArrayData(session, data, callback);
+	else if (name === "test.data.save")
+		TestService.save(session, data, callback);
 	else
 		callback("类[TestService]不支持接口（api）：" + name);
 };
@@ -26,6 +28,25 @@ TestService.getById = function (session, id, callback) {
 
 TestService.getArrayData = function (session, data, callback) {
 	callback(false, data_musics);
+};
+
+TestService.save = function (session, data, callback) {
+	if (!data.id)
+		data.id = new Date().getTime();
+	var index = Utils.index(data_musics, function (tmp) {
+		return tmp.id == data.id;
+	});
+	if (index >= 0)
+		data_musics.splice(index, 1, data);
+	else
+		data_musics.push(data);
+	callback(false);
+};
+
+TestService.getSingers = function (session, data, callback) {
+	callback(false, Utils.map(data_musics, function (temp) {
+		return {id: temp.singerId, name: temp.singer};
+	}));
 };
 
 ///////////////////////////////////////////////////////////

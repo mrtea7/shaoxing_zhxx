@@ -5,12 +5,31 @@
 define(function ($, VR, Utils) {
 
 	var view = $(".view-workorder-edit");
+	var moduleView = view.parent().parent();
+
+	var orderInfo = view.data("viewData"); console.log(orderInfo);
 
 	///////////////////////////////////////////////////////
-	view.parent().parent().on("dialog_submit", function (e) {
-		alert('点击确认按钮，在这里处理。别忘了关闭对话框：VR.Component.Dialog.close(view)');
-		// VR.Component.Dialog.close(view);
+	moduleView.on("dialog_submit", function (e) {
+		var data = {};
+		data.id = orderInfo && orderInfo.id;
 
-		alert("比如拿到输入框内容：" + view.find(".form > .name input").val());
+		data.name = view.find("dl.name input").val();
+		if (Utils.isBlank(data.name))
+			return alert("请输入歌曲名称");
+
+		var singer = VR.Component.Combobox.find(view.find("dl.singer"))[0];
+		singer = singer && singer.getSelectedData();
+		if (!singer)
+			return alert("请选择歌手");
+		data.singerId = singer.id;
+		data.singer = singer.name;
+
+		data.album = view.find("dl.album input").val();
+		
+		VR.post("test.data.save", data, function (err, ret) {
+			moduleView.trigger("submit_to_dialog");
+		});
 	});
+
 });
