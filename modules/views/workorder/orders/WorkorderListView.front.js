@@ -37,8 +37,8 @@ define(function ($, VR, Utils) {
 
 	///////////////////////////////////////////////////////
 	var showEditView = function (data) {
-		var dialog = VR.Component.Dialog.create({title: "工单编辑", 
-			module: "/module/workorder/orders/edit"});
+		var dialog = VR.Component.Dialog.create({title: "工单编辑",
+			module: "/module/workorder/orders/edit",style:'abc'});
 	}
 
 });

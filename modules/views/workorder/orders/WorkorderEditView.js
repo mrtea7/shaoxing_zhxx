@@ -51,5 +51,23 @@ var WorkorderEditView = BaseView.extend(module, {
 		// 下拉
 		var combo = new UICombobox(this, {data: types, selectedIndex: 0});
 		addItem("combo", "下拉选择", combo);
+		// 下拉
+		var combo = new UICombobox(this, {data: types, selectedIndex: 0});
+		addItem("combo", "下拉选择", combo);// 下拉
+
+		addItem("combo", "下拉选择", combo);// 下拉
+		addItem("combo", "下拉选择", combo);// 下拉
+		addItem("combo", "下拉选择", combo);// 下拉
+		addItem("combo", "下拉选择", combo);// 下拉
+		addItem("combo", "下拉选择", combo);// 下拉
+		addItem("combo", "下拉选择", combo);// 下拉
+		addItem("combo", "下拉选择", combo);// 下拉
+
+		addItem("combo", "下拉选择", combo);// 下拉
+		addItem("combo", "下拉选择", combo);// 下拉
+		addItem("combo", "下拉选择", combo);// 下拉
+		addItem("combo", "下拉选择", combo);// 下拉
+		addItem("combo", "下拉选择", combo);// 下拉
+		addItem("combo", "下拉选择", combo);
 	}
 });
