@@ -37,9 +37,11 @@ var MainView = VRender.SinglePageView.extend(module, {
         var actionName = routers.slice(2).join(".");
 
         var moduleFile = ModuleManager.getModuleFile(moduleName, actionName);
-        if (!moduleFile)
+        if (!moduleFile) {
             moduleFile = "./modules/_default";
+        }
         moduleFile = this.getContext().getBasedPath(moduleFile);
+
 
         try {
             var ModuleView = this.use(moduleFile);

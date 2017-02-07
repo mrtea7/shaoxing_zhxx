@@ -28,7 +28,7 @@ var LoginView = VRender.PageView.extend(module, {
 		// 以下测试数据
 		if (Application.isTest(this.getSession())) {
 			form.find(".username input").val("admin");
-			form.find(".password input").val("123456");
+			form.find(".password input").val("");
 		}
 	}
 });

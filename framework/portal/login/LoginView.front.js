@@ -45,7 +45,7 @@ define(function ($, VR, Utils) {
 		var loginBtn = $(".loginbtn").addClass("disabled");
 		loginBtn.addClass(".disabled").text("正在登录..");
 
-		var params = {name: userName, password: password};
+		var params = {username: userName, password: password,needMenu:true};
 		VR.post("login", params, function (err, ret) { console.log(ret);
 			if (err) { // 登录失败
 				showErrorMsg(err);
@@ -53,11 +53,13 @@ define(function ($, VR, Utils) {
 			}
 			else { // 登录成功
 				loginBtn.text("登录成功");
+				console.log('<ret>',ret);
 				VR.cache("sys_user_data", ret); // 保存用户信息
-				if (window.location.pathname === "/login")
 					window.location.replace("/");
-				else 
-					window.location.reload(true);
+				// if (window.location.pathname === "/login")
+				// 	window.location.replace("/");
+				// else
+				// 	window.location.reload(true);
 			}
 		}, true);
 	};

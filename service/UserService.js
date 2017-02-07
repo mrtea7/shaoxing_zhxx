@@ -21,13 +21,16 @@ UserService.do = function (session, name, data, callback) {
 ///////////////////////////////////////////////////////////
 // 登录，返回用户信息
 UserService.doLogin = function (session, data, callback) {
-	session.loginDate = new Date();
-
-	var userInfo = {id: session.loginDate.getTime()};
-	userInfo.name = data.name;
-	session.set("user", userInfo);
-
-	callback(false, userInfo);
+	// session.loginDate = new Date();
+    //
+	// var userInfo = {id: session.loginDate.getTime()};
+	// userInfo.name = data.name;
+	// session.set("user", userInfo);
+    //
+	// callback(false, userInfo);
+	session.fetch("/login", data, function (err, ret) {
+		callback(false, ret);
+	});
 };
 
 // 退出系统

@@ -9,6 +9,8 @@ var Utils = VRender.Utils;
 
 var default_menus = require("../../config/sys_modules").modules;
 
+var user_menus = "";
+
 var SideMenuView = VRender.UIView.extend(module, {
     className: "sidemenu",
     readyCode: "view.main.menu",

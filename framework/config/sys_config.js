@@ -15,10 +15,10 @@ module.exports = {
     // 后台服务器配置
     dataServer: {
         // 后台服务器地址和端口号
-        server: "127.0.0.1:8080",
+        server: "192.168.31.168:8080",
 
         // 默认接口上下文
-        contextPath: "/pmc",
+        contextPath: "",
 
         // 一律按 POST 方式向后台发送请求
         fetchAsPost: true

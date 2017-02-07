@@ -4,7 +4,6 @@
 
 var VRender = require("v-render");
 
-
 var Utils = VRender.Utils;
 
 var ModuleView = VRender.View.extend(module, {

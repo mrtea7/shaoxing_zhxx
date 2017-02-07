@@ -1,5 +1,6 @@
 bin/_work
 logs/*.log
 node_modules
+.idea
 zl.sublime-project
 zl.sublime-workspace

@@ -75,7 +75,7 @@ var ModuleListView = BaseView.extend(module, {
 				};
 
 				var btnbar = header.appendAndGet("<div class='btnbar'></div>");
-				for (var i = 0; i < 2; i++) {
+				for (var i = 0; i < 2 & i < buttons.length; i++) {
 					renderBtnItem(btnbar, buttons[i]);
 				}
 

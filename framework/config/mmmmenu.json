@@ -1,0 +1,457 @@
+{
+    "code": "0",
+    "msg": "登录成功!",
+    "version": "1",
+    "data": {
+        "sessionId": "77bee1b6-1bba-4995-b31f-58eca612dbd2",
+        "cookiees": null,
+        "menus": [
+            {
+                "id": 1,
+                "text": "AcceptanceWorkOrder",
+                "title": "待受理工单",
+                "moduleName": "SXZHXX.WORKORDER.SL",
+                "parentId": null,
+                "status": 1,
+                "type": 0,
+                "groupId": null,
+                "listorder": 0,
+                "subMenus": [
+                    {
+                        "id": 8,
+                        "text": "MayorTel",
+                        "title": "12345市长热线",
+                        "moduleName": "SXZHXX.WORKORDER.SL",
+                        "parentId": 1,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 9,
+                        "text": "DigitalUrbanManagement",
+                        "title": "数字城管",
+                        "moduleName": "SXZHXX.WORKORDER.SL",
+                        "parentId": 1,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 10,
+                        "text": "PublicOpinionInformation",
+                        "title": "舆情信息",
+                        "moduleName": "SXZHXX.WORKORDER.SL",
+                        "parentId": 1,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 11,
+                        "text": "InteractiveWebsite",
+                        "title": "网站互动",
+                        "moduleName": "SXZHXX.WORKORDER.SL",
+                        "parentId": 1,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "text": "ShuntWorKOrder",
+                "title": "待分流工单",
+                "moduleName": "SXZHXX.WORKORDER.FL",
+                "parentId": null,
+                "status": 1,
+                "type": 0,
+                "groupId": null,
+                "listorder": 0,
+                "subMenus": [
+                    {
+                        "id": 12,
+                        "text": "MayorTel",
+                        "title": "12345市长热线",
+                        "moduleName": "SXZHXX.WORKORDER.FL",
+                        "parentId": 2,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 13,
+                        "text": "DigitalUrbanManagement",
+                        "title": "数字城管",
+                        "moduleName": "SXZHXX.WORKORDER.FL",
+                        "parentId": 2,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 14,
+                        "text": "PublicOpinionInformation",
+                        "title": "舆情信息",
+                        "moduleName": "SXZHXX.WORKORDER.FL",
+                        "parentId": 2,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 15,
+                        "text": "InteractiveWebsite",
+                        "title": "网站互动",
+                        "moduleName": "SXZHXX.WORKORDER.FL",
+                        "parentId": 2,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "text": "DisposalWorkOrder",
+                "title": "待处置工单",
+                "moduleName": "SXZHXX.WORKORDER.CZ",
+                "parentId": null,
+                "status": 1,
+                "type": 0,
+                "groupId": null,
+                "listorder": 0,
+                "subMenus": [
+                    {
+                        "id": 16,
+                        "text": "MayorTel",
+                        "title": "12345市长热线",
+                        "moduleName": "SXZHXX.WORKORDER.CZ",
+                        "parentId": 3,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 17,
+                        "text": "DigitalUrbanManagement",
+                        "title": "数字城管",
+                        "moduleName": "SXZHXX.WORKORDER.CZ",
+                        "parentId": 3,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 18,
+                        "text": "PublicOpinionInformation",
+                        "title": "舆情信息",
+                        "moduleName": "SXZHXX.WORKORDER.CZ",
+                        "parentId": 3,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 19,
+                        "text": "InteractiveWebsite",
+                        "title": "网站互动",
+                        "moduleName": "SXZHXX.WORKORDER.CZ",
+                        "parentId": 3,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "text": "FilingWorkOrder",
+                "title": "待归档工单",
+                "moduleName": "SXZHXX.WORKORDER.GD",
+                "parentId": null,
+                "status": 1,
+                "type": 0,
+                "groupId": null,
+                "listorder": 0,
+                "subMenus": [
+                    {
+                        "id": 20,
+                        "text": "MayorTel",
+                        "title": "12345市长热线",
+                        "moduleName": "SXZHXX.WORKORDER.GD",
+                        "parentId": 4,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 21,
+                        "text": "DigitalUrbanManagement",
+                        "title": "数字城管",
+                        "moduleName": "SXZHXX.WORKORDER.GD",
+                        "parentId": 4,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 22,
+                        "text": "PublicOpinionInformation",
+                        "title": "舆情信息",
+                        "moduleName": "SXZHXX.WORKORDER.GD",
+                        "parentId": 4,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 23,
+                        "text": "InteractiveWebsite",
+                        "title": "网站互动",
+                        "moduleName": "SXZHXX.WORKORDER.GD",
+                        "parentId": 4,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "text": "WorkOrderQuery",
+                "title": "工单查询",
+                "moduleName": "SXZHXX.WORKORDER.CX",
+                "parentId": null,
+                "status": 1,
+                "type": 0,
+                "groupId": null,
+                "listorder": 0,
+                "subMenus": [
+                    {
+                        "id": 24,
+                        "text": "MayorTel",
+                        "title": "12345市长热线",
+                        "moduleName": "SXZHXX.WORKORDER.CX",
+                        "parentId": 5,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 25,
+                        "text": "DigitalUrbanManagement",
+                        "title": "数字城管",
+                        "moduleName": "SXZHXX.WORKORDER.CX",
+                        "parentId": 5,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 26,
+                        "text": "PublicOpinionInformation",
+                        "title": "舆情信息",
+                        "moduleName": "SXZHXX.WORKORDER.CX",
+                        "parentId": 5,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 27,
+                        "text": "InteractiveWebsite",
+                        "title": "网站互动",
+                        "moduleName": "SXZHXX.WORKORDER.CX",
+                        "parentId": 5,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "text": "Supervise",
+                "title": "督办管理",
+                "moduleName": "SXZHXX.WORKORDER.DB",
+                "parentId": null,
+                "status": 1,
+                "type": 0,
+                "groupId": null,
+                "listorder": 0,
+                "subMenus": [
+                    {
+                        "id": 28,
+                        "text": "MayorTel",
+                        "title": "12345市长热线",
+                        "moduleName": "SXZHXX.WORKORDER.DB",
+                        "parentId": 6,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 29,
+                        "text": "DigitalUrbanManagement",
+                        "title": "数字城管",
+                        "moduleName": "SXZHXX.WORKORDER.DB",
+                        "parentId": 6,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 30,
+                        "text": "PublicOpinionInformation",
+                        "title": "舆情信息",
+                        "moduleName": "SXZHXX.WORKORDER.DB",
+                        "parentId": 6,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 31,
+                        "text": "InteractiveWebsite",
+                        "title": "网站互动",
+                        "moduleName": "SXZHXX.WORKORDER.DB",
+                        "parentId": 6,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "text": "StatisticalReport",
+                "title": "统计报表",
+                "moduleName": "SXZHXX.WORKORDER.TJ",
+                "parentId": null,
+                "status": 1,
+                "type": 0,
+                "groupId": null,
+                "listorder": 0,
+                "subMenus": [
+                    {
+                        "id": 32,
+                        "text": "MayorTel",
+                        "title": "12345市长热线",
+                        "moduleName": "SXZHXX.WORKORDER.TJ",
+                        "parentId": 7,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 33,
+                        "text": "DigitalUrbanManagement",
+                        "title": "数字城管",
+                        "moduleName": "SXZHXX.WORKORDER.TJ",
+                        "parentId": 7,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 34,
+                        "text": "PublicOpinionInformation",
+                        "title": "舆情信息",
+                        "moduleName": "SXZHXX.WORKORDER.TJ",
+                        "parentId": 7,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    },
+                    {
+                        "id": 35,
+                        "text": "InteractiveWebsite",
+                        "title": "网站互动",
+                        "moduleName": "SXZHXX.WORKORDER.TJ",
+                        "parentId": 7,
+                        "status": 1,
+                        "type": 0,
+                        "groupId": null,
+                        "listorder": 0,
+                        "subMenus": null
+                    }
+                ]
+            }
+        ],
+        "userName": "admin",
+        "userCaption": null,
+        "phonenumber": null,
+        "wxopenid": null,
+        "qq": null,
+        "email": "",
+        "password": "",
+        "token": null,
+        "salt": null,
+        "status": null,
+        "userType": 1,
+        "humanId": null,
+        "tenantId": null,
+        "saasId": null,
+        "id": null,
+        "createdBy": null,
+        "createdDate": null,
+        "updatedBy": null,
+        "updatedDate": null
+    }
+}
