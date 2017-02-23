@@ -15,7 +15,7 @@ module.exports = {
     // 后台服务器配置
     dataServer: {
         // 后台服务器地址和端口号
-        server: "192.168.31.168:8080",
+        server: "120.26.62.238:7070",
 
         // 默认接口上下文
         contextPath: "",

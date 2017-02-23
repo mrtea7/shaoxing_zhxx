@@ -12,9 +12,7 @@ var TodoListView = ModuleListView.extend(module, {
 	className: "view-supervision-todo",
 
 	getTitle: function () {
-		var se = this.getSession();
-		console.log('<se>',se);
-        return "督查督办";
+		return "督查督办";
 	},
 
 	getTopButtons: function () {

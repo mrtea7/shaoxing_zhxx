@@ -33,6 +33,7 @@ RouterAdapter.prototype.before = function (pathname, params) {
 
 // 路由方法，获取相应的页面视图
 RouterAdapter.prototype.router = function (name, params, path, callback) {
+    //todo name是哪里来的？
     var routers = name.substr(1).split("/");
     if (routers[0] === "admin")
         return routerAsAdmin(routers, params, callback);
@@ -53,7 +54,7 @@ var routerAsAdmin = function (routers, params, callback) {
         Utils.exec([isUserValidate, tryUserInfo], params, function (err) {
             if (err === "invalid")
                 callback(VRender.RouterStatus.OK, "./framework/portal/login/LoginView");
-            else 
+            else
                 callback(VRender.RouterStatus.OK, "./framework/portal/admin/MainView");
         });
     }
@@ -78,14 +79,22 @@ var routerAsModule = function (routers, params, callback) {
 ///////////////////////////////////////////////////////////
 // 判断当前用户是否有效（已登录、未过期）
 var isUserValidate = function (params, callback) {
-    callback(false, params);
-    // var session = params.session;
+    // callback(false, params);
+
+    var session = params.session;
     // if (session && session.loginDate) {
     //     callback(false, params); // 用户已登录
     // }
     // else {
     //     callback("invalid", params);
     // }
+
+    session.fetch("/isSessionValid", function (err, ret) {  //  服务器端接口地址
+        if (err) {
+            callback("invalid", err);
+        }
+        else callback("logged", ret);
+    });
 };
 
 // 试图加载用户信息，以防 NodeJS 重启用户信息丢失

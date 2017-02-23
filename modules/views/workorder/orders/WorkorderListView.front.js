@@ -43,6 +43,7 @@ define(function ($, VR, Utils) {
 
 	///////////////////////////////////////////////////////
 	var showEditView = function (data) {
+		//todo moduleUrl是怎么匹配到具体js的？
 		var moduleUrl = "/module/workorder/orders/edit";
 		if (data)
 			moduleUrl += "?id=" + data.id;

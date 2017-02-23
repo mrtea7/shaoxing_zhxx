@@ -20,6 +20,11 @@ exports.modules = [
     {
         name: "organize", title: "部门和员工", icon: "icon-shuju",
         viewpath: "./modules/organize"
+        // ,
+        // children: [{
+        //     name: "user", title: "部门员工", desc: "奇偶分担接送发动机我i房间饿哦文件"
+        // }]
+
     },
     {
         name: "settings", title: "系统设置", icon: "icon-dashuju",

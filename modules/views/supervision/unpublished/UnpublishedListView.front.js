@@ -20,7 +20,6 @@ define(function ($, VR, Utils) {
 		frame.showDetails("/module/supervision/todo/detail", {id: data.id});
 	});
 
-
 	view.on("click", "header > .btnbar .btn", function (e) {
 		var btnName = $(e.currentTarget).attr("name");
 		if (btnName === "create")

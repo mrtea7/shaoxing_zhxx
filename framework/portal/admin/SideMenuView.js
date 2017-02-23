@@ -9,7 +9,8 @@ var Utils = VRender.Utils;
 
 var default_menus = require("../../config/sys_modules").modules;
 
-var user_menus = "";
+// var user_menus = this.getSession.get("user_menus");
+// console.log('<user_menus>',user_menus);
 
 var SideMenuView = VRender.UIView.extend(module, {
     className: "sidemenu",
@@ -19,8 +20,8 @@ var SideMenuView = VRender.UIView.extend(module, {
         SideMenuView.__super__.doInit.call(this);
 
         // TODO 获取当前用户的模块信息
-        this.menus = default_menus;
-
+        this.menus = this.getSession().get("user_menus") || default_menus;
+        // this.menus = this.getSession().get("user_menus");
         this.ready("view.main.menu");
     },
 

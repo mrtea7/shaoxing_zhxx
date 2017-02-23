@@ -7,11 +7,22 @@ var ModuleBase = require("./base/ModuleBase");
 
 
 var OrganizeModule = ModuleBase.extend(module, {
-	id: "mod-organize",
+    id: "mod-organize",
 
-	getView: function (module, action, params) {
-		return this.getCurrentModuleView(function (mview) {
-			return {html: "<div>组织机构管理</div>"};
-		});
-	}
+    getView: function (module, action, params) {
+        return this.getSupervisionTodoView(module, action, params);
+    },
+
+    ///////////////////////////////////////////////////////
+    getSupervisionTodoView: function (module, action, params) {
+        return this.getCurrentModuleView(function (mview) {
+            if (action === "user.detail")
+                return __dirname + "/views/organize/user/UserEditView";
+            if (action === "user.edit")
+                return __dirname + "/views/organize/user/UserEditView";
+            return __dirname + "/views/organize/user/UserListView";
+        });
+    },
+
+
 });

@@ -13,6 +13,7 @@ var HeaderView = VRender.UIView.extend(module, {
         HeaderView.__super__.doInit.call(this);
 
         // TODO 获取用户信息
+        this.userName = this.getSession().get("user_name") || '你好';
 
         this.ready("view.main.header");
     },
@@ -33,7 +34,7 @@ var HeaderView = VRender.UIView.extend(module, {
         status.write("<li class='msgd'><i class='iconfont icon-shuju'></i></li>");
         status.write("<li class='msg4'><i class='iconfont icon-shuju'></i></li>");
 
-        user.write("<span class='head-lnk username'>张三</span>");
+        user.write("<span class='head-lnk username'>" + this.userName + "</span>");
         user.write("<span class='head-lnk exit'>退出</span>");
     }
 });

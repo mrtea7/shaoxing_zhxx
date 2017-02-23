@@ -12,6 +12,31 @@ define("frame", function ($, VR, Utils) {
     var mainView = null;
 
     ///////////////////////////////////////////////////////
+    frame.data = {
+        get: function (name, clear) {
+            var value = VR.cache(name);
+            if (clear)
+                VR.cache(name, null);
+            return value;
+        },
+        set: function (name, value) {
+            VR.cache(name, value);
+        }
+    };
+
+    frame.setCurrentUser = function (user) {
+        frame.data.set("sys_user_data", user);
+        frame.data.set("sys_user_humanid", (user && user.humanid));
+        if (user) {
+            frame.data.set("sys_last_user_mobile", user.mobile);
+        }
+    };
+
+    frame.getCurrentUser = function () {
+        return frame.data.get("sys_user_data");
+    };
+
+    ///////////////////////////////////////////////////////
     // 路由方法，实现模块切换，页面跳转
     // @params state 路由信息，包含：portal, module, action, params，也可以是URL
     // @params replace 是否替换当前路由，用新路由替换当前的路由，即在点击浏览器后退按钮时跳过现在的模块，默认为false
