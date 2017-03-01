@@ -12,6 +12,7 @@ var WorkOrderModule = ModuleBase.extend(module, {
 	id: "app-workorder",
 
 	getView: function (module, action, params) {
+        console.log('<action-order>',action);
 		if (/orders/.test(action))
 			return this.getOrdersView(module, action, params);
 		return this.getSummaryView(module, action, params);
@@ -28,7 +29,7 @@ var WorkOrderModule = ModuleBase.extend(module, {
 	getOrdersView: function (module, action, params) {
 		return this.getCurrentModuleView(function (mview) {
 			if (action === "orders.detail")
-				return __dirname + "/views/workorder/orders/WorkorderDetailView";
+				return __dirname + "/views/workorder/orders/WoœrkorderDetailView";
 			if (action === "orders.edit")
 				return __dirname + "/views/workorder/orders/WorkorderEditView";
 			return __dirname + "/views/workorder/orders/WorkorderListView";

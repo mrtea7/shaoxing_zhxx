@@ -125,61 +125,22 @@ UserService.roleList = function (session, data, callback) {
  */
 
 var _getFormatUser = function (data) {
-    var _unFormatMenus = data.menus;
-    var menus = [];
-    /* for (var i = 0; i < _unFormatMenus.length; i++) {
-     let menu = {};
-     if (_unFormatMenus[i].text) {
-     _unFormatMenus[i].text = JSON.parse(_unFormatMenus[i].text);
-     menu.viewpath = _unFormatMenus[i].text.viewpath;
-     menu.name = _unFormatMenus[i].text.name;
-     menu.icon = _unFormatMenus[i].text.icon;
-     }
-     menu.title = _unFormatMenus[i].title;
-     // menu.desc = _unFormatMenus[i].desc;
-     var _unFormatChildren = _unFormatMenus[i].subMenus;
-     menu.children = [];
-     for (var j = 0; j < _unFormatChildren.length; j++) {
-     let child = {};
-     if (_unFormatChildren[j].text)
-     child.name = _unFormatChildren[j].text.name;
-     child.title = _unFormatChildren[j].title;
-     menu.children.push(child);
-     }
-     menus.push(menu);
-     }*/
+    var menus = data.menus;
     var _workorder = {
-        name: "workorder", title: "工单汇总", icon: "icon-jiankong",
+        text: "workorder", title: "工单汇总", icon: "icon-jiankong",
         viewpath: "./modules/workorder",
         desc: "金佛i上飞机诶哦我姐夫i哦恩",
-        children: [{
-            name: "summary", title: "概况信息", desc: "奇偶分担接送发动机我i房间饿哦文件"
+        subMenus: [{
+            text: "summary", title: "概况信息", desc: "奇偶分担接送发动机我i房间饿哦文件"
         }, {
-            name: "orders", title: "工单列表", desc: "就分手冻结"
+            text: "orders", title: "工单列表", desc: "就分手冻结"
         }]
     }
     var _organize = {
         name: "organize", title: "部门和员工", icon: "icon-jiankong"
     }
-    var _supervision = {
-        name: "supervision", title: "督办", icon: "icon-dashuju",
-        viewpath: "./modules/supervision",
-        children: [
-            {
-                name: "unpublished", title: "未派发"
-            }, {
-                name: "todo", title: "未完成"
-            }, {
-                name: "done", title: "已完成"
-            }, {
-                name: "overdue", title: "已超期"
-            }]
-    }
-
     menus.push(_workorder);
-    menus.push(_organize);
-    menus.push(_supervision);
-    // console.log('<menus>',menus);
+    // menus.push(_organize);
     return menus;
 };
 

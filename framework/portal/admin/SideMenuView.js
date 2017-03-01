@@ -9,9 +9,6 @@ var Utils = VRender.Utils;
 
 var default_menus = require("../../config/sys_modules").modules;
 
-// var user_menus = this.getSession.get("user_menus");
-// console.log('<user_menus>',user_menus);
-
 var SideMenuView = VRender.UIView.extend(module, {
     className: "sidemenu",
     readyCode: "view.main.menu",
@@ -36,17 +33,17 @@ var SideMenuView = VRender.UIView.extend(module, {
         Utils.each(this.menus, function (data) {
             var menu = self.renderMenuItem(menuList, data);
 
-            var isSelected = data.name === routers[1];
+            var isSelected = data.text === routers[1];
             if (isSelected)
                 menu.addClass("selected").addClass("open");
 
-            var children = Utils.toArray(data.children);
+            var children = Utils.toArray(data.subMenus);
             if (children.length > 0) {
                 menu.addClass("has-child");
                 var subMenus = menu.appendAndGet("<ul class='submenu-list'></ul>");
                 Utils.each(children, function (temp, i) {
                     var submenu = self.renderSubMenuItem(subMenus, temp);
-                    if (isSelected && (!routers[2] || routers[2] === temp.name)) {
+                    if (isSelected && (!routers[2] || routers[2] === temp.text)) {
                         submenu.addClass("selected");
                     }
                 });
@@ -56,14 +53,13 @@ var SideMenuView = VRender.UIView.extend(module, {
 
     renderMenuItem: function (target, data) {
         var item = target.appendAndGet("<li class='menu'></li>");
-        item.attr("name", data.name);
+        item.attr("name", data.text);
 
         var title = item.appendAndGet("<div class='title'></div>");
-        title.text(data.title || data.name || "未知");
+        title.text(data.title || data.text || "未知");
 
-        if (data.icon) {
-            title.append("<span class='icon'><i class='iconfont " + 
-                data.icon + "'></i></span>");
+        if (data.text) {
+            title.append("<span class='icon'><i class='iconfont " + data.text + "'></i></span>");
         }
 
         return item;
@@ -71,10 +67,10 @@ var SideMenuView = VRender.UIView.extend(module, {
 
     renderSubMenuItem: function (target, data) {
         var item = target.appendAndGet("<li class='menu submenu'></li>");
-        item.attr("name", data.name);
+        item.attr("name", data.text);
 
         var title = item.appendAndGet("<div class='title'></div>");
-        title.text(data.title || data.name || "未知");
+        title.text(data.title || data.text || "未知");
 
         return item;
     }

@@ -45,7 +45,7 @@ define("mainview", function ($, VR, Utils) {
     			frame.navigate(state);
     		}
     	}
-    	return false;
+    	// return false;
     });
 
     view.on("click", ".main-detail", function () {

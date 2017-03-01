@@ -12,17 +12,23 @@ var SupervisionModule = ModuleBase.extend(module, {
     id: "app-supervision",
 
     getView: function (module, action, params) {
-        if (/done/.test(action))
-            return this.getSupervisionDoneView(module, action, params);
-        else if (/overdue/.test(action))
-            return this.getSupervisionOverdueView(module, action, params);
-        else if (/todo/.test(action))
-            return this.getSupervisionTodoView(module, action, params);
-        else if (/unpublished/.test(action))
-            return this.getSupervisionUnpublishedView(module, action, params);
+        if (/waitReceive/.test(action))//待接收 办理人员
+            return this.getSupervisionWaitReceiveView(module, action, params);
+        else if (/received/.test(action))//已接收 办理人员
+            return this.getSupervisionReceivedView(module, action, params);
+        else if (/receiveCompleted/.test(action))//已完成 办理人员
+            return this.getSupervisionReceiveCompletedView(module, action, params);
+        else if (/waitSendWorkOrder/.test(action))//待派发 派发人员
+            return this.getSupervisionWaitSendWorkOrderView(module, action, params);
+        else if (/unfinished/.test(action))//未完成 派发人员
+            return this.getSupervisionUnfinishedView(module, action, params);
+        else if (/sendCompleted/.test(action))//已完成 派发人员
+            return this.getSupervisionSendCompletedView(module, action, params);
+        else if (/exceedTime/.test(action))//已超期 派发人员
+            return this.getSupervisionExceedTimerView(module, action, params);
     },
     ///////////////////////////////////////////////////////
-    getSupervisionDoneView: function (module, action, params) {
+    getSupervisionWaitReceiveView: function (module, action, params) {
         return this.getCurrentModuleView(function (mview) {
             if (action === "done.detail")
                 return __dirname + "/views/supervision/done/DoneDetailView";
@@ -32,7 +38,7 @@ var SupervisionModule = ModuleBase.extend(module, {
         });
     },
     ///////////////////////////////////////////////////////
-    getSupervisionOverdueView: function (module, action, params) {
+    getSupervisionReceivedView: function (module, action, params) {
         return this.getCurrentModuleView(function (mview) {
             if (action === "done.detail")
                 return __dirname + "/views/supervision/done/DoneDetailView";
@@ -42,7 +48,7 @@ var SupervisionModule = ModuleBase.extend(module, {
         });
     },
     ///////////////////////////////////////////////////////
-    getSupervisionTodoView: function (module, action, params) {
+    getSupervisionReceiveCompletedView: function (module, action, params) {
         return this.getCurrentModuleView(function (mview) {
             if (action === "todo.detail")
                 return __dirname + "/views/supervision/todo/TodoDetailView";
@@ -52,13 +58,11 @@ var SupervisionModule = ModuleBase.extend(module, {
         });
     },
     ///////////////////////////////////////////////////////
-    getSupervisionUnpublishedView: function (module, action, params) {
+    getSupervisionWaitSendWorkOrderView: function (module, action, params) {
         return this.getCurrentModuleView(function (mview) {
-            if (action === "unpublished.detail")
-                return __dirname + "/views/supervision/unpublished/UnpublishedDetailView";
-            if (action === "unpublished.edit")
-                return __dirname + "/views/supervision/unpublished/UnpublishedEditView";
-            return __dirname + "/views/supervision/unpublished/UnpublishedListView";
+            if (action === "waitSendWorkOrder.edit")
+                return __dirname + "/views/supervision/waitSend/waitSendEditView";
+            return __dirname + "/views/supervision/waitSend/waitSendListView";
         });
     }
 });

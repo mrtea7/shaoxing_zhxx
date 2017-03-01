@@ -1,6 +1,7 @@
 /**********************************************************
- * 科室相关服务类
- *      dept.list       科室列表
+ * 单位部门相关服务类
+ *      dept.company       单位列表
+ *      dept.office        科室列表
  *
  *********************************************************/
 "use strict";
@@ -13,24 +14,21 @@ var Utils = VRender.Utils;
 var DeptService = module.exports;
 
 DeptService.do = function (session, name, data, callback) {
-    if (name === "dept.list")
+    if (name === "dept.officeList")
         DeptService.list(session, data, callback);
     else
         callback("类[DeptService]不支持接口（api）：" + name);
 };
 
 ///////////////////////////////////////////////////////////
-// 科室列表
-DeptService.list = function (session, data, callback) {
-    session.fetch("/om/office/list?tenantName=1", data, function (err, ret) {  //  服务器端接口地址
+// 所有科室列表
+DeptService.officeList = function (session, data, callback) {
+    session.fetch("/sysCommonCompany/queryAllCompanyOffice", data, function (err, ret) {
         if (err) {
             callback(err);
         }
         else {
-            session.set("user_data", ret);
-            session.set("user_name", ret.userName);
-            var user_menus = _getFormatUser(ret);
-            session.set("user_menus", user_menus);
+           console.log('<ret>',ret);
             callback(false, ret);
         }
     });

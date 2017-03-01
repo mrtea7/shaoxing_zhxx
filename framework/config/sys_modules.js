@@ -36,11 +36,21 @@ exports.modules = [
     },
     {
         name: "supervision", title: "督查督办", icon: "icon-dashuju",
-        viewpath: "./modules/supervision",
+        viewpath: "./modules/Supervision",
         children: [{
-            name: "todo", title: "待处理"
+            name: "waitReceive", title: "待接收",desc:"办理人员"
         }, {
-            name: "done", title: "已汇总"
+            name: "received", title: "已接收",desc:"办理人员"
+        },{
+            name: "receiveCompleted", title: "已完成",desc:"办理人员"
+        }, {
+            name: "waitSendWorkOrder", title: "待派发",desc:"派发人员"
+        }, {
+            name: "unfinished", title: "未完成",desc:"派发人员"
+        }, {
+            name: "sendCompleted", title: "已完成",desc:"派发人员"
+        }, {
+            name: "exceedTime", title: "已超期",desc:"派发人员"
         }]
     }
 ];

@@ -7,7 +7,8 @@ var ServiceManager = module.exports;
 
 ///////////////////////////////////////////////////////////
 var TestService = require(__basedir + "/service/TestService");
-var UserService = require(__basedir + "/service/UserService");
+var UserService = require(__basedir + "/service/userService");
+var SupervisonService = require(__basedir + "/service/supervisionService");
 
 
 ///////////////////////////////////////////////////////////
@@ -15,6 +16,8 @@ var UserService = require(__basedir + "/service/UserService");
 ServiceManager.getService = function (name) {
 	if (/^(login|exit|user|role\..+)$/.test(name))
 		return UserService;
+    if (/^sup\./.test(name))
+        return SupervisonService;
 	if (/^test\./.test(name))
 		return TestService;
 	return null;
