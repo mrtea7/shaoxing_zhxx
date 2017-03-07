@@ -22,14 +22,5 @@ var BaseView = VRender.UIView.extend(module, {
 			script.write("$('[vid=" + this.getViewId() + "]').data('viewData'," + JSON.stringify(data) + ");");
 			script.write("$('[vid=" + tagid + "]').remove();");
 		}
-		// if (StringUtils.isNotBlank(componentName)) {
-		// 	}
-		// if (Utils.notNull(data)) {
-		// 	var tagid = EasyWeb.euid();
-		// 	var script = target.appendAndGet("<script id='" + tagid + "' class='easyweb-script'></script>");
-		// 	// script.write("$(function(){$('[eid=" + this.getEid() + "]').data('viewData', " + JSON.stringify(data) + ");});");
-		// 	script.write("$('[eid=" + this.getEid() + "]').data('viewData', " + JSON.stringify(data) + ");");
-		// 	script.write("$('#" + tagid + "').remove();");
-		// }
 	}
 });
