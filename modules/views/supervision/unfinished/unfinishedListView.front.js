@@ -3,41 +3,39 @@
  *********************************************************/
 
 define(function ($, VR, Utils) {
-	var view = $(".view-supervision-todo");
+    var view = $(".view-supervision-unfinished");
 
-	var listView = VR.Component.Datagrid.find(view)[0];
-
-	///////////////////////////////////////////////////////
-	listView && listView.setRowStyleFunction(function (data) {
-		if (data.status === "未确认")
-			return "row-warn";
-		if (data.status === "已超期")
-			return "row-error";
-	});
-	///////////////////////////////////////////////////////
-	// 点击行，显示详情页面
-	listView && listView.on("itemclick", function (e, data) {
-		frame.showDetails("/module/supervision/todo/detail", {id: data.id});
-	});
+    var listView = VR.Component.Datagrid.find(view)[0];
 
 
-	view.on("click", "header > .btnbar .btn", function (e) {
-		var btnName = $(e.currentTarget).attr("name");
-		if (btnName === "create")
-			showEditView();
-	});
+    ///////////////////////////////////////////////////////
+    // 点击行，显示详情页面
+    listView && listView.on("itemclick", function (e, data) {
+        frame.showDetails("/module/supervision/unfinished/detail", {id: data.id});
+    });
 
-	///////////////////////////////////////////////////////
-	var showEditView = function (data) {
-		var moduleUrl = "/module/supervision/todo/edit";
-		if (data)
-			moduleUrl += "?id=" + data.id;
 
-		var dialog = VR.Component.Dialog.create({title: "督查督办", module: moduleUrl});
+    view.on("click", "header > .btnbar .btn", function (e) {
+        var btnName = $(e.currentTarget).attr("name");
+        if (btnName === "create")
+            showEditView(btnName);
 
-		dialog.on("view_submit", function (e) {
-			listView.reload();
-		});
-	}
+    });
+
+    ///////////////////////////////////////////////////////
+    var showEditView = function (data) {
+        var moduleUrl = "/module/supervision/unfinished/edit";
+        var operation = "新建";
+        var dialog = VR.Component.Dialog.create({
+            title: "督查督办 > " + operation,
+            module: moduleUrl,
+            buttons: [{name: "save", label: "保存"}, {name: "submit", label: "确定"}, {name: "cancel", label: "取消"}]
+        });
+
+        dialog.on("view_submit", function (e) {
+            listView.reload();
+        });
+    };
+
 
 });

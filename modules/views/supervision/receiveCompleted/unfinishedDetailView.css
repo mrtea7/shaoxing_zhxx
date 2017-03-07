@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+.supervision-todo-detail { color: #999 }
+.detail-head { padding:20px 0 }
+.detail-head >.title { font-size: 18px;color: #222 }
+.detail-body { border-top: 1px solid #eee;padding:20px 0;height: 530px;overflow: auto }
+.detail-foot { position:fixed;bottom:0;border-top: 1px solid #eee;padding: 10px 0 10px 30px;width: 100% }
+.tabsbar { display: flex;margin:20px 0 -20px 0;}
+.tabsbar > .tab { color: black; padding: 5px 10px;cursor: pointer}
+.tabsbar > .tab.selected{ color: #009aff; border-bottom: 2px solid #009aff; }
+.hide {display: none;}
+.show {display: block;}

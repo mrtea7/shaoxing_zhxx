@@ -39,6 +39,8 @@ define(function ($, VR, Utils) {
 		var btnName = $(e.currentTarget).attr("name");
 		if (btnName === "create")
 			showEditView();
+		/*if (btnName === "delete")
+		 console.log('<listView.getSelectedItems()>',listView.getSelectedItems());*/
 	});
 
 	///////////////////////////////////////////////////////

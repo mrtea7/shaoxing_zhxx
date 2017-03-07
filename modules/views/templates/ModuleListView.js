@@ -133,7 +133,7 @@ var ModuleListView = BaseView.extend(module, {
 	},
 
 	getListView: function (datas) {
-		var grid = new UIDatagrid(this, {chkbox: true, multi: true,empty: '暂无数据'});
+		var grid = new UIDatagrid(this, {/*chkbox: true, multi: true,*/empty: '暂无数据'});
 
 		grid.setColumns(Utils.toArray(this.getColumns()));
 

@@ -1,158 +1,258 @@
-exports.modules =  {
+exports.modules =   {
     code: "0",
     msg: "查询成功!",
     version: "1",
     data: [
         {
             bean: {
-                name: "绍兴市交通运输局",
-                contact: null,
-                mobilenumber: null,
-                addr: null,
-                categoryId: 0,
-                organType: null,
-                remark: null,
-                provinceId: null,
-                cityId: null,
-                netCode: null,
-                qrCodeId: null,
-                areaId: null,
-                mfhArea: null,
-                mfhCity: null,
-                longitude: null,
-                latitude: null,
-                additional: null,
-                innerDel: 0,
-                ownerId: null,
-                gaoId: null,
-                status: 0,
-                ability: 0,
-                tenantId: -1,
-                saasId: 134342,
-                stockId: null,
-                id: 1,
+                officeCode: null,
+                officeName: "局领导",
+                parentId: null,
+                rootId: 0,
+                leaderId: 1,
+                tenantName: 1,
+                id: 15,
                 createdBy: "",
                 createdDate: null,
                 updatedBy: "",
-                updatedDate: "2017-02-25 14:55:43"
+                updatedDate: "2017-03-01 12:15:03"
             },
             caption: {
-                tenantId: "无上级部门",
-                status: "无效账号"
+                tenantName: "绍兴市交通运输局"
             }
         },
         {
             bean: {
-                name: "绍兴市道路运输管理局",
-                contact: null,
-                mobilenumber: null,
-                addr: null,
-                categoryId: 0,
-                organType: null,
-                remark: null,
-                provinceId: null,
-                cityId: null,
-                netCode: null,
-                qrCodeId: null,
-                areaId: null,
-                mfhArea: null,
-                mfhCity: null,
-                longitude: null,
-                latitude: null,
-                additional: null,
-                innerDel: 0,
-                ownerId: null,
-                gaoId: null,
-                status: 1,
-                ability: 0,
-                tenantId: 1,
-                saasId: 134342,
-                stockId: null,
-                id: 2,
+                officeCode: null,
+                officeName: "办公室（新闻中心）",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 16,
                 createdBy: "",
                 createdDate: null,
                 updatedBy: "",
-                updatedDate: "2017-02-25 13:50:34"
+                updatedDate: "2017-03-01 12:05:57"
             },
             caption: {
-                tenantId: "绍兴市交通运输局",
-                status: "有效账号"
+                tenantName: "绍兴市交通运输局"
             }
         },
         {
             bean: {
-                name: "绍兴市公路局",
-                contact: null,
-                mobilenumber: null,
-                addr: null,
-                categoryId: 0,
-                organType: null,
-                remark: null,
-                provinceId: null,
-                cityId: null,
-                netCode: null,
-                qrCodeId: null,
-                areaId: null,
-                mfhArea: null,
-                mfhCity: null,
-                longitude: null,
-                latitude: null,
-                additional: null,
-                innerDel: 0,
-                ownerId: null,
-                gaoId: null,
-                status: 1,
-                ability: 0,
-                tenantId: 1,
-                saasId: 134342,
-                stockId: null,
-                id: 3,
+                officeCode: null,
+                officeName: "政治处",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 17,
                 createdBy: "",
                 createdDate: null,
                 updatedBy: "",
-                updatedDate: "2017-02-25 14:29:00"
+                updatedDate: "2017-03-01 12:05:57"
             },
             caption: {
-                tenantId: "绍兴市交通运输局",
-                status: "有效账号"
+                tenantName: "绍兴市交通运输局"
             }
         },
         {
             bean: {
-                name: "绍兴市港航局222",
-                contact: "联系人",
-                mobilenumber: "联系人手机号",
-                addr: "地址",
-                categoryId: null,
-                organType: null,
-                remark: "备注",
-                provinceId: null,
-                cityId: null,
-                netCode: null,
-                qrCodeId: null,
-                areaId: null,
-                mfhArea: null,
-                mfhCity: null,
-                longitude: 120.221,
-                latitude: 30.232,
-                additional: null,
-                innerDel: null,
-                ownerId: null,
-                gaoId: null,
-                status: 1,
-                ability: null,
-                tenantId: 1,
-                saasId: 1,
-                stockId: null,
-                id: 9,
-                createdBy: "1",
-                createdDate: "2017-02-25 14:47:05",
+                officeCode: null,
+                officeName: "纪检组",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 18,
+                createdBy: "",
+                createdDate: null,
                 updatedBy: "",
-                updatedDate: "2017-02-25 14:53:41"
+                updatedDate: "2017-03-01 12:05:57"
             },
             caption: {
-                tenantId: "绍兴市交通运输局",
-                status: "有效账号"
+                tenantName: "绍兴市交通运输局"
+            }
+        },
+        {
+            bean: {
+                officeCode: null,
+                officeName: "运输处",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 19,
+                createdBy: "",
+                createdDate: null,
+                updatedBy: "",
+                updatedDate: "2017-03-01 12:05:57"
+            },
+            caption: {
+                tenantName: "绍兴市交通运输局"
+            }
+        },
+        {
+            bean: {
+                officeCode: null,
+                officeName: "政策法规与科技处（行政审批服务处）",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 20,
+                createdBy: "",
+                createdDate: null,
+                updatedBy: "",
+                updatedDate: "2017-03-01 12:05:57"
+            },
+            caption: {
+                tenantName: "绍兴市交通运输局"
+            }
+        },
+        {
+            bean: {
+                officeCode: null,
+                officeName: "财审处",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 21,
+                createdBy: "",
+                createdDate: null,
+                updatedBy: "",
+                updatedDate: "2017-03-01 12:05:57"
+            },
+            caption: {
+                tenantName: "绍兴市交通运输局"
+            }
+        },
+        {
+            bean: {
+                officeCode: null,
+                officeName: "建管处",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 22,
+                createdBy: "",
+                createdDate: null,
+                updatedBy: "",
+                updatedDate: "2017-03-01 12:05:57"
+            },
+            caption: {
+                tenantName: "绍兴市交通运输局"
+            }
+        },
+        {
+            bean: {
+                officeCode: null,
+                officeName: "交战办",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 23,
+                createdBy: "",
+                createdDate: null,
+                updatedBy: "",
+                updatedDate: "2017-03-01 12:05:57"
+            },
+            caption: {
+                tenantName: "绍兴市交通运输局"
+            }
+        },
+        {
+            bean: {
+                officeCode: null,
+                officeName: "规划处",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 24,
+                createdBy: "",
+                createdDate: null,
+                updatedBy: "",
+                updatedDate: "2017-03-01 12:05:57"
+            },
+            caption: {
+                tenantName: "绍兴市交通运输局"
+            }
+        },
+        {
+            bean: {
+                officeCode: null,
+                officeName: "安全处",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 25,
+                createdBy: "",
+                createdDate: null,
+                updatedBy: "",
+                updatedDate: "2017-03-01 12:05:57"
+            },
+            caption: {
+                tenantName: "绍兴市交通运输局"
+            }
+        },
+        {
+            bean: {
+                officeCode: null,
+                officeName: "督查服务组",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 26,
+                createdBy: "",
+                createdDate: null,
+                updatedBy: "",
+                updatedDate: "2017-03-01 12:05:57"
+            },
+            caption: {
+                tenantName: "绍兴市交通运输局"
+            }
+        },
+        {
+            bean: {
+                officeCode: null,
+                officeName: "市铁办",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 27,
+                createdBy: "",
+                createdDate: null,
+                updatedBy: "",
+                updatedDate: "2017-03-01 12:05:57"
+            },
+            caption: {
+                tenantName: "绍兴市交通运输局"
+            }
+        },
+        {
+            bean: {
+                officeCode: null,
+                officeName: "综合交通指挥中心",
+                parentId: null,
+                rootId: 0,
+                leaderId: 15,
+                tenantName: 1,
+                id: 28,
+                createdBy: "",
+                createdDate: null,
+                updatedBy: "",
+                updatedDate: "2017-03-01 12:05:57"
+            },
+            caption: {
+                tenantName: "绍兴市交通运输局"
             }
         }
     ]

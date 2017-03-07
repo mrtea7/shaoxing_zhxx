@@ -88,16 +88,33 @@ var isUserValidate = function (params, callback) {
     // else {
     //     callback("invalid", params);
     // }
-
-    session.fetch("/isSessionValid", function (err, ret) {  //  服务器端接口地址
+    session.fetch("/isSessionValid", function (err, ret) {
         if (err) {
             callback("invalid", err);
         }
-        else callback("logged", ret);
+        else
+        callback("logged", ret);
     });
 };
 
 // 试图加载用户信息，以防 NodeJS 重启用户信息丢失
 var tryUserInfo = function (params, callback) {
-    callback(false, params);
+    // callback(false, params);
+    var session = params.session;
+    session.fetch("/sysCommonHuman/getCurrentUserInfo", function (err, ret) {
+        if (err) {
+            callback(err);
+        }
+        else {
+            session.set("user_data", ret);
+            session.set("user_name", ret.userName);
+            var user_menus = _getFormatUser(ret);
+            session.set("user_menus", user_menus);
+            callback(false, ret);
+        }
+    });
+};
+var _getFormatUser = function (data) {
+    var menus = data.menus;
+    return menus;
 };

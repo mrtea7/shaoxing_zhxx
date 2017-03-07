@@ -5,6 +5,7 @@
 var VRender = require("v-render");
 var BaseView = require("../../BaseView");
 var TestService = require(__basedir + "/service/TestService");
+var SupervisionService = require(__basedir + "/service/supervisionService");
 
 var Utils = VRender.Utils;
 var UIDatagrid = VRender.UIDatagrid;
@@ -13,34 +14,42 @@ var UIGroup = VRender.UIGroup;
 var UIHGroup = VRender.UIHGroup;
 var UIPaginator = VRender.UIPaginator;
 
-var TodoDetailView = BaseView.extend(module, {
+var UnfinishedDetailView = BaseView.extend(module, {
     className: "view-supervision-detail",
     readyCode: "view.supervision.detail",
 
     doInit: function () {
-        TodoDetailView.__super__.doInit.call(this);
+        UnfinishedDetailView.__super__.doInit.call(this);
 
         var self = this;
-
-        var todoId = parseInt(this.options.params.id) || 0;
-        TestService.getBySupTodoId(this.getSession(), todoId, function (err, ret) {
-            self.todoInfo = ret;
+        var params = {session: this.getSession(), unfinishedId: parseInt(this.options.params.id)};
+        var callbacks = [ this.getDetail];
+        Utils.exec(this, callbacks, params, function () {
             self.ready("view.supervision.detail");
         });
     },
+    getDetail: function (params, callback) {
+        var self = this;
+        SupervisionService.detailSend(params.session, params.unfinishedId, function (err, ret) {
+            self.orderInfo = ret.info;
+            self.taskList = ret.task;
+            self.attach = ret.attach;
+            console.log('<ret>',ret);
+            callback(false, params);
+        });
+    },
     renderView: function (target) {
-        TodoDetailView.__super__.renderView.call(this);
-        this.$el.addClass("supervision-todo-detail");
+        UnfinishedDetailView.__super__.renderView.call(this);
+        this.$el.addClass("supervision-unfinished-detail");
         this.renderHeaderView(this.$el);
         this.renderBodyView(this.$el);
         this.renderFootView(this.$el);
     },
     renderHeaderView: function (target) {
-        var info = this.todoInfo;
+
         var detailHead = target.appendAndGet("<div class='detail-head'></div>");
-        detailHead.write("<div class='title'>" + info.title + "</div>");
-        detailHead.write("<div class='deadline'><span class='item-key'>截止时间:</span><span class='item-value'>" + info.deadline + "</span></div>");
-        detailHead.write("<div class='status'><span class='item-key'>状态:</span><span class='item-value'>" + info.status + "</span></div>");
+        detailHead.write("<div class='title'>" + this.orderInfo.title + "</div>");
+        detailHead.write("<div class='deadline'><span class='item-key'>截止时间:</span><span class='item-value'>" + this.orderInfo.deadline + "</span></div>");
         this.renderTabsView(detailHead);
 
     },
@@ -54,8 +63,8 @@ var TodoDetailView = BaseView.extend(module, {
         var detailFoot = target.appendAndGet("<div class='detail-foot'></div>");
         var btnGroup = new UIGroup(this, {gap: 10});
         btnGroup.addChild(new UIHGroup(this, {gap: 10}))
-            .append(new UIButton(this, {label: "确定", type: "primary"}))
-            .append(new UIButton(this, {label: "返回", type: "primary"}));
+            .append(new UIButton(this, {label: "编辑", style: 'edit ui-btn-primary'}))
+            .append(new UIButton(this, {label: "返回", style: 'cancel'}));
         var optBtn = VRender.$("<div class='optBtn'></div>").appendTo(detailFoot);
         if (Utils.isNotBlank(btnGroup)) {
             new UIGroup(this, {cls: "preview"}).append(btnGroup).render(optBtn);
@@ -64,20 +73,22 @@ var TodoDetailView = BaseView.extend(module, {
     /////////////////////////////////////////
     renderTabsView: function (target) {
         var tabsbar = target.appendAndGet("<div class='tabsbar'></div>");
+        //tab都在这里写好，默认选中的加selected，name和下面的View里的id对应
         tabsbar.write("<div class='tab selected' name='taskview'>任务详情</div>");
-        tabsbar.write("<div class='tab' name='listview'>科室进度</div>");
+        // tabsbar.write("<div class='tab' name='listview'>科室进度</div>");
     },
     renderTaskView: function (target) {
-        var  taskview= target.appendAndGet("<div id='taskview' class='taskview'></div>");
-        taskview.write("<div>任务详情sadasdasdas</div>");
+        var taskview = target.appendAndGet("<div id='taskview'></div>");
+        taskview.write("<div> 内容：" + this.orderInfo.content + "</div>");
+        for (var i = 1; i < this.attach.length + 1; i++) {
+            taskview.write("<div> 附件" + i + "：<a id='" + this.attach[i - 1].id + "'>" + this.attach[i - 1].originalFilename + "</a></div>");
+        }
     },
     renderListView: function (target) {
-        var listView = target.appendAndGet("<div id='listview' class='listview hide'></div>");
-        var self = this;
-        TestService.getArrayData(this.getSession(), '', function (err, ret) {
-            self.datas = ret;
-        });
-        var list = this.getListView(this.datas);
+        // var listView = target.appendAndGet("<div id='listview' class='hide'></div>");
+        var listView = target.appendAndGet("<div id='listview'></div>");
+
+        var list = this.getListView(this.taskList);
 
         if (list) {
             if (this.searchView && UIView.isFunction(list.setSearcher))
@@ -90,25 +101,25 @@ var TodoDetailView = BaseView.extend(module, {
         }
     },
     getListView: function (datas) {
-        // console.log('data',datas);
+        // console.log('<datas>',datas);
         var grid = new UIDatagrid(this);
         var columns = [];
         columns.push({name: "dept", title: "科室"});
-        columns.push({name: "submit_time", title: "提交时间"});
-        columns.push({name: "attachments", title: "附件"});
+        columns.push({name: "completionTime", title: "提交时间"});
         columns.push({name: "op", title: "操作"});
         grid.setColumns(Utils.toArray(columns));
 
-        grid.setApiName('test.data.dept');
-        grid.setApiParams('');
-        // if (datas.length > 0) {
-        //     // grid.setViewData(datas);
-        //     grid.setAutoLoad(false);
-        // }
+        // grid.setApiName('test.send.detail');
+        // grid.setApiParams('');
+
+        if (datas.length > 0) {
+            grid.setViewData(datas);
+            grid.setAutoLoad(false);
+        }
 
         return grid;
     }
 
 });
 
-TodoDetailView.import(__basedir + "/framework/components/form/FileUploader.js");
+// UnfinishedDetailView.import(__basedir + "/framework/components/form/FileUploader.js");

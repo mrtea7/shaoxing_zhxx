@@ -27,24 +27,27 @@ exports.modules = [
 
     },
     {
-        name: "settings", title: "系统设置", icon: "icon-dashuju",
+        name: "systemManage", title: "系统设置", icon: "icon-dashuju",
+        viewpath: "./modules/systemManage",
         children: [{
-            name: "basic", title: "基本信息"
+            name: "userList", title: "用户管理"
         }, {
-            name: "auth", title: "权限控制"
+            name: "groupList", title: "角色管理"
+        }, {
+            name: "officeList", title: "部门管理"
+        }, {
+            name: "accreditList", title: "授权管理"
         }]
     },
     {
         name: "supervision", title: "督查督办", icon: "icon-dashuju",
-        viewpath: "./modules/Supervision",
+        viewpath: "./modules/supervision",
         children: [{
             name: "waitReceive", title: "待接收",desc:"办理人员"
         }, {
             name: "received", title: "已接收",desc:"办理人员"
         },{
             name: "receiveCompleted", title: "已完成",desc:"办理人员"
-        }, {
-            name: "waitSendWorkOrder", title: "待派发",desc:"派发人员"
         }, {
             name: "unfinished", title: "未完成",desc:"派发人员"
         }, {

@@ -28,7 +28,6 @@ DeptService.officeList = function (session, data, callback) {
             callback(err);
         }
         else {
-           console.log('<ret>',ret);
             callback(false, ret);
         }
     });

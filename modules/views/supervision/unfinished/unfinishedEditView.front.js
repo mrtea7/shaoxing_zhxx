@@ -1,35 +1,77 @@
 /**********************************************************
- * 工单编辑页面
+ * 未完成新建
  *********************************************************/
-
 define(function ($, VR, Utils) {
 
-	var view = $(".view-workorder-edit");
-	var moduleView = view.parent().parent();
+    var view = $(".view-supervision-edit");
+    var moduleView = view.parent().parent();
 
-	var orderInfo = view.data("viewData"); console.log(orderInfo);
+    ///////////////////////////////////////////////////////
+    moduleView.on("dialog_save", function (e) {
+        var data = {};
 
-	///////////////////////////////////////////////////////
-	moduleView.on("dialog_submit", function (e) {
-		var data = {};
-		data.id = orderInfo && orderInfo.id;
+        data.title = view.find("dl.title input").val();
+        if (Utils.isBlank(data.title))
+            return alert("请输入标题");
 
-		data.name = view.find("dl.name input").val();
-		if (Utils.isBlank(data.name))
-			return alert("请输入歌曲名称");
+        data.content = view.find("dl.content textarea").val();
+        if (Utils.isBlank(data.content))
+            return alert("请输入内容");
 
-		var singer = VR.Component.Combobox.find(view.find("dl.singer"))[0];
-		singer = singer && singer.getSelectedData();
-		if (!singer)
-			return alert("请选择歌手");
-		data.singerId = singer.id;
-		data.singer = singer.name;
+        var selectedOffice = Utils.map(view.find(".ui-chkbox input:checked"), function (input) {
+            return input.val()
+        });
+        // data.dcdbWorkorderTaskList =
 
-		data.album = view.find("dl.album input").val();
-		
-		VR.post("test.data.save", data, function (err, ret) {
-			moduleView.trigger("submit_to_dialog");
-		});
-	});
+
+        // data.sendSMS = Utils.map(view.find(".ui-radbox input:checked"), function (input) {
+        //     return input.val()
+        // });
+
+
+        // var deadline = VR.Component.DateInput.find(view);
+        // console.log('<deadline>',deadline);
+        // data.deadline = deadline.getDate("yyyy-MM-dd HH:mm:ss");
+        data.deadline = "2017-04-20 00:00:00";
+
+
+        var testData = {
+            "dcdbWorkorderTaskList": [
+                {
+                    "tenantName": "2",
+                    "officeId": "1"
+                },
+                {
+                    "tenantName": "2",
+                    "officeId": "2"
+                },
+                {
+                    "tenantName": "2",
+                    "officeId": "3"
+                }
+            ],
+            "title": "督察督办标题",
+            "content": "督察督办任务描述",
+            "deadline": "2017-03-20 00:00:00"
+        }
+        console.log('<data>',selectedOffice);
+        // console.log('<testData>', typeof  testData.dcdbWorkorderTaskList);
+        // console.log('<?>', testData.dcdbWorkorderTaskList == data.dcdbWorkorderTaskList);
+
+        // VR.post("sup.create", testData, function (err, ret) {
+        //     moduleView.trigger("save_to_dialog");
+        // });
+    });
+
+
+    var uploader = null;
+    var FileUploader = requirejs("mfh.fileuploader");
+    view.on("click", ".attach", function () {
+        if (!uploader) {
+            uploader = FileUploader.create({target: view});
+            // uploader.on("change", importFileChangeHandler);
+        }
+        uploader.browser();
+    });
 
 });

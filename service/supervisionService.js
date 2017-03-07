@@ -50,7 +50,7 @@ SupervisionService.do = function (session, name, data, callback) {
 
 ///////////////////////////////////////////////////////////
 SupervisionService.create = function (session, data, callback) {
-    var postData = {"jsonStr":data};
+    var postData = {jsonStr: JSON.stringify(data)};
     session.fetch("/dcdbWorkorder/createDcdbWorkOrder", postData, function (err, ret) {
         if (err)
             callback(err);
@@ -96,11 +96,11 @@ SupervisionService.feedback = function (session, data, callback) {
     });
 };
 SupervisionService.pageSend = function (session, data, callback) {
-    session.fetch("/dcdbWorkorder/querySendPage?taskStatus="+ data.taskStatus+"&isOverdue="+ data.isOverdue, data, function (err, ret) {
+    session.fetch("/dcdbWorkorder/querySendPage?taskStatus=" + data.taskStatus + "&isOverdue=" + data.isOverdue, data, function (err, ret) {
         if (err)
             callback(err);
         else {
-            callback(false, ret);
+            callback(false, _formatPageSend(ret));
         }
     });
 };
@@ -114,16 +114,17 @@ SupervisionService.pageReceive = function (session, data, callback) {
     });
 };
 SupervisionService.detailSend = function (session, data, callback) {
-    session.fetch("/dcdbWorkorder/querySendPage?taskStatus=" + data.taskStatus, data, function (err, ret) {
+    session.fetch("/dcdbWorkorder/queryWorkOrderDetail?dcdbId=" + data, function (err, ret) {
         if (err)
             callback(err);
         else {
-            callback(false, ret);
+            var list = _formatSendDetail(ret);
+            callback(false, list);
         }
     });
 };
 SupervisionService.detailReceive = function (session, data, callback) {
-    session.fetch("/dcdbWorkorder/querySendPage?taskStatus="+ data.taskStatus+"&isOverdue="+ data.isOverdue, data, function (err, ret) {
+    session.fetch("/dcdbWorkorder/querySendPage?taskStatus=" + data.taskStatus + "&isOverdue=" + data.isOverdue, data, function (err, ret) {
         if (err)
             callback(err);
         else {
@@ -131,5 +132,37 @@ SupervisionService.detailReceive = function (session, data, callback) {
         }
     });
 };
-
-
+//////////////////////////////////////////////////////
+var _formatPageSend = function (data) {
+    var _list = [];
+    for (var i = 0; i < data.length; i++) {
+        var item = {};
+        item.id = data[i].bean.id;
+        item.title = data[i].bean.title;
+        item.content = data[i].bean.content;
+        item.deadline = data[i].bean.deadline;
+        item.status = data[i].caption.taskStatus;
+        _list.push(item)
+    }
+    return _list;
+};
+var _formatSendDetail = function (data) {
+    var _detail = {info:{},attach: [], task: []};
+    _detail.info = data.bean;
+    var bean = data.bean;
+    if (bean.dcdbWorkorderAttach.length > 0)
+        for (var i = 0; i < bean.dcdbWorkorderAttach.length; i++) {
+            var attachItem = {};
+            attachItem.originalFilename = bean.dcdbWorkorderAttach[i].originalFilename;
+            attachItem.id = bean.dcdbWorkorderAttach[i].id;
+            _detail.attach.push(attachItem)
+        }
+    for (var j = 0; j < bean.dcdbWorkorderTaskList.length; j++) {
+        var taskItem = {};
+        taskItem.dept = bean.dcdbWorkorderTaskList[j].officeName;
+        taskItem.feedback = bean.dcdbWorkorderTaskList[j].feedback;
+        taskItem.completionTime = bean.dcdbWorkorderTaskList[j].completionTime;
+        _detail.task.push(taskItem)
+    }
+    return _detail;
+};

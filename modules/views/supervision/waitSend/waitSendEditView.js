@@ -74,21 +74,21 @@ var WorkorderEditView = BaseView.extend(module, {
 
         this.renderItem(form, "title", "标题", new UITextView(this, {
             required: true, empty: "请输入标题，标题不能为空",
-            maxSize: 50, width: 500, value: order.name
+            maxSize: 50, width: 500, value: order.title
         }));
 
         this.renderItem(form, "content", "内容", new UITextView(this, {
             required: true, empty: "请输入内容，内容不能为空",
-            maxSize: 400, multi: true, width: 500, value: order.name
+            maxSize: 400, multi: true, width: 500, value: order.content
         }));
 
-        this.renderItem(form, "deadline", "截止日期", new UIDateInput(this));
+        this.renderItem(form, "deadline", "截止日期", new UIDateInput(this, {min: Date()}));
 
         this.renderItem(form, "office", "科室", new UIGroup(this, {gap: 10, tag: "p"})
             .append(this.renderItem(form, "road", "绍兴市交通运输局 ->", new UIHGroup(this, {gap: 10, tag: "p"})
-                    .append(new UICheckbox(this, {label: "公路科室1", value: "1"}))
-                    .append(new UICheckbox(this, {label: "公路科室2", value: "2"}))
-                    .append(new UICheckbox(this, {label: "公路科室3", value: "3"}))
+                    .append(new UICheckbox(this, {label: "公路科室1", value: {"tenantName": "2", "officeId": "4"}}))
+                    .append(new UICheckbox(this, {label: "公路科室2", value: {"tenantName": "2", "officeId": "5"}}))
+                    .append(new UICheckbox(this, {label: "公路科室3", value: {"tenantName": "2", "officeId": "6"}}))
 
             ))
             .append(this.renderItem(form, "trans", "运管局 ->", new UIHGroup(this, {gap: 10, tag: "p"})
@@ -98,8 +98,8 @@ var WorkorderEditView = BaseView.extend(module, {
             ))
         );
 
-        this.renderItem(form, "sms", "短信通知", new UIRadioGroup(this, {
-            data: [{name:"发送",value:1},{name:"不发送",value:0}], width: 400, selectedIndex: 4}));
+        // this.renderItem(form, "sms", "短信通知", new UIRadioGroup(this, {
+        //     data: [{name:"发送",value:7},{name:"不发送",value:8}], width: 400, selectedIndex: 4}));
     },
     renderItem: function (form, name, label, view) {
         var item = form.appendAndGet("<dl></dl>");

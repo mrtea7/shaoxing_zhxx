@@ -1,12 +1,12 @@
 /**********************************************************
- * 组织机构模块，部门、员工等
+ * 系统设置模块
  *********************************************************/
 
 var VRender = require("v-render");
 var ModuleBase = require("./base/ModuleBase");
 
 
-var OrganizeModule = ModuleBase.extend(module, {
+var systemManageModule = ModuleBase.extend(module, {
     id: "mod-organize",
 
     getView: function (module, action, params) {

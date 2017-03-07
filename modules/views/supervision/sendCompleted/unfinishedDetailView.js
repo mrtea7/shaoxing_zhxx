@@ -1,5 +1,5 @@
 /**********************************************************
- * 工单详情页面
+ * 督查督办待处理详情页面
  *********************************************************/
 
 var VRender = require("v-render");
@@ -8,23 +8,27 @@ var TestService = require(__basedir + "/service/TestService");
 
 var Utils = VRender.Utils;
 var UIDatagrid = VRender.UIDatagrid;
+var UIButton = VRender.UIButton;
+var UIGroup = VRender.UIGroup;
+var UIHGroup = VRender.UIHGroup;
 var UIPaginator = VRender.UIPaginator;
 
-var WorkorderDetailView = BaseView.extend(module, {
-    className: "view-workorder-detail",
-    readyCode: "view.workorder.detail",
+var TodoDetailView = BaseView.extend(module, {
+    className: "view-supervision-detail",
+    readyCode: "view.supervision.detail",
+
     doInit: function () {
-        WorkorderDetailView.__super__.doInit.call(this);
+        TodoDetailView.__super__.doInit.call(this);
 
         var self = this;
         var params = {session: this.getSession(), unfinishedId: parseInt(this.options.params.id)};
         var callbacks = [this.getInfosById, this.getDetail];
         Utils.exec(this, callbacks, params, function () {
-            self.ready("view.workorder.detail");
+            self.ready("view.supervision.detail");
         });
         TestService.getBySupUnfinishedId(this.getSession(), params.unfinishedId, function (err, ret) {
             self.unfinishedInfo = ret;
-            self.ready("view.workorder.detail");
+            self.ready("view.supervision.detail");
         });
     },
     getInfosById: function (params, callback) {
@@ -43,7 +47,7 @@ var WorkorderDetailView = BaseView.extend(module, {
         });
     },
     renderView: function (target) {
-        WorkorderDetailView.__super__.renderView.call(this);
+        TodoDetailView.__super__.renderView.call(this);
         this.$el.addClass("supervision-unfinished-detail");
         this.renderHeaderView(this.$el);
         this.renderBodyView(this.$el);
@@ -78,7 +82,7 @@ var WorkorderDetailView = BaseView.extend(module, {
     renderTabsView: function (target) {
         var tabsbar = target.appendAndGet("<div class='tabsbar'></div>");
         tabsbar.write("<div class='tab selected' name='taskview'>任务详情</div>");
-        // tabsbar.write("<div class='tab' name='listview'>科室进度</div>");
+        tabsbar.write("<div class='tab' name='listview'>科室进度</div>");
     },
     renderTaskView: function (target) {
 
@@ -87,8 +91,7 @@ var WorkorderDetailView = BaseView.extend(module, {
         taskview.write("<div> 附件：<a>" + this.attach.originalFilename + "</a></div>");
     },
     renderListView: function (target) {
-        // var listView = target.appendAndGet("<div id='listview' class='listview hide'></div>");
-        var listView = target.appendAndGet("<div id='listview' class='listview'></div>");
+        var listView = target.appendAndGet("<div id='listview' class='listview hide'></div>");
 
         var list = this.getListView(this.taskList);
 
@@ -122,6 +125,7 @@ var WorkorderDetailView = BaseView.extend(module, {
 
         return grid;
     }
+
 });
 
-WorkorderDetailView.import(__basedir + "/framework/components/form/FileUploader");
+TodoDetailView.import(__basedir + "/framework/components/form/FileUploader.js");

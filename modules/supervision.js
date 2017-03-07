@@ -30,31 +30,61 @@ var SupervisionModule = ModuleBase.extend(module, {
     ///////////////////////////////////////////////////////
     getSupervisionWaitReceiveView: function (module, action, params) {
         return this.getCurrentModuleView(function (mview) {
-            if (action === "done.detail")
-                return __dirname + "/views/supervision/done/DoneDetailView";
-            if (action === "done.edit")
-                return __dirname + "/views/supervision/done/DoneEditView";
-            return __dirname + "/views/supervision/done/DoneListView";
-        });
-    },
-    ///////////////////////////////////////////////////////
-    getSupervisionReceivedView: function (module, action, params) {
-        return this.getCurrentModuleView(function (mview) {
-            if (action === "done.detail")
-                return __dirname + "/views/supervision/done/DoneDetailView";
-            if (action === "done.edit")
-                return __dirname + "/views/supervision/done/DoneEditView";
-            return __dirname + "/views/supervision/done/DoneListView";
+            if (action === "waitReceive.detail")
+                return __dirname + "/views/supervision/waitReceive/unfinishedDetailView";
+            if (action === "waitReceive.edit")
+                return __dirname + "/views/supervision/waitReceive/unfinishedEditView";
+            return __dirname + "/views/supervision/waitReceive/unfinishedListView";
         });
     },
     ///////////////////////////////////////////////////////
     getSupervisionReceiveCompletedView: function (module, action, params) {
         return this.getCurrentModuleView(function (mview) {
-            if (action === "todo.detail")
-                return __dirname + "/views/supervision/todo/TodoDetailView";
-            if (action === "todo.edit")
-                return __dirname + "/views/supervision/todo/TodoEditView";
-            return __dirname + "/views/supervision/todo/TodoListView";
+            if (action === "unfinished.detail")
+                return __dirname + "/views/supervision/receiveCompleted/unfinishedDetailView";
+            if (action === "unfinished.edit")
+                return __dirname + "/views/supervision/receiveCompleted/unfinishedEditView";
+            return __dirname + "/views/supervision/receiveCompleted/unfinishedListView";
+        });
+    },
+    ///////////////////////////////////////////////////////
+    getSupervisionReceivedView: function (module, action, params) {
+        return this.getCurrentModuleView(function (mview) {
+            if (action === "received.detail")
+                return __dirname + "/views/supervision/received/unfinishedDetailView";
+            if (action === "received.edit")
+                return __dirname + "/views/supervision/received/unfinishedEditView";
+            return __dirname + "/views/supervision/received/unfinishedListView";
+        });
+    },
+    ///////////////////////////////////////////////////////
+    getSupervisionUnfinishedView: function (module, action, params) {
+        return this.getCurrentModuleView(function (mview) {
+            if (action === "unfinished.detail")
+                return __dirname + "/views/supervision/unfinished/unfinishedDetailView";
+            if (action === "unfinished.edit")
+                return __dirname + "/views/supervision/unfinished/unfinishedEditView";
+            return __dirname + "/views/supervision/unfinished/unfinishedListView";
+        });
+    },
+    ///////////////////////////////////////////////////////
+    getSupervisionSendCompletedView: function (module, action, params) {
+        return this.getCurrentModuleView(function (mview) {
+            if (action === "unfinished.detail")
+                return __dirname + "/views/supervision/sendCompleted/unfinishedDetailView";
+            if (action === "unfinished.edit")
+                return __dirname + "/views/supervision/sendCompleted/unfinishedEditView";
+            return __dirname + "/views/supervision/sendCompleted/unfinishedListView";
+        });
+    },
+    ///////////////////////////////////////////////////////
+    getSupervisionExceedTimerView: function (module, action, params) {
+        return this.getCurrentModuleView(function (mview) {
+            if (action === "exceedTime.detail")
+                return __dirname + "/views/supervision/exceedTime/exceedTimeDetailView";
+            if (action === "exceedTime.edit")
+                return __dirname + "/views/supervision/exceedTime/exceedTimeEditView";
+            return __dirname + "/views/supervision/exceedTime/exceedTimeListView";
         });
     },
     ///////////////////////////////////////////////////////
