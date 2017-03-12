@@ -5,6 +5,9 @@
 var VRender = require("v-render");
 var BaseView = require("../../BaseView");
 var TestService = require(__basedir + "/service/TestService");
+var DeptService = require(__basedir + "/service/deptService");
+var SupervisionService = require(__basedir + "/service/supervisionService");
+var DictionaryService = require(__basedir + "/service/dictionaryService");
 
 
 var Utils = VRender.Utils;
@@ -128,6 +131,41 @@ var officeList = [{
         tenantName: "绍兴市交通运输局"
     }
 }];
+var officeList2 = [{
+    bean: {
+        officeCode: null,
+        officeName: "市铁办",
+        parentId: null,
+        rootId: 0,
+        leaderId: 15,
+        tenantName: 1,
+        id: 27,
+        createdBy: "",
+        createdDate: null,
+        updatedBy: "",
+        updatedDate: "2017-03-01 12:05:57"
+    },
+    caption: {
+        tenantName: "绍兴市交通运输局"
+    }
+}, {
+    bean: {
+        officeCode: null,
+        officeName: "综合交通指挥中心",
+        parentId: null,
+        rootId: 0,
+        leaderId: 15,
+        tenantName: 1,
+        id: 28,
+        createdBy: "",
+        createdDate: null,
+        updatedBy: "",
+        updatedDate: "2017-03-01 12:05:57"
+    },
+    caption: {
+        tenantName: "绍兴市交通运输局"
+    }
+}];
 
 
 var unfinishedEditView = BaseView.extend(module, {
@@ -138,7 +176,7 @@ var unfinishedEditView = BaseView.extend(module, {
         unfinishedEditView.__super__.doInit.call(this);
 
         var params = {session: this.getSession(), orderId: parseInt(this.options.params.id)};
-        var callbacks = [this.getOrderType, this.getOffice, this.getOrderInfo];
+        var callbacks = [this.getOrderType, this.getCompanyOffice, this.getOrderInfo];//前一个方法的callback就是后一个方法的参数
         Utils.exec(this, callbacks, params, function () {
             this.ready("supervision.edit");
         });
@@ -146,19 +184,35 @@ var unfinishedEditView = BaseView.extend(module, {
 
     getOrderType: function (params, callback) {
         var self = this;
-        TestService.getSingers(params.session, null, function (err, ret) {
-            self.singers = ret;
+        DictionaryService.orderType(params.session, null, function (err, ret) {
+            var types = [];
+            Utils.each(ret.options, function (_type) {
+                types.push(_type.value);
+            });
+            self.orderType = types;
             callback(false, params);
         });
     },
-    getOffice: function (params, callback) {
+    getCompanyOffice: function (params, callback) {
         var self = this;
-        TestService.getSingers(params.session, null, function (err, ret) {
-            self.singers = ret;
-            callback(false, params);
-        });
-    },
+        Utils.exec(this,[getCompany, getOffice], params, function (err) {
 
+                callback(false);
+        });
+        self.getCompany = function () {
+            DeptService.companyList(params.session, null, function (err, ret) {
+                self.companyList = ret;
+                callback(false, self.companyList);
+            });
+        };
+        self.getOffice =function () {
+            DeptService.companyList(params.session, null, function (err, ret) {
+                self.companyList = ret;
+                callback(false, self.companyList);
+            });
+        }
+
+    },
     getOrderInfo: function (params, callback) {
         if (params.orderId) {
             var self = this;
@@ -170,10 +224,6 @@ var unfinishedEditView = BaseView.extend(module, {
         else {
             callback(false, params);
         }
-    },
-
-    getViewData: function () {
-        return this.orderInfo;
     },
 
     renderView: function () {
@@ -196,8 +246,8 @@ var unfinishedEditView = BaseView.extend(module, {
             maxSize: 400, multi: true, width: 500, value: order.content
         }));
 
-        this.renderItem(form, "singer", "歌手", new UICombobox(this, {
-            prompt: "请选择任务类型", data: this.singers, selectedId: order.singerId
+        this.renderItem(form, "type", "类型", new UICombobox(this, {
+            prompt: "请选择任务类型", data: this.orderType
         }));
 
         this.renderItem(form, "deadline", "截止日期", new UIDateInput(this, {min: Date()}));
@@ -213,11 +263,11 @@ var unfinishedEditView = BaseView.extend(module, {
 
     getOfficeView: function () {
         var company = new UIGroup(this, {gap: 10});
-        Utils.each(companyList, function (_company) {
+        Utils.each(this.companyList, function (_company) {
             var item = company.addChild(new UIGroup(this));
             item.append("<p>" + _company.bean.name + " -&gt;</p>");
             Utils.each(officeList, function (_office) {
-                item.append(new UICheckbox(this, {label: _office.bean.officeName, value: _office.bean.id}));
+                item.append(new UICheckbox(this, {label: _office.bean.officeName, value: _office.bean.tenantName+"-"+_office.bean.id}));
             });
         });
         return company;

@@ -34,7 +34,6 @@ var UnfinishedDetailView = BaseView.extend(module, {
             self.orderInfo = ret.info;
             self.taskList = ret.task;
             self.attach = ret.attach;
-            console.log('<ret>',ret);
             callback(false, params);
         });
     },
