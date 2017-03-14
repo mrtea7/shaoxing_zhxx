@@ -5,6 +5,7 @@
  *      sup.send                    派发
  *      sup.recall                  撤回
  *      sup.delete                  删除主任务
+ *      sup.accept                  接收任务
  *      sup.feedback                回复任务
  *
  *      分页查询
@@ -34,6 +35,8 @@ SupervisionService.do = function (session, name, data, callback) {
         SupervisionService.recall(session, data, callback);
     else if (name === "sup.delete")
         SupervisionService.delete(session, data, callback);
+    else if (name === "sup.accept")
+        SupervisionService.accept(session, data, callback);
     else if (name === "sup.feedback")
         SupervisionService.feedback(session, data, callback);
     else if (name === "sup.page.send")
@@ -60,7 +63,8 @@ SupervisionService.create = function (session, data, callback) {
     });
 };
 SupervisionService.send = function (session, data, callback) {
-    session.fetch("/dcdbWorkorder/sendDcdbWorkOrder", data, function (err, ret) {
+    var postData = {jsonStr: JSON.stringify(data)};
+    session.fetch("/dcdbWorkorder/sendDcdbWorkOrder", postData, function (err, ret) {
         if (err)
             callback(err);
         else {
@@ -69,7 +73,7 @@ SupervisionService.send = function (session, data, callback) {
     });
 };
 SupervisionService.recall = function (session, data, callback) {
-    session.fetch("/dcdbWorkorder/recall?dcdbId=" + data.dcdbId, data, function (err, ret) {
+    session.fetch("/dcdbWorkorder/recall?dcdbId=" + data.id, null, function (err, ret) {
         if (err)
             callback(err);
         else {
@@ -78,7 +82,16 @@ SupervisionService.recall = function (session, data, callback) {
     });
 };
 SupervisionService.delete = function (session, data, callback) {
-    session.fetch("/dcdbWorkorder/delWorkOrder?dcdbId=" + data.dcdbId, data, function (err, ret) {
+    session.fetch("/dcdbWorkorder/delWorkOrder?dcdbId=" + data.id, data, function (err, ret) {
+        if (err)
+            callback(err);
+        else {
+            callback(false, ret);
+        }
+    });
+};
+SupervisionService.accept = function (session, data, callback) {
+    session.fetch("/dcdbWorkorderTask/receive?dcdbTaskId=" + data.id, data, function (err, ret) {
         if (err)
             callback(err);
         else {
@@ -87,7 +100,8 @@ SupervisionService.delete = function (session, data, callback) {
     });
 };
 SupervisionService.feedback = function (session, data, callback) {
-    session.fetch("/dcdbWorkorderTask/feedback", data, function (err, ret) {
+    var postData = {jsonStr: JSON.stringify(data)};
+    session.fetch("/dcdbWorkorderTask/feedback", postData, function (err, ret) {
         if (err)
             callback(err);
         else {
@@ -96,20 +110,32 @@ SupervisionService.feedback = function (session, data, callback) {
     });
 };
 SupervisionService.pageSend = function (session, data, callback) {
-    session.fetch("/dcdbWorkorder/querySendPage?taskStatus=" + data.taskStatus + "&isOverdue=" + data.isOverdue, data, function (err, ret) {
+    var url = "/dcdbWorkorder/querySendPage?rows=" + data.rows + "&page=" + data.page;
+    if (data.taskStatus)
+        url += "&taskStatus=" + data.taskStatus;
+    if (data.isOverdue)
+        url += "&isOverdue=" + data.isOverdue;
+    session.fetch(url, function (err, ret) {
         if (err)
             callback(err);
         else {
-            callback(false, _formatPageSend(ret));
+            callback(false, _formatPage(ret, "send"));
         }
     });
 };
 SupervisionService.pageReceive = function (session, data, callback) {
-    session.fetch("/dcdbWorkorder/querySendPage?taskStatus=" + data.taskStatus, data, function (err, ret) {
+    var url = "/dcdbWorkorder/queryReceivePage?rows=" + data.rows + "&page=" + data.page;
+    if (data.taskStatus===0)
+        url += "&taskStatus=" + data.taskStatus;
+    if (data.taskStatus)
+        url += "&taskStatus=" + data.taskStatus;
+    if (data.isOverdue)
+        url += "&isOverdue=" + data.isOverdue;
+    session.fetch(url, function (err, ret) {
         if (err)
             callback(err);
         else {
-            callback(false, ret);
+            callback(false, _formatPage(ret, "receive"));
         }
     });
 };
@@ -124,31 +150,36 @@ SupervisionService.detailSend = function (session, data, callback) {
     });
 };
 SupervisionService.detailReceive = function (session, data, callback) {
-    session.fetch("/dcdbWorkorder/querySendPage?taskStatus=" + data.taskStatus + "&isOverdue=" + data.isOverdue, data, function (err, ret) {
+    session.fetch("/dcdbWorkorderTask/queryWorkOrderDetail?dcdbTaskId=" + data, function (err, ret) {
         if (err)
             callback(err);
         else {
-            callback(false, ret);
+            var list = _formatReceiveDetail(ret);
+            callback(false, list);
         }
     });
 };
 //////////////////////////////////////////////////////
-var _formatPageSend = function (data) {
-    var _list = [];
-    for (var i = 0; i < data.length; i++) {
+var _formatPage = function (data, type) {
+    var _list = {total: data.total, rows: []};
+    for (var i = 0; i < data.rows.length; i++) {
         var item = {};
-        item.id = data[i].bean.id;
-        item.title = data[i].bean.title;
-        item.content = data[i].bean.content;
-        item.deadline = data[i].bean.deadline;
-        item.status = data[i].caption.taskStatus;
-        _list.push(item)
+        if (type === "send")
+            item.id = data.rows[i].bean.id;
+        if (type === "receive")
+            item.workOrderTaskId = data.rows[i].bean.workOrderTaskId;
+        item.title = data.rows[i].bean.title;
+        item.content = data.rows[i].bean.content;
+        item.deadline = data.rows[i].bean.deadline;
+        item.status = data.rows[i].caption.taskStatus;
+        _list.rows.push(item)
     }
     return _list;
 };
 var _formatSendDetail = function (data) {
-    var _detail = {info:{},attach: [], task: []};
+    var _detail = {info: {}, attach: [], task: []};
     _detail.info = data.bean;
+    _detail.info.taskStatus = data.caption.taskStatus;
     var bean = data.bean;
     if (bean.dcdbWorkorderAttach.length > 0)
         for (var i = 0; i < bean.dcdbWorkorderAttach.length; i++) {
@@ -161,8 +192,30 @@ var _formatSendDetail = function (data) {
         var taskItem = {};
         taskItem.dept = bean.dcdbWorkorderTaskList[j].officeName;
         taskItem.feedback = bean.dcdbWorkorderTaskList[j].feedback;
+        taskItem.taskAttach = "文件";
         taskItem.completionTime = bean.dcdbWorkorderTaskList[j].completionTime;
         _detail.task.push(taskItem)
     }
+    return _detail;
+};
+var _formatReceiveDetail = function (data) {
+    var _detail = {info: {}, attach: [], task: []};
+    _detail.info = data.bean.dcdbWorkorderInfoBean;
+    var bean = data.bean;
+    if (bean.dcdbWorkorderAttaches.length > 0)
+        for (var i = 0; i < bean.dcdbWorkorderAttaches.length; i++) {
+            var attachItem = {};
+            attachItem.originalFilename = bean.dcdbWorkorderAttaches[i].originalFilename;
+            attachItem.id = bean.dcdbWorkorderAttaches[i].id;
+            _detail.attach.push(attachItem)
+        }
+    // for (var j = 0; j < bean.dcdbWorkorderTaskList.length; j++) {
+    //     var taskItem = {};
+    //     taskItem.dept = bean.dcdbWorkorderTaskList[j].officeName;
+    //     taskItem.feedback = bean.dcdbWorkorderTaskList[j].feedback;
+    //     taskItem.taskAttach = "文件";
+    //     taskItem.completionTime = bean.dcdbWorkorderTaskList[j].completionTime;
+    //     _detail.task.push(taskItem)
+    // }
     return _detail;
 };

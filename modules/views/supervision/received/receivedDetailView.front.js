@@ -9,6 +9,16 @@ define(function ($, VR, Utils, FileUploader) {
     var taskview = $(".taskview");
     var listview = $(".listview");
     var listView = VR.Component.Datagrid.find(view)[0];
+    // listView && listView.setColumnRenderer(function (name, data) { console.log("===", data);
+    //  if (name === "taskAttach")
+    //     return "<a name='download'>下载附件</a>";
+    //  });
+    /*listView && listView.setRowStyleFunction(function (data) {
+     if (data.status === "未确认")
+     return "row-warn";
+     if (data.status === "已超期")
+     return "row-error";
+     });*/
 
     view.on("click", ".tabsbar > .tab ", function (e) {
         var selectedTab = $(e.currentTarget);
@@ -21,15 +31,6 @@ define(function ($, VR, Utils, FileUploader) {
     });
     $(".downloadAttach").on("click", function (e) {
         var attachId = e.currentTarget.id;
-        VR.post("file.download", {id:attachId}, function (err, ret) {
-            if (err)
-                alert("下载失败");
-            else
-                alert("下载成功")
-        });
-    });
-    $(".downloadTask").on("click", function (e) {
-        var attachId = e.currentTarget.id;
         VR.post("file.upload", attachId, function (err, ret) {
             if (err)
                 alert("下载失败");
@@ -38,42 +39,22 @@ define(function ($, VR, Utils, FileUploader) {
         });
     });
 
-    $(".optBtn .edit").on("click", function (e) {
-        var id = e.currentTarget.id;
-        showEditView(id);
-    });
-    $(".optBtn .recall").on("click", function (e) {
-        var id = e.currentTarget.id;
-        VR.post("sup.recall", {id: id}, function (err, ret) {
-            if (err)
-                alert("撤回失败");
-            else
-                alert("成功撤回");
-        })
-    });
-    $(".optBtn .delete").on("click", function (e) {
-        var id = e.currentTarget.id;
-        VR.post("sup.delete", {id: id}, function (err, ret) {
-            if (err)
-                alert("删除失败");
-            else
-                alert("成功删除");
-        })
+    $(".optBtn .feedback").on("click", function (e) {
+        showEditView( e.currentTarget);
     });
 
     var showEditView = function (data) {
-        var moduleUrl = "/module/supervision/unfinished/edit";
+        var moduleUrl = "/module/supervision/received/edit";
         if (data)
             moduleUrl += "?id=" + data.id;
 
-        console.log('<moduleUrl>', moduleUrl);
         var dialog = VR.Component.Dialog.create({
-            title: "督查督办 > 编辑",
+            title: "督查督办 > 反馈回复",
             module: moduleUrl,
-            buttons: [{name: "save", label: "保存"}, {name: "submit", label: "确定"}, {name: "cancel", label: "取消"}]
+            buttons: [{name: "submit", label: "确定",id:data.id}, {name: "cancel", label: "取消"}]
         });
 
-        dialog.on("view_submit", function (e) {
+        dialog.on("view_submit", function (e,params) {
             listView.reload();
         });
     };

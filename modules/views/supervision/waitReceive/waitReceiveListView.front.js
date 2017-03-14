@@ -3,7 +3,7 @@
  *********************************************************/
 
 define(function ($, VR, Utils) {
-    var view = $(".view-supervision-unfinished");
+    var view = $(".view-supervision-wait-receive");
 
     var listView = VR.Component.Datagrid.find(view)[0];
 
@@ -11,12 +11,8 @@ define(function ($, VR, Utils) {
     ///////////////////////////////////////////////////////
     // 点击行，显示详情页面
     listView && listView.on("itemclick", function (e, data) {
-        frame.showDetails("/module/supervision/exceedTime/detail", {id: data.id});
+        frame.showDetails("/module/supervision/waitReceive/detail", {taskId: data.workOrderTaskId});
     });
-// listView && listView.setColumnRenderer(function (name, data) { console.log("===", data);
-//      if (name === "taskAttach")
-//         return "<a class='download'>下载附件</a>";
-//      });
 
     view.on("mousedown", ".download", function (e) {
         showEditView();
@@ -32,7 +28,7 @@ define(function ($, VR, Utils) {
 
     ///////////////////////////////////////////////////////
     var showEditView = function (data) {
-        var moduleUrl = "/module/supervision/exceedTime/edit";
+        var moduleUrl = "/module/supervision/waitReceive/edit";
         var operation = "新建";
         var dialog = VR.Component.Dialog.create({
             title: "督查督办 > " + operation,

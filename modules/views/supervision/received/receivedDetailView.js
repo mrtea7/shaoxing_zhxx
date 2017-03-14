@@ -6,7 +6,6 @@ var VRender = require("v-render");
 var BaseView = require("../../BaseView");
 var TestService = require(__basedir + "/service/TestService");
 var SupervisionService = require(__basedir + "/service/supervisionService");
-var FileService = require(__basedir + "/service/fileService");
 
 var Utils = VRender.Utils;
 var UIDatagrid = VRender.UIDatagrid;
@@ -15,23 +14,23 @@ var UIGroup = VRender.UIGroup;
 var UIHGroup = VRender.UIHGroup;
 var UIPaginator = VRender.UIPaginator;
 
-var UnfinishedDetailView = BaseView.extend(module, {
+var WaitReceiveDetailView = BaseView.extend(module, {
     className: "view-supervision-detail",
     readyCode: "view.supervision.detail",
 
     doInit: function () {
-        UnfinishedDetailView.__super__.doInit.call(this);
+        WaitReceiveDetailView.__super__.doInit.call(this);
 
         var self = this;
-        var params = {session: this.getSession(), unfinishedId: parseInt(this.options.params.id)};
-        var callbacks = [this.getDetail];
-        Utils.exec(this, callbacks, params, function () {
+        self.params = {session: this.getSession(), taskId: parseInt(this.options.params.taskId)};
+        var callbacks = [ this.getDetail];
+        Utils.exec(this, callbacks, self.params, function () {
             self.ready("view.supervision.detail");
         });
     },
     getDetail: function (params, callback) {
         var self = this;
-        SupervisionService.detailSend(params.session, params.unfinishedId, function (err, ret) {
+        SupervisionService.detailReceive(params.session, params.taskId, function (err, ret) {
             self.orderInfo = ret.info;
             self.taskList = ret.task;
             self.attach = ret.attach;
@@ -39,7 +38,7 @@ var UnfinishedDetailView = BaseView.extend(module, {
         });
     },
     renderView: function (target) {
-        UnfinishedDetailView.__super__.renderView.call(this);
+        WaitReceiveDetailView.__super__.renderView.call(this);
         this.$el.addClass("supervision-unfinished-detail");
         this.renderHeaderView(this.$el);
         this.renderBodyView(this.$el);
@@ -56,18 +55,14 @@ var UnfinishedDetailView = BaseView.extend(module, {
     renderBodyView: function (target) {
         var detailContent = target.appendAndGet("<div class='detail-body'></div>");
         this.renderTaskView(detailContent);
-        this.renderListView(detailContent);
+        // this.renderListView(detailContent);
 
     },
     renderFootView: function (target) {
         var detailFoot = target.appendAndGet("<div class='detail-foot'></div>");
-        var btnGroup = new UIHGroup(this, {gap: 10});
-        if (this.orderInfo.taskStatus == "草稿" || this.orderInfo.taskStatus == "撤回") {
-            btnGroup.append(new UIButton(this, {label: "编辑", style: 'edit ui-btn-primary', id: this.orderInfo.id}));
-            btnGroup.append(new UIButton(this, {label: "删除", style: 'delete ui-btn-primary', id: this.orderInfo.id}));
-        }
-        else if (this.orderInfo.taskStatus == "办理中")
-            btnGroup.append(new UIButton(this, {label: "撤回", style: 'recall ui-btn-primary', id: this.orderInfo.id}));
+        var btnGroup = new UIGroup(this, {gap: 10});
+        btnGroup.addChild(new UIHGroup(this, {gap: 10}))
+            .append(new UIButton(this, {label: "办理", style: 'feedback ui-btn-primary', id: this.params.taskId}));
         var optBtn = VRender.$("<div class='optBtn'></div>").appendTo(detailFoot);
         if (Utils.isNotBlank(btnGroup)) {
             new UIGroup(this, {cls: "preview"}).append(btnGroup).render(optBtn);
@@ -86,43 +81,6 @@ var UnfinishedDetailView = BaseView.extend(module, {
         for (var i = 1; i < this.attach.length + 1; i++) {
             taskview.write("<div> 附件" + i + "：<a class='downloadAttach' id='" + this.attach[i - 1].id + "'>" + this.attach[i - 1].originalFilename + "</a></div>");
         }
-    },
-    renderListView: function (target) {
-        // var listView = target.appendAndGet("<div id='listview' class='hide'></div>");
-        var listView = target.appendAndGet("<div id='listview'></div>");
-
-        var list = this.getListView(this.taskList);
-
-        if (list) {
-            if (list instanceof VRender.UIView)
-                list.render(listView);
-            else
-                listView.append(list);
-        }
-    },
-    getListView: function (datas) {
-        // console.log('<datas>',datas);
-        var grid = new UIDatagrid(this, {empty: '列表为空'});
-        var columns = [];
-        columns.push({name: "dept", title: "科室"});
-        columns.push({name: "feedback", title: "回复内容"});
-        columns.push({name: "completionTime", title: "提交时间"});
-        columns.push({name: "taskAttach", title: "附件"});
-        grid.setColumns(Utils.toArray(columns));
-
-        // grid.setApiName('test.send.detail');
-        // grid.setApiParams('');
-
-        if (datas.length > 0) {
-            var a = 3
-            grid.setViewData(Utils.map(datas, function (temp) {
-                temp.taskAttach = "<a id='" + a + "'>下载附件</a>";
-                return temp;
-            }));
-            grid.setAutoLoad(false);
-        }
-
-        return grid;
     }
 
 });

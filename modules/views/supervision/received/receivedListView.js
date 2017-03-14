@@ -8,21 +8,21 @@ var ModuleListView = require("../../templates/ModuleListView");
 
 var Utils = VRender.Utils;
 
-var UnfinishedListView = ModuleListView.extend(module, {
-    className: "view-supervision-unfinished",
+var WaitReceiveListView = ModuleListView.extend(module, {
+    className: "view-supervision-wait-receive",
 
     doInit: function () {
-        UnfinishedListView.__super__.doInit.call(this);
+        WaitReceiveListView.__super__.doInit.call(this);
         this.options.rows = 10;
     },
 
     getTitle: function () {
-        return "未完成";
+        return "已接收";
     },
 
     getTopButtons: function () {
         var buttons = [];
-        buttons.push({name: "create", label: "新建任务", icon: "icon-jiankong"});
+        // buttons.push({name: "create", label: "新建任务", icon: "icon-jiankong"});
         // buttons.push({name: "delete", label: "删除任务", icon: "icon-jiankong"});
         return buttons;
     },
@@ -38,11 +38,11 @@ var UnfinishedListView = ModuleListView.extend(module, {
     },
 
     getListApiName: function () {
-        return "sup.page.send";
+        return "sup.page.receive";
         // return "test.data.sup_unfinished_list";
     },
     getListApiParams: function () {
-        var param = {taskStatus: 14, isOverdue: 0};
+        var param = {taskStatus: 1};
         return param;
     }
 });

@@ -4,9 +4,10 @@
 
 define("frame", function ($, VR, Utils) {
     if (window.frame)
-        return ;
+        return;
 
-    var frame = window.frame = function () {};
+    var frame = window.frame = function () {
+    };
 
     // 当前主页视图
     var mainView = null;
@@ -128,18 +129,111 @@ define("frame", function ($, VR, Utils) {
     frame.tooltip = function (msg, type, delay, callback) {
 
     };
+    // 确认对话框
+    frame.confirm = function (options) {
+        if (typeof options === "string")
+            options = {text: options};
+        options = options || {};
 
+        var wrapper = $("<div class='mfh-confirm-wrapper'></div>").appendTo("body");
+        target = $("<div class='mfh-confirm'></div>").appendTo(wrapper).addClass(options.type || "warn");
+        $("<div class='title'></div>").appendTo(target).text(options.title || "请确认！");
+        var content = $("<div class='content'></div>").appendTo(target);
+        $("<div class='caption'></div>").appendTo(content).append(options.content || options.text);
+        $("<div class='desc'></div>").appendTo(content).append(options.remark || options.description || options.desc);
+        var buttons = Utils.toArray(options.buttons);
+        if (buttons.length === 0)
+            buttons = [{name: "yes", label: "是"}, {name: "no", label: "否"}];
+        var btns = $("<div class='btns'></div>").appendTo(target).addClass("btns" + buttons.length);
+        Utils.each(buttons, function (temp) {
+            $("<button></button>").appendTo(btns).text(temp.label).attr("name", temp.name);
+        });
+        target.append("<span class='close'></span>");
+
+        body.children("#main-body").addClass("blur");
+
+        var handler = {
+            done: function (value) {
+                if (Utils.isFunction(value))
+                    this.doneHandler = value;
+                else {
+                    if (Utils.isFunction(this.doneHandler))
+                        this.doneHandler();
+                    this.btnclk(value);
+                }
+                return this;
+            },
+
+            cancel: function (value) {
+                if (Utils.isFunction(value))
+                    this.cancelHandler = value;
+                else {
+                    if (Utils.isFunction(this.cancelHandler))
+                        this.cancelHandler();
+                    this.btnclk(value);
+                }
+                return this;
+            },
+
+            btnclk: function (value) {
+                if (Utils.isFunction(value))
+                    this.buttonHandler = value;
+                else {
+                    if (Utils.isFunction(this.buttonHandler))
+                        this.buttonHandler(value);
+                    wrapper.remove();
+                    body.children("#main-body").removeClass("blur");
+                }
+                return this;
+            }
+        };
+
+        target.on("click", ".close, .btns > button", function (e) {
+            var btn = $(e.currentTarget), name = btn.attr("name");
+            if (btn.is(".close"))
+                name = "close";
+            if (name == "yes" || name == "ok" || name == "submit")
+                handler.done(name);
+            else if (name == "no" || name == "cancel" || name == "close")
+                handler.cancel(name);
+            else
+                handler.btnclk(name);
+        });
+
+        return handler;
+    };
     ///////////////////////////////////////////////////////
     frame.showDetails = function (url, params, callback) {
         if (mainView && Utils.isFunction(mainView.showDetails))
             mainView.showDetails(url, params, callback);
     };
 
+    VR.Component.dataAdapter = function (data) {
+        if (Utils.notNull(data)) {
+            var total = parseInt(data.total || 0);
+            if (Utils.isArray(data)) {
+                total = data.length;
+            }
+            else {
+                data = data.rows || data.options || data.codeValueList || data;
+            }
+            data = Utils.map(Utils.toArray(data), function (temp) {
+                if (temp.caption && temp.bean)
+                    return $.extend({origin: temp}, temp.bean, temp.caption);
+                return temp.bean || temp;
+            });
+            return {total: total, results: data};
+        }
+        return data;
+    };
+
     ///////////////////////////////////////////////////////
     $(function () {
         frame.currentRouter = getRouterByUrl(window.location.href);
 
-        requirejs("mainview", function (View) { mainView = View; });
+        requirejs("mainview", function (View) {
+            mainView = View;
+        });
     });
 
 });

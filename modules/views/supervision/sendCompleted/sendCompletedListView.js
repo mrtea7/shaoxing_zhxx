@@ -17,12 +17,12 @@ var UnfinishedListView = ModuleListView.extend(module, {
     },
 
     getTitle: function () {
-        return "未完成";
+        return "已完成";
     },
 
     getTopButtons: function () {
         var buttons = [];
-        buttons.push({name: "create", label: "新建任务", icon: "icon-jiankong"});
+        // buttons.push({name: "create", label: "新建任务", icon: "icon-jiankong"});
         // buttons.push({name: "delete", label: "删除任务", icon: "icon-jiankong"});
         return buttons;
     },
@@ -39,10 +39,9 @@ var UnfinishedListView = ModuleListView.extend(module, {
 
     getListApiName: function () {
         return "sup.page.send";
-        // return "test.data.sup_unfinished_list";
     },
     getListApiParams: function () {
-        var param = {taskStatus: 14, isOverdue: 0};
+        var param = {taskStatus: 1};
         return param;
     }
 });

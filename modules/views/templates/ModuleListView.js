@@ -136,7 +136,6 @@ var ModuleListView = BaseView.extend(module, {
 		var grid = new UIDatagrid(this, {/*chkbox: true, multi: true,*/empty: '暂无数据'});
 
 		grid.setColumns(Utils.toArray(this.getColumns()));
-
 		grid.setApiName(this.getListApiName());
 		grid.setApiParams(this.getListApiParams());
 

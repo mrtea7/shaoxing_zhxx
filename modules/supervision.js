@@ -18,8 +18,6 @@ var SupervisionModule = ModuleBase.extend(module, {
             return this.getSupervisionReceivedView(module, action, params);
         else if (/receiveCompleted/.test(action))//已完成 办理人员
             return this.getSupervisionReceiveCompletedView(module, action, params);
-        else if (/waitSendWorkOrder/.test(action))//待派发 派发人员
-            return this.getSupervisionWaitSendWorkOrderView(module, action, params);
         else if (/unfinished/.test(action))//未完成 派发人员
             return this.getSupervisionUnfinishedView(module, action, params);
         else if (/sendCompleted/.test(action))//已完成 派发人员
@@ -31,30 +29,30 @@ var SupervisionModule = ModuleBase.extend(module, {
     getSupervisionWaitReceiveView: function (module, action, params) {
         return this.getCurrentModuleView(function (mview) {
             if (action === "waitReceive.detail")
-                return __dirname + "/views/supervision/waitReceive/unfinishedDetailView";
+                return __dirname + "/views/supervision/waitReceive/waitReceiveDetailView";
             if (action === "waitReceive.edit")
-                return __dirname + "/views/supervision/waitReceive/unfinishedEditView";
-            return __dirname + "/views/supervision/waitReceive/unfinishedListView";
+                return __dirname + "/views/supervision/waitReceive/waitReceiveEditView";
+            return __dirname + "/views/supervision/waitReceive/waitReceiveListView";
         });
     },
     ///////////////////////////////////////////////////////
     getSupervisionReceiveCompletedView: function (module, action, params) {
         return this.getCurrentModuleView(function (mview) {
-            if (action === "unfinished.detail")
-                return __dirname + "/views/supervision/receiveCompleted/unfinishedDetailView";
-            if (action === "unfinished.edit")
-                return __dirname + "/views/supervision/receiveCompleted/unfinishedEditView";
-            return __dirname + "/views/supervision/receiveCompleted/unfinishedListView";
+            if (action === "receiveCompleted.detail")
+                return __dirname + "/views/supervision/receiveCompleted/receiveCompletedDetailView";
+            if (action === "receiveCompleted.edit")
+                return __dirname + "/views/supervision/receiveCompleted/receiveCompletedEditView";
+            return __dirname + "/views/supervision/receiveCompleted/receiveCompletedListView";
         });
     },
     ///////////////////////////////////////////////////////
     getSupervisionReceivedView: function (module, action, params) {
         return this.getCurrentModuleView(function (mview) {
             if (action === "received.detail")
-                return __dirname + "/views/supervision/received/unfinishedDetailView";
+                return __dirname + "/views/supervision/received/receivedDetailView";
             if (action === "received.edit")
-                return __dirname + "/views/supervision/received/unfinishedEditView";
-            return __dirname + "/views/supervision/received/unfinishedListView";
+                return __dirname + "/views/supervision/received/receivedEditView";
+            return __dirname + "/views/supervision/received/receivedListView";
         });
     },
     ///////////////////////////////////////////////////////
@@ -70,11 +68,11 @@ var SupervisionModule = ModuleBase.extend(module, {
     ///////////////////////////////////////////////////////
     getSupervisionSendCompletedView: function (module, action, params) {
         return this.getCurrentModuleView(function (mview) {
-            if (action === "unfinished.detail")
-                return __dirname + "/views/supervision/sendCompleted/unfinishedDetailView";
-            if (action === "unfinished.edit")
-                return __dirname + "/views/supervision/sendCompleted/unfinishedEditView";
-            return __dirname + "/views/supervision/sendCompleted/unfinishedListView";
+            if (action === "sendCompleted.detail")
+                return __dirname + "/views/supervision/sendCompleted/sendCompletedDetailView";
+            if (action === "sendCompleted.edit")
+                return __dirname + "/views/supervision/sendCompleted/sendCompletedEditView";
+            return __dirname + "/views/supervision/sendCompleted/sendCompletedListView";
         });
     },
     ///////////////////////////////////////////////////////
@@ -85,14 +83,6 @@ var SupervisionModule = ModuleBase.extend(module, {
             if (action === "exceedTime.edit")
                 return __dirname + "/views/supervision/exceedTime/exceedTimeEditView";
             return __dirname + "/views/supervision/exceedTime/exceedTimeListView";
-        });
-    },
-    ///////////////////////////////////////////////////////
-    getSupervisionWaitSendWorkOrderView: function (module, action, params) {
-        return this.getCurrentModuleView(function (mview) {
-            if (action === "waitSendWorkOrder.edit")
-                return __dirname + "/views/supervision/waitSend/waitSendEditView";
-            return __dirname + "/views/supervision/waitSend/waitSendListView";
         });
     }
 });

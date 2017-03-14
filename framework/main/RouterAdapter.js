@@ -93,7 +93,7 @@ var isUserValidate = function (params, callback) {
             callback("invalid", err);
         }
         else
-        callback("logged", ret);
+            callback(false, ret);
     });
 };
 
@@ -101,18 +101,23 @@ var isUserValidate = function (params, callback) {
 var tryUserInfo = function (params, callback) {
     // callback(false, params);
     var session = params.session;
-    session.fetch("/sysCommonHuman/getCurrentUserInfo", function (err, ret) {
-        if (err) {
-            callback(err);
-        }
-        else {
-            session.set("user_data", ret);
-            session.set("user_name", ret.userName);
-            var user_menus = _getFormatUser(ret);
-            session.set("user_menus", user_menus);
-            callback(false, ret);
-        }
-    });
+    if (!session.get("user_data")) {
+        session.fetch("/sysCommonHuman/getCurrentUserInfo", function (err, ret) {
+            if (err) {
+                callback(err);
+            }
+            else {
+                session.set("user_data", ret);
+                session.set("user_name", ret.userName);
+                var user_menus = _getFormatUser(ret);
+                session.set("user_menus", user_menus);
+                callback(false, ret);
+            }
+        });
+    }
+    else {
+        callback(false);
+    }
 };
 var _getFormatUser = function (data) {
     var menus = data.menus;

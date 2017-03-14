@@ -92,5 +92,5 @@ var MainView = VRender.SinglePageView.extend(module, {
     }
 });
 
-MainView.import(["/css/base.css", "/css/main.css", "/css/iconfont.css"], {group: "main", index: 0});
+MainView.import(["/css/base.css", "/css/main.css", "/css/iconfont.css","/css/frame.css"], {group: "main", index: 0});
 MainView.import(["../../frame.js", "/js/main.js"], {group: "main", index: 0});

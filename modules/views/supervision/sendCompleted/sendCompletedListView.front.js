@@ -11,7 +11,7 @@ define(function ($, VR, Utils) {
     ///////////////////////////////////////////////////////
     // 点击行，显示详情页面
     listView && listView.on("itemclick", function (e, data) {
-        frame.showDetails("/module/supervision/exceedTime/detail", {id: data.id});
+        frame.showDetails("/module/supervision/sendCompleted/detail", {id: data.id});
     });
 // listView && listView.setColumnRenderer(function (name, data) { console.log("===", data);
 //      if (name === "taskAttach")
@@ -32,7 +32,7 @@ define(function ($, VR, Utils) {
 
     ///////////////////////////////////////////////////////
     var showEditView = function (data) {
-        var moduleUrl = "/module/supervision/exceedTime/edit";
+        var moduleUrl = "/module/supervision/sendCompleted/edit";
         var operation = "新建";
         var dialog = VR.Component.Dialog.create({
             title: "督查督办 > " + operation,

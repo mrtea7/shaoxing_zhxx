@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/dcdbWorkorderAttach/upload" method="post" enctype="multipart/form-data">
+        文件：<input type="file" name="fileToUpload"/><br/>
+        <input type="hidden" name="dcdbId" value="69"/>
+        <input type="hidden" name="description" value="附件描述信息"/>
+        <input type="hidden" name="fileType" value="1"/>
+        <input type="hidden" name="fileOrder" value="1"/>
+        <input type="submit" value="提交"/>
+    </form>
+</body>
+</html>

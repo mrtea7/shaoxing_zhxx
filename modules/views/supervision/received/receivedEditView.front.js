@@ -7,11 +7,8 @@ define(function ($, VR, Utils) {
 
     var view = $(".view-supervision-edit");
     var moduleView = view.parent().parent();
-    var orderInfo = view.data("viewData"); console.log(orderInfo);
-
     var uploader = null;
     var tempFileName = null;
-
     ///////////////////////////////////////////////////////
     view.on("click", ".attachbtn", function () {
         if (!uploader) {
@@ -26,12 +23,15 @@ define(function ($, VR, Utils) {
             view.find("dl.attach").append("<div class='fileinfos'>" + file.name + "</div>");
             tempFileName = file.name;
         }
+
     };
     var doFileUploadAndImport = function (id, fileName) {
         if (uploader && uploader.hasFileSelected()) {
-            uploader.upload("/dcdbWorkorderAttach/upload", {dcdbId: id, fileToUpload: fileName}, function (err, ret) {
+            console.log('<{dcdbId: id, fileToUpload: fileName}>', {dcdbTaskId: id, fileToUpload: fileName});
+            uploader.upload("/dcdbWorkorderTaskAttach/upload", {dcdbTaskId: id, fileToUpload: fileName}, function (err, ret) {
+                console.log("<fileUpload>", err, ret);
                 if (err) {
-                     return alert("上传出错")
+                    alert("上传出错")
                 }
                 else {
                     alert("上传成功");
@@ -43,25 +43,14 @@ define(function ($, VR, Utils) {
         }
     };
 
-    moduleView.on("dialog_save", function (e) {
-        var data = getValidateData();
-        VR.post("sup.create", data, function (err, ret) {
-            console.log('<ret>',ret);
-            if (err)
-                return alert("保存出错啦");
-            else
-                doFileUploadAndImport(ret, tempFileName);
-            moduleView.trigger("submit_to_dialog");
-        });
-    });
     moduleView.on("dialog_submit", function (e) {
         var data = getValidateData();
-        VR.post("sup.send", data, function (err, ret) {
-            console.log('<ret>',ret);
+        console.log('<data>',data);
+        VR.post("sup.feedback", data, function (err, ret) {
             if (err)
                 return alert("保存出错啦");
             else
-                doFileUploadAndImport(ret, tempFileName);
+                // doFileUploadAndImport(ret, tempFileName);
             moduleView.trigger("submit_to_dialog");
         });
     });
@@ -69,30 +58,12 @@ define(function ($, VR, Utils) {
     ///////////////////////////////////////////////////////
     var getValidateData = function () {
         var data = {};
-
-        data.title = view.find("dl.title input").val();
-        if (Utils.isBlank(data.title)) {
-            alert("请输入标题");
-            return false;
-        }
-
-        data.content = view.find("dl.content textarea").val();
-        if (Utils.isBlank(data.content)) {
+        data.id = 218;
+        data.feedback = view.find("dl.content textarea").val();
+        if (Utils.isBlank(data.feedback)) {
             alert("请输入内容");
             return false;
         }
-
-        data.orderType = VR.Component.Combobox.find(view.find("dl.type"))[0].getSelectedData().label;
-
-        data.dcdbWorkorderTaskList = Utils.map(view.find("dl.office input:checked"), function (input) {
-            {
-                var selectedOffice = input.val().split('-');
-                return {tenantName: selectedOffice[0], officeId: selectedOffice[1]};
-            }
-        });
-        data.deadline = VR.Component.DateInput.find(view.find("dl.deadline"))[0];
-        data.deadline = data.deadline && data.deadline.getDate(); // 暂不支持格式化参数
-        data.deadline = data.deadline && Utils.toDateString(data.deadline, "yyyy-MM-dd HH:mm:ss");
 
         return data;
     };
