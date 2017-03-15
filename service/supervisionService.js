@@ -2,6 +2,7 @@
  * 督查督办服务类
  *
  *      sup.create                  添加
+ *      sup.update                  修改
  *      sup.send                    派发
  *      sup.recall                  撤回
  *      sup.delete                  删除主任务
@@ -29,6 +30,8 @@ var SupervisionService = module.exports;
 SupervisionService.do = function (session, name, data, callback) {
     if (name === "sup.create")
         SupervisionService.create(session, data, callback);
+    else if (name === "sup.update")
+        SupervisionService.update(session, data, callback);
     else if (name === "sup.send")
         SupervisionService.send(session, data, callback);
     else if (name === "sup.recall")
@@ -55,6 +58,16 @@ SupervisionService.do = function (session, name, data, callback) {
 SupervisionService.create = function (session, data, callback) {
     var postData = {jsonStr: JSON.stringify(data)};
     session.fetch("/dcdbWorkorder/createDcdbWorkOrder", postData, function (err, ret) {
+        if (err)
+            callback(err);
+        else {
+            callback(false, ret);
+        }
+    });
+};
+SupervisionService.update = function (session, data, callback) {
+    var postData = {jsonStr: JSON.stringify(data)};
+    session.fetch("/dcdbWorkorder/updateDcdbWorkOrder", postData, function (err, ret) {
         if (err)
             callback(err);
         else {
@@ -125,7 +138,7 @@ SupervisionService.pageSend = function (session, data, callback) {
 };
 SupervisionService.pageReceive = function (session, data, callback) {
     var url = "/dcdbWorkorder/queryReceivePage?rows=" + data.rows + "&page=" + data.page;
-    if (data.taskStatus===0)
+    if (data.taskStatus === 0)
         url += "&taskStatus=" + data.taskStatus;
     if (data.taskStatus)
         url += "&taskStatus=" + data.taskStatus;
@@ -192,8 +205,12 @@ var _formatSendDetail = function (data) {
         var taskItem = {};
         taskItem.dept = bean.dcdbWorkorderTaskList[j].officeName;
         taskItem.feedback = bean.dcdbWorkorderTaskList[j].feedback;
-        taskItem.taskAttach = "文件";
+        taskItem.taskAttachList = bean.dcdbWorkorderTaskList[j].workorderTaskAttachList;
+        if (taskItem.taskAttachList.length == 0)
+            taskItem.hasTaskAttach = false;
+        else taskItem.hasTaskAttach = true;
         taskItem.completionTime = bean.dcdbWorkorderTaskList[j].completionTime;
+        taskItem.isOverdue = bean.dcdbWorkorderTaskList[j].isOverdue;
         _detail.task.push(taskItem)
     }
     return _detail;

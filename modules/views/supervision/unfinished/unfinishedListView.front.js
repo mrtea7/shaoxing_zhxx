@@ -31,13 +31,13 @@ define(function ($, VR, Utils) {
     });
 
     ///////////////////////////////////////////////////////
-    var showEditView = function (data) {
+    var showEditView = function () {
         var moduleUrl = "/module/supervision/unfinished/edit";
-        var operation = "新建";
+
         var dialog = VR.Component.Dialog.create({
-            title: "督查督办 > " + operation,
+            title: "督查督办 > 新建",
             module: moduleUrl,
-            buttons: [{name: "save", label: "保存"}, {name: "submit", label: "确定"}, {name: "cancel", label: "取消"}]
+            buttons: [{name: "save", label: "保存"}, {name: "submit", label: "发送"}, {name: "cancel", label: "取消"}]
         });
 
         dialog.on("view_submit", function (e) {

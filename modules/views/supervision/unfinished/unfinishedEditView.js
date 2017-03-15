@@ -534,25 +534,32 @@ var unfinishedEditView = BaseView.extend(module, {
 
     doInit: function () {
         unfinishedEditView.__super__.doInit.call(this);
+        var self =this;
         var params = {session: this.getSession(), orderId: parseInt(this.options.params.id)};
-        console.log('<params.orderId>',params.orderId);
+        self.orderId = params.orderId;
         var callbacks = [this.getOrderInfo, this.getOrderType, this.getCompany, this.getOffice];//前一个方法的callback就是后一个方法的参数
         Utils.exec(this, callbacks, params, function (err, ret) {
             this.ready("supervision.edit");
         });
     },
     getOrderInfo: function (params, callback) {
-        if (params.orderId) {
-            var self = this;
-            TestService.getById(params.session, params.orderId, function (err, ret) {
-                self.orderInfo = !err ? ret : null;
-                callback(err, params);
+        var self = this;
+        self.orderInfo = {};
+        if (!isNaN(params.orderId)) {
+            SupervisionService.detailSend(params.session, params.orderId, function (err, ret) {
+                if (err)
+                    console.log("getOrderInfo出错了");
+                else {
+                    self.orderInfo.base = ret.info;
+                    self.orderInfo.taskList = ret.task;
+                    self.orderInfo.attach = ret.attach;
+                    callback(false, params);
+                }
             });
         }
-        else {
-            callback(false, params);
-        }
+        else callback(false, params);
     },
+
     getOrderType: function (params, callback) {
         var self = this;
         DictionaryService.orderType(params.session, null, function (err, ret) {
@@ -586,16 +593,16 @@ var unfinishedEditView = BaseView.extend(module, {
             });
         });
     },
-
+    getViewData: function () {
+        return this.orderId;
+    },
     renderView: function () {
         unfinishedEditView.__super__.renderView.call(this);
 
         var form = this.$el.appendAndGet("<div class='form'></div>");
 
-        var order = this.orderInfo || {};
-
-        if (order.id)
-            this.renderItem(form, "name", "编号", "<p>" + order.id + "</p>");
+        var order = this.orderInfo.base || {};
+        console.log('<order>', order);
 
         this.renderItem(form, "title", "标题", new UITextView(this, {
             required: true, empty: "请输入标题，标题不能为空",
@@ -611,7 +618,7 @@ var unfinishedEditView = BaseView.extend(module, {
             prompt: "请选择任务类型", data: this.orderType
         }));
 
-        this.renderItem(form, "deadline", "截止日期", new UIDateInput(this, {min: Date()}));
+        this.renderItem(form, "deadline", "截止日期", new UIDateInput(this, {date: order.deadline, min: Date()}));
 
         this.renderItem(form, "attach", "附件", new UIButton(this, {
             cls: "attachbtn", label: '点击上传', style: 'ui-btn-success'

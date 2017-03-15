@@ -6,19 +6,13 @@ define(function ($, VR, Utils, FileUploader) {
     // var FileUploader = ;
 
     var view = $(".view-supervision-detail");
+    var orderInfo = view.data("viewData");
+    console.log('<orderInfo>',orderInfo);
+
+
     var taskview = $(".taskview");
     var listview = $(".listview");
     var listView = VR.Component.Datagrid.find(view)[0];
-    // listView && listView.setColumnRenderer(function (name, data) { console.log("===", data);
-    //  if (name === "taskAttach")
-    //     return "<a name='download'>下载附件</a>";
-    //  });
-    /*listView && listView.setRowStyleFunction(function (data) {
-     if (data.status === "未确认")
-     return "row-warn";
-     if (data.status === "已超期")
-     return "row-error";
-     });*/
 
     view.on("click", ".tabsbar > .tab ", function (e) {
         var selectedTab = $(e.currentTarget);
@@ -40,25 +34,24 @@ define(function ($, VR, Utils, FileUploader) {
     });
 
     $(".optBtn .accept").on("click", function (e) {
-        var id = e.currentTarget.id;
-        VR.post("sup.accept", {id: id}, function (err, ret) {
+        VR.post("sup.accept", {id: orderInfo.taskId}, function (err, ret) {
             if (err)
                 return  alert("接收失败");
             else
+                showEditView(orderInfo);
                 alert("成功接收");
         })
     });
 
     var showEditView = function (data) {
-        var moduleUrl = "/module/supervision/waitReceive/edit";
+        var moduleUrl = "/module/supervision/received/edit";
         if (data)
-            moduleUrl += "?id=" + data.id;
+            moduleUrl += "?id=" + data.taskId;
 
-        console.log('<moduleUrl>', moduleUrl);
         var dialog = VR.Component.Dialog.create({
             title: "督查督办 > 反馈",
             module: moduleUrl,
-            buttons: [{name: "submit", label: "确定"}, {name: "cancel", label: "取消"}]
+            buttons: [{name: "submit", label: "回复"}, {name: "cancel", label: "取消"}]
         });
 
         dialog.on("view_submit", function (e) {

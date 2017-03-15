@@ -13,84 +13,58 @@ var UIPaginator = VRender.UIPaginator;
 var WorkorderDetailView = BaseView.extend(module, {
     className: "view-workorder-detail",
     readyCode: "view.workorder.detail",
+
     doInit: function () {
         WorkorderDetailView.__super__.doInit.call(this);
 
         var self = this;
-        var params = {session: this.getSession(), unfinishedId: parseInt(this.options.params.id)};
-        var callbacks = [this.getInfosById, this.getDetail];
-        Utils.exec(this, callbacks, params, function () {
+
+        var orderId = parseInt(this.options.params.id) || 0;
+        TestService.getById(this.getSession(), orderId, function (err, ret) {
+            self.orderInfo = ret;
             self.ready("view.workorder.detail");
-        });
-        TestService.getBySupUnfinishedId(this.getSession(), params.unfinishedId, function (err, ret) {
-            self.unfinishedInfo = ret;
-            self.ready("view.workorder.detail");
-        });
-    },
-    getInfosById: function (params, callback) {
-        var self = this;
-        TestService.getBySupUnfinishedId(params.session, params.unfinishedId, function (err, ret) {
-            self.unfinishedInfo = ret;
-            callback(false, params);
-        });
-    },
-    getDetail: function (params, callback) {
-        var self = this;
-        TestService.getSupUnfinishedDetail(params.session, params.unfinishedId, function (err, ret) {
-            self.taskList = ret.task;
-            self.attach = ret.attach[0];
-            callback(false, params);
         });
     },
     renderView: function (target) {
         WorkorderDetailView.__super__.renderView.call(this);
-        this.$el.addClass("supervision-unfinished-detail");
+        // this.$el.write("<div>极力反对手机哦房间诶我费劲儿哦了</div>");
+        // this.$el.write(JSON.stringify(this.orderInfo));
+        this.$el.addClass("work-order-detail");
+        //
         this.renderHeaderView(this.$el);
-        this.renderBodyView(this.$el);
-        this.renderFootView(this.$el);
+        this.renderContentView(this.$el);
+        this.renderListView(this.$el);
     },
     renderHeaderView: function (target) {
-        var info = this.unfinishedInfo;
+        var info = this.orderInfo;
         var detailHead = target.appendAndGet("<div class='detail-head'></div>");
-        detailHead.write("<div class='title'>" + info.title + "</div>");
-        detailHead.write("<div class='deadline'><span class='item-key'>截止时间:</span><span class='item-value'>" + info.deadline + "</span></div>");
-        this.renderTabsView(detailHead);
+        detailHead.write("<a class='upbtn' >" + info.name + "</a>");
+        detailHead.write("<div class='title'>" + info.album + "</div>");
+        //分发部门
+        var detailContent = target.appendAndGet("<div class='detail-content'></div>");
+    },
+    renderContentView: function () {
 
-    },
-    renderBodyView: function (target) {
-        var detailContent = target.appendAndGet("<div class='detail-body'></div>");
-        this.renderTaskView(detailContent);
-        this.renderListView(detailContent);
-
-    },
-    renderFootView: function (target) {
-        var detailFoot = target.appendAndGet("<div class='detail-foot'></div>");
-        var btnGroup = new UIGroup(this, {gap: 10});
-        btnGroup.addChild(new UIHGroup(this, {gap: 10}))
-            .append(new UIButton(this, {label: "确定", type: "primary"}))
-            .append(new UIButton(this, {label: "返回", type: "primary"}));
-        var optBtn = VRender.$("<div class='optBtn'></div>").appendTo(detailFoot);
-        if (Utils.isNotBlank(btnGroup)) {
-            new UIGroup(this, {cls: "preview"}).append(btnGroup).render(optBtn);
-        }
-    },
-    /////////////////////////////////////////
-    renderTabsView: function (target) {
-        var tabsbar = target.appendAndGet("<div class='tabsbar'></div>");
-        tabsbar.write("<div class='tab selected' name='taskview'>任务详情</div>");
-        // tabsbar.write("<div class='tab' name='listview'>科室进度</div>");
-    },
-    renderTaskView: function (target) {
-
-        var taskview = target.appendAndGet("<div id='taskview' class='taskview'></div>");
-        taskview.write("<div> 内容：" + this.unfinishedInfo.content + "</div>");
-        taskview.write("<div> 附件：<a>" + this.attach.originalFilename + "</a></div>");
     },
     renderListView: function (target) {
-        // var listView = target.appendAndGet("<div id='listview' class='listview hide'></div>");
-        var listView = target.appendAndGet("<div id='listview' class='listview'></div>");
+        var listView = target.appendAndGet("<div class='listview'></div>");
+        var pageView = target.appendAndGet("<div class='pageview'></div>");
+        var self = this;
+        TestService.getArrayData(this.getSession(), '', function (err, ret) {
+            self.datas = ret;
+        });
+        var list = this.getListView(this.datas);
+        var pager = this.getPageView(this.datas);
 
-        var list = this.getListView(this.taskList);
+        if (pager) {
+            if (list && Utils.isFunction(list.setPaginator))
+                list.setPaginator(pager);
+
+            if (pager instanceof VRender.UIView)
+                pager.render(pageView);
+            else
+                pageView.append(pager);
+        }
 
         if (list) {
             if (this.searchView && UIView.isFunction(list.setSearcher))
@@ -103,25 +77,31 @@ var WorkorderDetailView = BaseView.extend(module, {
         }
     },
     getListView: function (datas) {
-        // console.log('<datas>',datas);
-        var grid = new UIDatagrid(this);
+        var grid = new UIDatagrid(this, {chkbox: true, multi: true});
         var columns = [];
-        columns.push({name: "dept", title: "科室"});
-        columns.push({name: "completionTime:", title: "提交时间"});
-        columns.push({name: "feedback:", title: "附件"});
+        columns.push({name: "name", title: "名称"});
+        columns.push({name: "singer", title: "歌手"});
+        columns.push({name: "album", title: "专辑"});
         columns.push({name: "op", title: "操作"});
         grid.setColumns(Utils.toArray(columns));
 
-        // grid.setApiName('test.send.detail');
-        // grid.setApiParams('');
-
-        if (datas.length > 0) {
-            grid.setViewData(datas);
-            grid.setAutoLoad(false);
-        }
+        grid.setApiName('test.data.array');
+        grid.setApiParams('');
+        // if (datas.length > 0) {
+        //     // grid.setViewData(datas);
+        //     grid.setAutoLoad(false);
+        // }
 
         return grid;
-    }
+    },
+
+    getPageView: function (datas) {
+        var pager = new UIPaginator(this, {status: true});
+        pager.setPageNo(parseInt(this.options.page) || 1);
+        pager.setPageSize(parseInt(this.options.rows) || 20);
+        pager.setTotalCount(datas ? datas.length : 0);
+        return pager;
+    },
 });
 
 WorkorderDetailView.import(__basedir + "/framework/components/form/FileUploader");

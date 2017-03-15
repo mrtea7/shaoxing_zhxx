@@ -22,20 +22,25 @@ var WaitReceiveDetailView = BaseView.extend(module, {
         WaitReceiveDetailView.__super__.doInit.call(this);
 
         var self = this;
-        self.params = {session: this.getSession(), taskId: parseInt(this.options.params.taskId)};
+        var params = {session: this.getSession(), taskId: parseInt(this.options.params.taskId)};
         var callbacks = [ this.getDetail];
-        Utils.exec(this, callbacks, self.params, function () {
+        Utils.exec(this, callbacks, params, function () {
             self.ready("view.supervision.detail");
         });
     },
     getDetail: function (params, callback) {
         var self = this;
+        self.orderInfo = {};
         SupervisionService.detailReceive(params.session, params.taskId, function (err, ret) {
-            self.orderInfo = ret.info;
-            self.taskList = ret.task;
-            self.attach = ret.attach;
+            self.orderInfo.base  = ret.info;
+            self.orderInfo.taskId  =  params.taskId;
+            self.orderInfo.taskList = ret.task;
+            self.orderInfo.attach = ret.attach;
             callback(false, params);
         });
+    },
+    getViewData: function () {
+        return this.orderInfo;
     },
     renderView: function (target) {
         WaitReceiveDetailView.__super__.renderView.call(this);
@@ -47,8 +52,8 @@ var WaitReceiveDetailView = BaseView.extend(module, {
     renderHeaderView: function (target) {
 
         var detailHead = target.appendAndGet("<div class='detail-head'></div>");
-        detailHead.write("<div class='title'>" + this.orderInfo.title + "</div>");
-        detailHead.write("<div class='deadline'><span class='item-key'>截止时间:</span><span class='item-value'>" + this.orderInfo.deadline + "</span></div>");
+        detailHead.write("<div class='title'>" + this.orderInfo.base.title + "</div>");
+        detailHead.write("<div class='deadline'><span class='item-key'>截止时间:</span><span class='item-value'>" + this.orderInfo.base.deadline + "</span></div>");
         this.renderTabsView(detailHead);
 
     },
@@ -62,7 +67,7 @@ var WaitReceiveDetailView = BaseView.extend(module, {
         var detailFoot = target.appendAndGet("<div class='detail-foot'></div>");
         var btnGroup = new UIGroup(this, {gap: 10});
         btnGroup.addChild(new UIHGroup(this, {gap: 10}))
-            .append(new UIButton(this, {label: "办理", style: 'feedback ui-btn-primary', id: this.params.taskId}));
+            .append(new UIButton(this, {label: "办理", style: 'feedback ui-btn-primary'}));
         var optBtn = VRender.$("<div class='optBtn'></div>").appendTo(detailFoot);
         if (Utils.isNotBlank(btnGroup)) {
             new UIGroup(this, {cls: "preview"}).append(btnGroup).render(optBtn);
@@ -77,12 +82,11 @@ var WaitReceiveDetailView = BaseView.extend(module, {
     },
     renderTaskView: function (target) {
         var taskview = target.appendAndGet("<div id='taskview'></div>");
-        taskview.write("<div> 内容：" + this.orderInfo.content + "</div>");
-        for (var i = 1; i < this.attach.length + 1; i++) {
-            taskview.write("<div> 附件" + i + "：<a class='downloadAttach' id='" + this.attach[i - 1].id + "'>" + this.attach[i - 1].originalFilename + "</a></div>");
+        taskview.write("<div> 内容：" + this.orderInfo.base.content + "</div>");
+        for (var i = 1; i < this.orderInfo.attach.length + 1; i++) {
+            taskview.write("<div> 附件" + i + "：<a class='downloadAttach' id='" + this.orderInfo.attach[i - 1].id + "'>" + this.orderInfo.attach[i - 1].originalFilename + "</a></div>");
         }
     }
-
 });
 
 // UnfinishedDetailView.import(__basedir + "/framework/components/form/FileUploader.js");

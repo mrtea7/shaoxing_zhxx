@@ -32,11 +32,15 @@ var UnfinishedDetailView = BaseView.extend(module, {
     getDetail: function (params, callback) {
         var self = this;
         SupervisionService.detailSend(params.session, params.unfinishedId, function (err, ret) {
-            self.orderInfo = ret.info;
-            self.taskList = ret.task;
-            self.attach = ret.attach;
+            self.orderInfo = {};
+            self.orderInfo.base = ret.info;
+            self.orderInfo.taskList = ret.task;
+            self.orderInfo.attach = ret.attach;
             callback(false, params);
         });
+    },
+    getViewData: function () {
+        return this.orderInfo;
     },
     renderView: function (target) {
         UnfinishedDetailView.__super__.renderView.call(this);
@@ -48,8 +52,8 @@ var UnfinishedDetailView = BaseView.extend(module, {
     renderHeaderView: function (target) {
 
         var detailHead = target.appendAndGet("<div class='detail-head'></div>");
-        detailHead.write("<div class='title'>" + this.orderInfo.title + "</div>");
-        detailHead.write("<div class='deadline'><span class='item-key'>截止时间:</span><span class='item-value'>" + this.orderInfo.deadline + "</span></div>");
+        detailHead.write("<div class='title'>" + this.orderInfo.base.title + "</div>");
+        detailHead.write("<div class='deadline'><span class='item-key'>截止时间:</span><span class='item-value'>" + this.orderInfo.base.deadline + "</span></div>");
         this.renderTabsView(detailHead);
 
     },
@@ -62,12 +66,13 @@ var UnfinishedDetailView = BaseView.extend(module, {
     renderFootView: function (target) {
         var detailFoot = target.appendAndGet("<div class='detail-foot'></div>");
         var btnGroup = new UIHGroup(this, {gap: 10});
-        if (this.orderInfo.taskStatus == "草稿" || this.orderInfo.taskStatus == "撤回") {
-            btnGroup.append(new UIButton(this, {label: "编辑", style: 'edit ui-btn-primary', id: this.orderInfo.id}));
-            btnGroup.append(new UIButton(this, {label: "删除", style: 'delete ui-btn-primary', id: this.orderInfo.id}));
+        if (this.orderInfo.base.taskStatus == "草稿" || this.orderInfo.base.taskStatus == "撤回") {
+            btnGroup.append(new UIButton(this, {label: "编辑", style: 'edit ui-btn-primary'}));
+            btnGroup.append(new UIButton(this, {label: "删除", style: 'delete ui-btn-primary'}));
         }
-        else if (this.orderInfo.taskStatus == "办理中")
-            btnGroup.append(new UIButton(this, {label: "撤回", style: 'recall ui-btn-primary', id: this.orderInfo.id}));
+        else if (this.orderInfo.base.taskStatus == "办理中")
+            btnGroup.append(new UIButton(this, {label: "撤回", style: 'recall ui-btn-primary'}));
+        btnGroup.append(new UIButton(this, {label: "返回", style: 'cancel'}));
         var optBtn = VRender.$("<div class='optBtn'></div>").appendTo(detailFoot);
         if (Utils.isNotBlank(btnGroup)) {
             new UIGroup(this, {cls: "preview"}).append(btnGroup).render(optBtn);
@@ -82,16 +87,16 @@ var UnfinishedDetailView = BaseView.extend(module, {
     },
     renderTaskView: function (target) {
         var taskview = target.appendAndGet("<div id='taskview'></div>");
-        taskview.write("<div> 内容：" + this.orderInfo.content + "</div>");
-        for (var i = 1; i < this.attach.length + 1; i++) {
-            taskview.write("<div> 附件" + i + "：<a class='downloadAttach' id='" + this.attach[i - 1].id + "'>" + this.attach[i - 1].originalFilename + "</a></div>");
+        taskview.write("<div> 内容：" + this.orderInfo.base.content + "</div>");
+        for (var i = 1; i < this.orderInfo.attach.length + 1; i++) {
+            taskview.write("<div> 附件" + i + "：<a class='downloadAttach' id='" + this.orderInfo.attach[i - 1].id + "'>" + this.orderInfo.attach[i - 1].originalFilename + "</a></div>");
         }
     },
     renderListView: function (target) {
         // var listView = target.appendAndGet("<div id='listview' class='hide'></div>");
         var listView = target.appendAndGet("<div id='listview'></div>");
 
-        var list = this.getListView(this.taskList);
+        var list = this.getListView(this.orderInfo.taskList);
 
         if (list) {
             if (list instanceof VRender.UIView)
@@ -101,7 +106,6 @@ var UnfinishedDetailView = BaseView.extend(module, {
         }
     },
     getListView: function (datas) {
-        // console.log('<datas>',datas);
         var grid = new UIDatagrid(this, {empty: '列表为空'});
         var columns = [];
         columns.push({name: "dept", title: "科室"});
@@ -114,9 +118,10 @@ var UnfinishedDetailView = BaseView.extend(module, {
         // grid.setApiParams('');
 
         if (datas.length > 0) {
-            var a = 3
+            var a = 3;
             grid.setViewData(Utils.map(datas, function (temp) {
-                temp.taskAttach = "<a id='" + a + "'>下载附件</a>";
+                if (temp.hasTaskAttach)
+                    temp.taskAttach = "<a id='" + a + "'>下载附件</a>";
                 return temp;
             }));
             grid.setAutoLoad(false);

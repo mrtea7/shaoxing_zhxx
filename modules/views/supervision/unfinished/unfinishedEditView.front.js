@@ -7,7 +7,7 @@ define(function ($, VR, Utils) {
 
     var view = $(".view-supervision-edit");
     var moduleView = view.parent().parent();
-    var orderInfo = view.data("viewData"); console.log(orderInfo);
+    var orderId = view.data("viewData");
 
     var uploader = null;
     var tempFileName = null;
@@ -31,7 +31,7 @@ define(function ($, VR, Utils) {
         if (uploader && uploader.hasFileSelected()) {
             uploader.upload("/dcdbWorkorderAttach/upload", {dcdbId: id, fileToUpload: fileName}, function (err, ret) {
                 if (err) {
-                     return alert("上传出错")
+                    return alert("上传出错")
                 }
                 else {
                     alert("上传成功");
@@ -45,19 +45,26 @@ define(function ($, VR, Utils) {
 
     moduleView.on("dialog_save", function (e) {
         var data = getValidateData();
-        VR.post("sup.create", data, function (err, ret) {
-            console.log('<ret>',ret);
-            if (err)
-                return alert("保存出错啦");
-            else
-                doFileUploadAndImport(ret, tempFileName);
-            moduleView.trigger("submit_to_dialog");
-        });
+        if (data.id)
+            VR.post("sup.update", data, function (err, ret) {
+                if (err)
+                    return alert("保存出错啦");
+                else
+                    doFileUploadAndImport(ret, tempFileName);
+                moduleView.trigger("submit_to_dialog");
+            });
+        else
+            VR.post("sup.create", data, function (err, ret) {
+                if (err)
+                    return alert("保存出错啦");
+                else
+                    doFileUploadAndImport(ret, tempFileName);
+                moduleView.trigger("submit_to_dialog");
+            });
     });
     moduleView.on("dialog_submit", function (e) {
         var data = getValidateData();
         VR.post("sup.send", data, function (err, ret) {
-            console.log('<ret>',ret);
             if (err)
                 return alert("保存出错啦");
             else
@@ -69,7 +76,8 @@ define(function ($, VR, Utils) {
     ///////////////////////////////////////////////////////
     var getValidateData = function () {
         var data = {};
-
+        if (orderId)
+            data.id = orderId;
         data.title = view.find("dl.title input").val();
         if (Utils.isBlank(data.title)) {
             alert("请输入标题");

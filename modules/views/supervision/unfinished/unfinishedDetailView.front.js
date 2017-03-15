@@ -6,6 +6,8 @@ define(function ($, VR, Utils, FileUploader) {
     // var FileUploader = ;
 
     var view = $(".view-supervision-detail");
+    var orderInfo = view.data("viewData");
+
     var taskview = $(".taskview");
     var listview = $(".listview");
     var listView = VR.Component.Datagrid.find(view)[0];
@@ -21,7 +23,7 @@ define(function ($, VR, Utils, FileUploader) {
     });
     $(".downloadAttach").on("click", function (e) {
         var attachId = e.currentTarget.id;
-        VR.post("file.download", {id:attachId}, function (err, ret) {
+        VR.post("file.download", {id: attachId}, function (err, ret) {
             if (err)
                 alert("下载失败");
             else
@@ -38,39 +40,49 @@ define(function ($, VR, Utils, FileUploader) {
         });
     });
 
+    var cancel = function () {
+        $("#main-body").removeClass("show-detail");
+    };
+
     $(".optBtn .edit").on("click", function (e) {
-        var id = e.currentTarget.id;
-        showEditView(id);
+        showEditView(orderInfo);
+    });
+
+    $(".optBtn .cancel").on("click", function (e) {
+        cancel();
     });
     $(".optBtn .recall").on("click", function (e) {
-        var id = e.currentTarget.id;
-        VR.post("sup.recall", {id: id}, function (err, ret) {
+        VR.post("sup.recall", {id: orderInfo.base.id}, function (err, ret) {
             if (err)
                 alert("撤回失败");
-            else
+            else {
+                listView.reload();
                 alert("成功撤回");
+            }
         })
     });
     $(".optBtn .delete").on("click", function (e) {
-        var id = e.currentTarget.id;
-        VR.post("sup.delete", {id: id}, function (err, ret) {
+        VR.post("sup.delete", {id: orderInfo.base.id}, function (err, ret) {
             if (err)
                 alert("删除失败");
             else
+            {
+                listView.reload();
+                cancel();
                 alert("成功删除");
+            }
         })
     });
 
     var showEditView = function (data) {
         var moduleUrl = "/module/supervision/unfinished/edit";
         if (data)
-            moduleUrl += "?id=" + data.id;
+            moduleUrl += "?id=" + data.base.id;//参数可以从session中拿到
 
-        console.log('<moduleUrl>', moduleUrl);
         var dialog = VR.Component.Dialog.create({
             title: "督查督办 > 编辑",
             module: moduleUrl,
-            buttons: [{name: "save", label: "保存"}, {name: "submit", label: "确定"}, {name: "cancel", label: "取消"}]
+            buttons: [{name: "save", label: "保存"}, {name: "submit", label: "发送"}, {name: "cancel", label: "取消"}]
         });
 
         dialog.on("view_submit", function (e) {

@@ -24,9 +24,9 @@ define(function ($, VR, Utils) {
 
 	///////////////////////////////////////////////////////
 	// 点击行，显示详情页面
-	listView && listView.on("itemclick", function (e, data) {
-		frame.showDetails("/module/workorder/orders/detail", {id: data.id});
-	});
+	// listView && listView.on("itemclick", function (e, data) {
+	// 	frame.showDetails("/module/workorder/orders/detail", {id: data.id});
+	// });
 
 	listView && listView.on("oper", function (e, name, data) {
 		if (name === "edit")
@@ -45,7 +45,7 @@ define(function ($, VR, Utils) {
 
 	///////////////////////////////////////////////////////
 	var showEditView = function (data) {
-		//todo moduleUrl是怎么匹配到具体js的？
+console.log('<data>',data);		
 		var moduleUrl = "/module/workorder/orders/edit";
 		if (data)
 			moduleUrl += "?id=" + data.id;
