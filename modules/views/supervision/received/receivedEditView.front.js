@@ -1,11 +1,11 @@
 /**********************************************************
- * 未完成新建
+ * 已接收办理
  *********************************************************/
 define(function ($, VR, Utils) {
-    var FileUploader = requirejs("mfh.FileUploader", function () {
-    });
+    var FileUploader = requirejs("mfh.FileUploader", function () {});
 
     var view = $(".view-supervision-edit");
+    var taskID = view.data("viewData");
     var moduleView = view.parent().parent();
     var uploader = null;
     var tempFileName = null;
@@ -27,14 +27,12 @@ define(function ($, VR, Utils) {
     };
     var doFileUploadAndImport = function (id, fileName) {
         if (uploader && uploader.hasFileSelected()) {
-            console.log('<{dcdbId: id, fileToUpload: fileName}>', {dcdbTaskId: id, fileToUpload: fileName});
-            uploader.upload("/dcdbWorkorderTaskAttach/upload", {dcdbTaskId: id, fileToUpload: fileName}, function (err, ret) {
-                console.log("<fileUpload>", err, ret);
+            uploader.upload("/upload/dcdbWorkorderTaskAttach/upload", {dcdbTaskId: id, fileToUpload: fileName,fileType:0,fileOrder:0}, function (err, ret) {
                 if (err) {
-                    alert("上传出错")
+                    frame.tooltip("上传出错:"+err)
                 }
                 else {
-                    alert("上传成功");
+                    frame.tooltip("上传成功","success");
                 }
             });
         }
@@ -48,9 +46,9 @@ define(function ($, VR, Utils) {
         console.log('<data>',data);
         VR.post("sup.feedback", data, function (err, ret) {
             if (err)
-                return alert("保存出错啦");
+                return frame.tooltip("保存出错啦:"+err);
             else
-                // doFileUploadAndImport(ret, tempFileName);
+                doFileUploadAndImport(taskID, tempFileName);
             moduleView.trigger("submit_to_dialog");
         });
     });
@@ -58,10 +56,10 @@ define(function ($, VR, Utils) {
     ///////////////////////////////////////////////////////
     var getValidateData = function () {
         var data = {};
-        data.id = 218;
+        data.id = taskID;
         data.feedback = view.find("dl.content textarea").val();
         if (Utils.isBlank(data.feedback)) {
-            alert("请输入内容");
+            frame.tooltip("请输入内容");
             return false;
         }
 

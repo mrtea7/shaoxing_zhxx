@@ -1,24 +1,16 @@
 /****************************
- * 未完成详情
+ * 已接收详情
  ****************************/
 
 define(function ($, VR, Utils, FileUploader) {
     // var FileUploader = ;
 
     var view = $(".view-supervision-detail");
+    var orderInfo = view.data("viewData");
+
     var taskview = $(".taskview");
     var listview = $(".listview");
-    var listView = VR.Component.Datagrid.find(view)[0];
-    // listView && listView.setColumnRenderer(function (name, data) { console.log("===", data);
-    //  if (name === "taskAttach")
-    //     return "<a name='download'>下载附件</a>";
-    //  });
-    /*listView && listView.setRowStyleFunction(function (data) {
-     if (data.status === "未确认")
-     return "row-warn";
-     if (data.status === "已超期")
-     return "row-error";
-     });*/
+    var listView = VR.Component.Datagrid.find($(".view-supervision-wait-receive"))[0];
 
     view.on("click", ".tabsbar > .tab ", function (e) {
         var selectedTab = $(e.currentTarget);
@@ -40,13 +32,13 @@ define(function ($, VR, Utils, FileUploader) {
     });
 
     $(".optBtn .feedback").on("click", function (e) {
-        showEditView( e.currentTarget);
+        showEditView(orderInfo);
     });
 
     var showEditView = function (data) {
         var moduleUrl = "/module/supervision/received/edit";
         if (data)
-            moduleUrl += "?id=" + data.id;
+            moduleUrl += "?id=" + data.taskId;
 
         var dialog = VR.Component.Dialog.create({
             title: "督查督办 > 反馈回复",

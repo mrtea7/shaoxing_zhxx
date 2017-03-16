@@ -44,7 +44,7 @@ var WaitReceiveDetailView = BaseView.extend(module, {
     },
     renderView: function (target) {
         WaitReceiveDetailView.__super__.renderView.call(this);
-        this.$el.addClass("supervision-unfinished-detail");
+        this.$el.addClass("supervision-wait-receive-detail");
         this.renderHeaderView(this.$el);
         this.renderBodyView(this.$el);
         this.renderFootView(this.$el);

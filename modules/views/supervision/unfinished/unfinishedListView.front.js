@@ -13,10 +13,6 @@ define(function ($, VR, Utils) {
     listView && listView.on("itemclick", function (e, data) {
         frame.showDetails("/module/supervision/unfinished/detail", {id: data.id});
     });
-// listView && listView.setColumnRenderer(function (name, data) { console.log("===", data);
-//      if (name === "taskAttach")
-//         return "<a class='download'>下载附件</a>";
-//      });
 
     view.on("mousedown", ".download", function (e) {
         showEditView();

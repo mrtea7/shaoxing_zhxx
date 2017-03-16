@@ -2,15 +2,14 @@
  * 未完成详情
  ****************************/
 
-define(function ($, VR, Utils, FileUploader) {
-    // var FileUploader = ;
+define(function ($, VR, Utils) {
 
     var view = $(".view-supervision-detail");
+    var listView = VR.Component.Datagrid.find($(".view-supervision-unfinished"))[0];
     var orderInfo = view.data("viewData");
 
     var taskview = $(".taskview");
     var listview = $(".listview");
-    var listView = VR.Component.Datagrid.find(view)[0];
 
     view.on("click", ".tabsbar > .tab ", function (e) {
         var selectedTab = $(e.currentTarget);
@@ -23,53 +22,50 @@ define(function ($, VR, Utils, FileUploader) {
     });
     $(".downloadAttach").on("click", function (e) {
         var attachId = e.currentTarget.id;
-        VR.post("file.download", {id: attachId}, function (err, ret) {
-            if (err)
-                alert("下载失败");
-            else
-                alert("下载成功")
-        });
+        window.open("/download/123.zip","_blank");
+        // VR.post("/download/dcdbWorkOrderAttachDown/download?id=" + attachId + "&clientType=1", function (err, ret) {
+        //     if (err)
+        //         frame.tooltip("下载失败:" + err);
+        //     else
+        //         frame.tooltip("下载成功", "success")
+        // });
     });
     $(".downloadTask").on("click", function (e) {
         var attachId = e.currentTarget.id;
         VR.post("file.upload", attachId, function (err, ret) {
             if (err)
-                alert("下载失败");
+                frame.tooltip("下载id:" + attachId + "子任务附件失败:" + err);
             else
-                alert("下载成功")
+                frame.tooltip("下载成功", "success")
         });
     });
-
-    var cancel = function () {
-        $("#main-body").removeClass("show-detail");
-    };
 
     $(".optBtn .edit").on("click", function (e) {
         showEditView(orderInfo);
     });
 
     $(".optBtn .cancel").on("click", function (e) {
-        cancel();
+        frame.hideDetails();
     });
     $(".optBtn .recall").on("click", function (e) {
         VR.post("sup.recall", {id: orderInfo.base.id}, function (err, ret) {
             if (err)
-                alert("撤回失败");
+                frame.tooltip("撤回" + orderInfo.base.id + "失败");
             else {
                 listView.reload();
-                alert("成功撤回");
+                frame.hideDetails();
+                frame.tooltip("成功撤回", "success");
             }
         })
     });
     $(".optBtn .delete").on("click", function (e) {
         VR.post("sup.delete", {id: orderInfo.base.id}, function (err, ret) {
             if (err)
-                alert("删除失败");
-            else
-            {
+                frame.tooltip("删除失败");
+            else {
                 listView.reload();
-                cancel();
-                alert("成功删除");
+                frame.hideDetails();
+                frame.tooltip("成功删除", "success");
             }
         })
     });

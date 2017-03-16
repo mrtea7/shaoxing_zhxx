@@ -3,7 +3,7 @@
  *********************************************************/
 
 define(function ($, VR, Utils) {
-    var view = $(".view-supervision-wait-receive");
+    var view = $(".view-supervision-received");
 
     var listView = VR.Component.Datagrid.find(view)[0];
 

@@ -1,18 +1,15 @@
 /****************************
- * 未完成详情
+ * 待接收详情
  ****************************/
 
-define(function ($, VR, Utils, FileUploader) {
-    // var FileUploader = ;
+define(function ($, VR, Utils) {
 
     var view = $(".view-supervision-detail");
     var orderInfo = view.data("viewData");
-    console.log('<orderInfo>',orderInfo);
-
 
     var taskview = $(".taskview");
     var listview = $(".listview");
-    var listView = VR.Component.Datagrid.find(view)[0];
+    var listView = VR.Component.Datagrid.find($(".view-supervision-wait-receive"))[0];
 
     view.on("click", ".tabsbar > .tab ", function (e) {
         var selectedTab = $(e.currentTarget);
@@ -27,19 +24,23 @@ define(function ($, VR, Utils, FileUploader) {
         var attachId = e.currentTarget.id;
         VR.post("file.upload", attachId, function (err, ret) {
             if (err)
-                alert("下载失败");
+                frame.tooltip("下载失败:" + err);
             else
-                alert("下载成功")
+                frame.tooltip("下载成功", "success")
         });
     });
 
     $(".optBtn .accept").on("click", function (e) {
         VR.post("sup.accept", {id: orderInfo.taskId}, function (err, ret) {
             if (err)
-                return  alert("接收失败");
-            else
-                showEditView(orderInfo);
-                alert("成功接收");
+                return alert("接收失败");
+            else {
+                frame.tooltip("接收成功", "success");
+                frame.confirm({text: "是否立即回复？", desc: "嘿嘿"}).done(function () {
+                    showEditView(orderInfo);
+                });
+
+            }
         })
     });
 

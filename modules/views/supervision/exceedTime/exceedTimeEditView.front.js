@@ -28,7 +28,7 @@ define(function ($, VR, Utils) {
     };
     var doFileUploadAndImport = function (fileName) {
         if (uploader && uploader.hasFileSelected()) {
-            uploader.upload("/dcdbWorkorderAttach/upload", {dcdbId: 69, fileToUpload:fileName}, function (err, ret) {
+            uploader.upload("/upload/dcdbWorkorderAttach/upload", {dcdbId: 69, fileToUpload:fileName}, function (err, ret) {
                 console.log("<fileUpload>", err, ret);
                 if (err) {
                     alert("上传出错")

@@ -102,10 +102,14 @@ define("mainview", function ($, VR, Utils) {
             });
         }, 0);
     };
+    var hideDetails = function () {
+        $("#main-body").removeClass("show-detail");
+    };
 
     ///////////////////////////////////////////////////////
     return {
-        showDetails: showDetails
+        showDetails: showDetails,
+        hideDetails:hideDetails
     };
 
 });

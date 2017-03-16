@@ -9,7 +9,7 @@ var ModuleListView = require("../../templates/ModuleListView");
 var Utils = VRender.Utils;
 
 var WaitReceiveListView = ModuleListView.extend(module, {
-    className: "view-supervision-wait-receive",
+    className: "view-supervision-received",
 
     doInit: function () {
         WaitReceiveListView.__super__.doInit.call(this);

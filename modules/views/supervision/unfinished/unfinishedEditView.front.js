@@ -6,6 +6,8 @@ define(function ($, VR, Utils) {
     });
 
     var view = $(".view-supervision-edit");
+    var listView = VR.Component.Datagrid.find($(".view-supervision-unfinished"))[0];
+
     var moduleView = view.parent().parent();
     var orderId = view.data("viewData");
 
@@ -31,10 +33,10 @@ define(function ($, VR, Utils) {
         if (uploader && uploader.hasFileSelected()) {
             uploader.upload("/dcdbWorkorderAttach/upload", {dcdbId: id, fileToUpload: fileName}, function (err, ret) {
                 if (err) {
-                    return alert("上传出错")
+                    return frame.tooltip("上传出错:"+err);
                 }
                 else {
-                    alert("上传成功");
+                    frame.tooltip("上传成功","success");
                 }
             });
         }
@@ -48,15 +50,16 @@ define(function ($, VR, Utils) {
         if (data.id)
             VR.post("sup.update", data, function (err, ret) {
                 if (err)
-                    return alert("保存出错啦");
+                    return frame.tooltip("修改失败:"+err);
                 else
                     doFileUploadAndImport(ret, tempFileName);
+                listView.reload();
                 moduleView.trigger("submit_to_dialog");
             });
         else
             VR.post("sup.create", data, function (err, ret) {
                 if (err)
-                    return alert("保存出错啦");
+                    return frame.tooltip("创建失败:"+err);
                 else
                     doFileUploadAndImport(ret, tempFileName);
                 moduleView.trigger("submit_to_dialog");
@@ -66,9 +69,10 @@ define(function ($, VR, Utils) {
         var data = getValidateData();
         VR.post("sup.send", data, function (err, ret) {
             if (err)
-                return alert("保存出错啦");
+                return frame.tooltip("发送失败:"+err);
             else
                 doFileUploadAndImport(ret, tempFileName);
+            listView.reload();
             moduleView.trigger("submit_to_dialog");
         });
     });
@@ -80,13 +84,13 @@ define(function ($, VR, Utils) {
             data.id = orderId;
         data.title = view.find("dl.title input").val();
         if (Utils.isBlank(data.title)) {
-            alert("请输入标题");
+            frame.tooltip("请输入标题");
             return false;
         }
 
         data.content = view.find("dl.content textarea").val();
         if (Utils.isBlank(data.content)) {
-            alert("请输入内容");
+            frame.tooltip("请输入内容");
             return false;
         }
 

@@ -216,7 +216,7 @@ var _formatSendDetail = function (data) {
     return _detail;
 };
 var _formatReceiveDetail = function (data) {
-    var _detail = {info: {}, attach: [], task: []};
+    var _detail = {info: {}, attach: [], task: [],taskAttaches:[]};
     _detail.info = data.bean.dcdbWorkorderInfoBean;
     var bean = data.bean;
     if (bean.dcdbWorkorderAttaches.length > 0)
@@ -226,13 +226,11 @@ var _formatReceiveDetail = function (data) {
             attachItem.id = bean.dcdbWorkorderAttaches[i].id;
             _detail.attach.push(attachItem)
         }
-    // for (var j = 0; j < bean.dcdbWorkorderTaskList.length; j++) {
-    //     var taskItem = {};
-    //     taskItem.dept = bean.dcdbWorkorderTaskList[j].officeName;
-    //     taskItem.feedback = bean.dcdbWorkorderTaskList[j].feedback;
-    //     taskItem.taskAttach = "文件";
-    //     taskItem.completionTime = bean.dcdbWorkorderTaskList[j].completionTime;
-    //     _detail.task.push(taskItem)
-    // }
+    for (var j = 0; j < bean.dcdbWorkorderTaskAttaches.length; j++) {
+        var taskAttachesItem = {};
+        taskAttachesItem.originalFilename = bean.dcdbWorkorderTaskAttaches[j].originalFilename;
+        taskAttachesItem.id = bean.dcdbWorkorderTaskAttaches[j].id;
+        _detail.taskAttaches.push(taskAttachesItem)
+    }
     return _detail;
 };

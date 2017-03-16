@@ -5,9 +5,10 @@
 define("frame", function ($, VR, Utils) {
     if (window.frame)
         return;
+    var body = $("body");
+    var tipTitle = {"success": "操作成功！", "error": "对不起，出错啦！", "warn": "警告！！"};
 
-    var frame = window.frame = function () {
-    };
+    var frame = window.frame = function () {};
 
     // 当前主页视图
     var mainView = null;
@@ -125,9 +126,44 @@ define("frame", function ($, VR, Utils) {
         return router;
     };
 
-    ///////////////////////////////////////////////////////
-    frame.tooltip = function (msg, type, delay, callback) {
+    // 提示信息，type有success, error, warn，默认是error
+    frame.tooltip = function (text, type, delay, closeHandler) {
+        if (typeof type !== "string")
+            type = Utils.isTrue(type) ? "success" : "error";
 
+        var view = $("<div id='app-tooltip'></div>").appendTo(body).addClass(Utils.isBlank(type) ? "error" : type);
+        var content = $("<div class='content'><span class='close'></span></div>").appendTo(view);
+        $("<div class='title'></div>").appendTo(content).text(tipTitle[type] || type || "温馨提示！！");
+        $("<div class='text'></div>").appendTo(content).html(text);
+
+        var startCloseTimer = function () {
+            return setTimeout(function() {
+                content.children(".close").trigger("click");
+            }, (delay || 3000));
+        };
+
+        var timerId = startCloseTimer();
+
+        content.children(".close").on("click", function (e) {
+            clearTimeout(timerId);
+            view.fadeOut("slow", function () { view.remove(); });
+            if (closeHandler && (typeof closeHandler === "function"))
+                closeHandler();
+        });
+
+        content.children(".text").on("click", function (e) {
+            view.toggleClass("fullmsg");
+        });
+
+        content.on("mouseenter", function (e) {
+            clearTimeout(timerId);
+        });
+
+        content.on("mouseleave", function (e) {
+            timerId = startCloseTimer();
+        });
+
+        return type === "success";
     };
     // 确认对话框
     frame.confirm = function (options) {
@@ -202,12 +238,36 @@ define("frame", function ($, VR, Utils) {
 
         return handler;
     };
+    //加载菊花
+    frame.waitting = function (target, style) {
+        target = $(target || "body");
+        target.children(".mfh-loading").remove();
+
+        var wait = $("<div class='mfh-loading'></div>").appendTo(target);
+        if (target.is("body")) {
+            $("html").addClass("ui-scrollless");
+            wait.addClass("mfh-loading-screen");
+        }
+        else
+            wait.addClass(style || "mfh-loading-cover");
+
+        return {
+            remove: function () {
+                wait.remove();
+                if (target.is("body"))
+                    $("html").removeClass("ui-scrollless");
+            }
+        };
+    };
     ///////////////////////////////////////////////////////
     frame.showDetails = function (url, params, callback) {
         if (mainView && Utils.isFunction(mainView.showDetails))
             mainView.showDetails(url, params, callback);
     };
-
+    frame.hideDetails = function () {
+        if (mainView && Utils.isFunction(mainView.hideDetails))
+            mainView.hideDetails();
+    };
     VR.Component.dataAdapter = function (data) {
         if (Utils.notNull(data)) {
             var total = parseInt(data.total || 0);

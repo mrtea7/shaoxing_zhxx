@@ -21,29 +21,29 @@ var UICombobox = VRender.UICombobox;
 var UIDateInput = VRender.UIDateInput;
 
 
-var unfinishedEditView = BaseView.extend(module, {
+var receivedEditView = BaseView.extend(module, {
     className: "view-supervision-edit",
     readyCode: "supervision.edit",
 
     doInit: function () {
-        unfinishedEditView.__super__.doInit.call(this);
-        this.params = {session: this.getSession(), orderId: parseInt(this.options.params.id)};
+        receivedEditView.__super__.doInit.call(this);
+        this.params = {session: this.getSession(), taskId: parseInt(this.options.params.id)};
 
         this.ready("supervision.edit");
     },
+    getViewData: function () {
+        return this.params.taskId;
+    },
     renderView: function () {
-        unfinishedEditView.__super__.renderView.call(this);
+        receivedEditView.__super__.renderView.call(this);
 
         var form = this.$el.appendAndGet("<div class='form'></div>");
 
-        var order = this.orderInfo || {};
-
-        if (order.id)
-            this.renderItem(form, "name", "编号", "<p>" + order.id + "</p>");
+        var task = {};
 
         this.renderItem(form, "content", "反馈内容", new UITextView(this, {
             required: true, empty: "请输入内容，内容不能为空",
-            maxSize: 400, multi: true, width: 500, value: order.content
+            maxSize: 400, multi: true, width: 500, value: task.content
         }));
 
         this.renderItem(form, "attach", "附件", new UIButton(this, {
@@ -66,6 +66,6 @@ var unfinishedEditView = BaseView.extend(module, {
     }
 });
 
-var FileUploader = unfinishedEditView.use(__basedir, "framework/components/form/FileUploader");
+var FileUploader = receivedEditView.use(__basedir, "framework/components/form/FileUploader");
 
 // unfinishedEditView.import("/framework/components/form/FileUploader.js");
