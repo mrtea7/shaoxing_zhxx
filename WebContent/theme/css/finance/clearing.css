@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+
+.view-account-rule-edt .rulesview > .typelist { position: absolute; top: 39px; right: 0px; width: 114px; 
+	border: 1px solid #ddd; background-color: #fff; display: none; z-index: 1; }
+.view-account-rule-edt .rulesview > .typelist > div { line-height: 30px; padding: 0px 0px 0px 10px; cursor: pointer; }
+.view-account-rule-edt .rulesview > .typelist > div:hover { background-color: #ddd; }
+
+.view-account-rule-edt .rulesview .rule-item { height: 40px; }
+.view-account-rule-edt .rulesview .rule-item:hover { background-color: #fcfcfc; }
+.view-account-rule-edt .rulesview .rule-item > .lbl { min-width: 320px; }
+.view-account-rule-edt .rulesview .rule-item > .ipt { width: 200px; }
+.view-account-rule-edt .rulesview .rule-item > .ipt > input { width: 100px; margin-right: 5px; }
+.view-account-rule-edt .rulesview .rule-item > .del { width: 100px; }
+.view-account-rule-edt .rulesview .add-account { line-height: 40px; }
+.view-account-rule-edt .rulesview .del-ruletype { position: absolute; top: 8px; right: 10px; display: none; }
+.view-account-rule-edt .rulesview .pnl-grp:hover .del-ruletype { display: block; }
+.view-account-rule-edt .rulesview .summary { position: absolute; right: 10px; bottom: 10px; }
+
+.view-account-rule-edt .view-account-sel { width: 260px; }
+.view-account-rule-edt .view-account-sel:before { left: 40px; }
+.view-account-rule-edt .view-account-sel:after { left: 40px; }
+.view-account-rule-edt .view-account-sel .departments { width: 100%; }
+.view-account-rule-edt .view-account-sel .roles { width: 100%; }
+
+
+.view-account-ruledetail .mfh-form > .mfh-form-r { padding-left: 260px; }
+.view-account-ruledetail .mfh-form > .mfh-form-r > dt { max-width: 250px; }

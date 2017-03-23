@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+
+.view-market-shop { padding-left: 90px; height: 100%; }
+.view-market-shop > .categorys { position: fixed; left: 0px; top: 0px; bottom: 0px; width: 90px; }
+.view-market-shop > .prolist { height: 100%; }
+.view-market-shop > .prolist > .ui-list > .content > *:last-child { padding-bottom: 80px; }
+.view-market-shop > .prolist > .ui-list > .content > ul > li:after { left: 10px; }
+.view-market-shop > .prolist .pro-item { padding: 6px 3px 6px 70px; height: 72px; }
+.view-market-shop > .prolist .pro-item > .proimg { position: absolute; width: 60px; height: 60px; left: 6px; top: 6px; }
+.view-market-shop > .prolist .pro-item > .name { font-size: 14px; max-height: 32px; min-height: 26px; 
+	line-height: 16px; overflow: hidden; margin-bottom: 5px; }
+.view-market-shop > .prolist .pro-item > .price { font-size: 12px; }
+.view-market-shop > .prolist .pro-item > .price > .val { color: #FF7000; }
+.view-market-shop > .prolist .pro-item > .price > .val > .val1 { font-size: 16px; }
+.view-market-shop > .prolist .pro-item > .price > .unit { color: rgba(0, 0, 0, 0.3); margin-left: 3px; }
+.view-market-shop > .prolist .pro-item > .count { position: absolute; right: 6px; bottom: 3px; }
+.view-market-shop > .prolist .pro-item > .count > .minus { width: 33px; height: 33px; padding: 8px 0px 0px 8px; display: none; }
+.view-market-shop > .prolist .pro-item > .count > .plus { width: 33px; height: 33px; padding: 8px 0px 0px 8px; }
+.view-market-shop > .prolist .pro-item > .count > .val { font-size: 12px; line-height: 21px; vertical-align: middle;
+	min-width: 26px; text-align: center; display: none; }
+.view-market-shop > .cart { position: fixed; display: block; right: 15px; bottom: 20px; width: 44px; height: 44px;
+	background-color: rgba(0, 0, 0, 0.8); border-radius: 100px; }
+.view-market-shop > .cart > .icon { opacity: 1; width: 20px; height: 20px; background-size: 20px; }
+.view-market-shop > .cart > .count { position: absolute; background-color: #f00; min-width: 16px; line-height: 16px; 
+	font-size: 12px; text-align: center; color: #fff; border-radius: 100px; top: -2px; right: -1px; padding: 0px 3px; display: none; }
+
+
+/*.view-market-shop > .prolist .pro-item > .count > .minus { transition: visibility 3s; -webkit-transition: visibility 3s; }*/
+
+
+
+
+
+
+

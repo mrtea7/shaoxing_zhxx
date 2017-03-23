@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.view-storage-pick { width: 600px; height: 260px; }
+.view-storage-pick > .ui-tabview { border: 0px; }
+.view-storage-pick .iptview { text-align: center; padding-top: 75px; }
+.view-storage-pick .iptview > input { width: 220px; }
+
+
+.view-storage-picklst > .human { margin: 0px 0px 10px; }
+.view-storage-picklst > .listview { margin: 10px 0px; }
+.view-storage-picklst > .listview .col-info div:first-child { margin-bottom: 3px; }
+
+

@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+
+/*********************************************************/
+/* frame */
+body.lanlj .ui-btn-primary { background-color: #007cc3; }
+body.lanlj .ui-btn-primary:not(.disabled):active { background-color: #0e6394; }
+body.lanlj .ui-btn-text.major { color: #007cc3; }
+body.lanlj .mfh-logo-bottom:after { background-image: url('/webroot/theme/lanlj/logo2.png'); }
+body.lanlj .mfh-qrcode { background-image: url('/webroot/theme/lanlj/qrcode.jpeg'); }
+body.lanlj .mfh-logo { background-image: url('/webroot/theme/lanlj/logo.png'); }
+
+
+/*********************************************************/
+/* pwd_dialog */
+body.lanlj .mfh-pwd-dialog > .content > div > .box > .head > .title > .logo { background-image: url('/webroot/theme/lanlj/logo.png'); }
+
+
+
+/*********************************************************/
+/* me */
+body.lanlj .view-me-index > .header > .infos { background-color: #007cc3; }
+
+
+
+
+

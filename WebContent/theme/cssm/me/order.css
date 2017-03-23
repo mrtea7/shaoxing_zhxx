@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+
+.view-me-order-list .order-item { padding: 0px !important; }
+.view-me-order-list .order-item > .group-title { line-height: 24px; background-color: #f0f0f0; padding-left: 12px; font-size: 14px; }
+.view-me-order-list .order-item > .content { width: 100%; color: #222; font-size: 14px; padding: 15px 5px 10px 65px; min-height: 65px; }
+.view-me-order-list .order-item > .content > .date { position: absolute; left: 10px; top: 15px; width: 40px; 
+	text-align: center; font-size: 12px; color: rgba(0, 0, 0, 0.5); }
+.view-me-order-list .order-item > .content > .date > .week { font-size: 14px; }
+.view-me-order-list .order-item > .content > .shop { position: absolute; top: 0px; right: 10px; font-size: 12px; 
+	color: rgba(0, 0, 0, 0.5); display: none; }
+
+.view-me-order-list .order-item > .shop { line-height: 38px; font-size: 14px; padding: 0px 90px 0px 12px; }
+.view-me-order-list .order-item > .shop:after { content: ""; position: absolute; width: 20px; height: 20px; right: 0px; top: 50%; 
+	margin-top: -10px; background-image: url('/theme/icons/ic/arrow_right.png'); background-size: 12px; background-repeat: no-repeat; 
+	background-position: center; }
+.view-me-order-list .order-item > .shop > .status { position: absolute; top: 0px; right: 20px; font-size: 12px; }
+.view-me-order-list .order-item > .shop > .status.unpay { color: #f00; }
+.view-me-order-list .order-item > .shop > .status.complete { color: #42C161; }
+.view-me-order-list .order-item > .shop > .status.cancel { color: #aaa; }
+.view-me-order-list .order-item > .shop > .status.buy { color: #ff6500; }
+.view-me-order-list .order-item > .shop > .status.send { color: #ff6500; }
+.view-me-order-list .order-item > .products { background-color: #f7f7f7; min-height: 20px; }
+.view-me-order-list .order-item > .products > .pro-item { padding: 3px 70px 3px 50px; font-size: 12px; min-height: 42px; }
+.view-me-order-list .order-item > .products > .pro-item:before { display: none; }
+.view-me-order-list .order-item > .products > .pro-item > .proimg { position: absolute; width: 36px; height: 36px; left: 10px; top: 3px; }
+.view-me-order-list .order-item > .products > .pro-item > .price { position: absolute; top: 3px; right: 5px; }
+.view-me-order-list .order-item > .products > .pro-item > .price > .unit { color: rgba(0, 0, 0, 0.65); }
+.view-me-order-list .order-item > .products > .pro-item > .count { position: absolute; top: 20px; right: 5px; color: rgba(0, 0, 0, 0.35); }
+.view-me-order-list .order-item > .summary { line-height: 32px; font-size: 12px; text-align: right; padding-right: 10px; }
+.view-me-order-list .order-item > .summary > .partners { position: absolute; height: 20px; font-size: 0px; left: 10px; top: 4px; }
+.view-me-order-list .order-item > .summary > .partners > img { width: 20px; height: 20px; border-radius: 100px; margin-right: 5px; }
+
+/*.view-me-order-list[vt=market] > .ui-list > .content { background-color: #ccc; }*/
+
+
+

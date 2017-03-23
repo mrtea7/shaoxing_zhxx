@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+
+.view-payment-edit[vt='1'] .mfh-form-r.amount { width: 25%; }
+.view-payment-edit[vt='1'] .mfh-form-r.refund { width: 25%; }
+.view-payment-edit[vt='1'] .mfh-form-r.prepay { width: 25%; }
+.view-payment-edit[vt='1'] .mfh-form-r.payamount { width: 25%; }
+
+
+.view-payment-edit > .view-provider-info { position: absolute; border: 1px solid #ddd; background-color: #fff; 
+	top: 270px; left: 105px; padding: 10px 20px; max-width: 360px; }
+.view-payment-edit > .view-provider-info > div { margin-bottom: 0px; padding-left: 90px; }

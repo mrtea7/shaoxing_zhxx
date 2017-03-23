@@ -32,7 +32,7 @@ var WaitReceiveDetailView = BaseView.extend(module, {
         var self = this;
         self.orderInfo = {};
         SupervisionService.detailReceive(params.session, params.taskId, function (err, ret) {
-            self.orderInfo.base  = ret.info;
+            self.orderInfo.base  = ret.base;
             self.orderInfo.taskId  =  params.taskId;
             self.orderInfo.taskList = ret.task;
             self.orderInfo.attach = ret.attach;

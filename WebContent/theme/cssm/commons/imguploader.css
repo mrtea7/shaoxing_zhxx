@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+
+.mfh-imguploader { padding: 0px 12px; margin-top: 10px; height: 200px; }
+.mfh-imguploader.single > .title { position: absolute; left: 12px; right: 12px; top: 0px; bottom: 0px; 
+	text-align: center; font-size: 14px; color: #ccc; padding-top: 135px; background-color: #ebebeb; 
+	background-image: url('/theme/img/image_bg.png'); background-position: center; 
+	background-repeat: no-repeat; background-size: 50px; z-index: 1; }
+.mfh-imguploader.single > .title:before { border-style: dashed; }
+.mfh-imguploader.single > img { width: 100%; height: 100%; }
+
+.mfh-imguploader.multi { background-color: #fff; padding-top: 10px; padding-bottom: 10px; height: auto; }
+.mfh-imguploader.multi > .title { line-height: 24px; margin-bottom: 6px; }
+.mfh-imguploader.multi > .imgview { font-size: 0px; }
+.mfh-imguploader.multi > .imgview > .imgs { display: inline-block; }
+.mfh-imguploader.multi > .imgview > .imgs > img { width: 64px; height: 64px; margin-right: 9px; 
+	margin-bottom: 9px; vertical-align: top; }
+.mfh-imguploader.multi > .imgview > .imgs > .browser { display: inline-block; width: 64px; height: 64px; 
+	background-image: url('/theme/img/photo.png'); background-size: 100%; vertical-align: top; }
+
+
+

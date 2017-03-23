@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+.shop-card-lnkipt { display: inline-block; width: 400px; }
+.shop-card-lnkipt > input { width: 100%; }
+.shop-card-lnkipt > .toolbar { position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; padding: 3px 0px 0px 56px; }
+.shop-card-lnkipt > .toolbar .btn { background-color: rgba(0, 0, 0, .15); color: #fff; line-height: 26px; 
+	padding: 0px 10px; margin-right: 5px; cursor: pointer; min-width: 75px; text-align: center; }
+.shop-card-lnkipt > .toolbar .btn:hover { background-color: rgba(0, 0, 0, .35); }
+.shop-card-lnkipt > .toolbar > .custom { padding-right: 15px; width: 85px; }
+.shop-card-lnkipt > .toolbar > .custom:after { content: ""; position: absolute; border: 0px solid transparent;
+    border-width: 5px 4px 0px 4px; border-top-color: #fff; top: 10px; right: 6px; }
+.shop-card-lnkipt > .toolbar > .custom > .more { position: absolute; z-index: 1; background-color: #ddd;
+	top: 0px; left: 0px; width: 85px; display: none; }
+.shop-card-lnkipt > .toolbar > .custom > .more > .btn { padding: 0px; margin: 0px; width: 100%; }
+.shop-card-lnkipt > .toolbar > .custom:focus > .more { display: block; }
+.shop-card-lnkipt > .clear { position: absolute; width: 26px; height: 30px; top: 1px; right: 1px; 
+	cursor: pointer; background-image: url('/theme/icons/ic/close2.png'); background-size: 16px; 
+	background-position: center; background-repeat: no-repeat; display: none; }
+.shop-card-lnkipt.effect > .toolbar { display: none; }
+.shop-card-lnkipt.effect:hover > input { padding-right: 30px; }
+.shop-card-lnkipt.effect:hover > .clear { display: block; }
+

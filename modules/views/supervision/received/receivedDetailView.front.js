@@ -10,7 +10,7 @@ define(function ($, VR, Utils, FileUploader) {
 
     var taskview = $(".taskview");
     var listview = $(".listview");
-    var listView = VR.Component.Datagrid.find($(".view-supervision-wait-receive"))[0];
+    var listView = VR.Component.Datagrid.find($(".view-supervision-received"))[0];
 
     view.on("click", ".tabsbar > .tab ", function (e) {
         var selectedTab = $(e.currentTarget);
@@ -23,12 +23,7 @@ define(function ($, VR, Utils, FileUploader) {
     });
     $(".downloadAttach").on("click", function (e) {
         var attachId = e.currentTarget.id;
-        VR.post("file.upload", attachId, function (err, ret) {
-            if (err)
-                alert("下载失败");
-            else
-                alert("下载成功")
-        });
+        window.open("/download/dcdbWorkOrderAttachDown/download?id=" + attachId,"_blank");
     });
 
     $(".optBtn .feedback").on("click", function (e) {

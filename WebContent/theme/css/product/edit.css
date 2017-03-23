@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+
+.view-product-edit .baseinfos .barcode .btn { width: 22px; height: 22px; background-color: #ccc; 
+	border-radius: 100px; cursor: pointer; vertical-align: middle; margin-left: 5px; border: 5px solid #fff; }
+.view-product-edit .baseinfos .barcode .btn:hover { background-color: #000; }
+.view-product-edit .baseinfos .barcode .btn:before { content: ""; position: absolute; left: 2px; 
+	right: 2px; height: 2px; background-color: #fff; top: 5px; }
+.view-product-edit .baseinfos .barcode .btn.add:after { content: ""; position: absolute; top: 2px; bottom: 2px;
+	left: 5px; width: 2px; background-color: #fff; }
+
+.view-product-edit .baseinfos .unit-items > span { min-width: 55px; line-height: 24px; text-align: center; 
+	border: 1px solid #ddd; color: #787878; margin-right: 5px; cursor: pointer; padding: 0px 10px; }
+.view-product-edit .baseinfos .unit-items > span:hover { background-color: #eee; }
+.view-product-edit .baseinfos .unit-items > span.selected { border-color: #0bad0a; color: #0bad0a; }
+.view-product-edit .baseinfos .unit-items > span.selected:after { content: ""; position: absolute; width: 10px; 
+	height: 10px; right: 0px; bottom: 0px; background-color: #0bad0a; background-image: url('/theme/icons/ic/selected_c0.png'); 
+	background-size: 7px; background-repeat: no-repeat; background-position: center; }
+
+.view-product-edit .propertyinfos .properties .items .item { display: inline-block; padding: 7px 5px; 
+	min-width: 80px; text-align: center; border: 1px solid #eee; margin: 0px 1px 1px 0px; color: #787878; cursor: pointer; }
+.view-product-edit .propertyinfos .properties .items .item:hover { color: #383838; background-color: #f0f0f0; }
+.view-product-edit .propertyinfos .properties .items .item.selected { border-color: #0bad0a; color: #fff; background-color: rgba(11, 173, 10, 0.75); }
+/*.view-product-edit .propertyinfos .properties .items .item.selected:after { content: ""; position: absolute; width: 10px; */
+	/*height: 10px; right: 0px; bottom: 0px; background-color: #0bad0a; background-image: url('/theme/icons/ic/selected_c0.png'); */
+	/*background-size: 7px; background-repeat: no-repeat; background-position: center; }*/
+
+
+
+
+
+
+
+
+
+
+
+

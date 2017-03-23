@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+.view-account-blance { width: 600px; height: 260px; }
+.view-account-blance > .password { height: 100%; text-align: center; }
+.view-account-blance > .infos { text-align: center; padding: 40px 0px 0px; font-size: 16px; }
+.view-account-blance > .infos > .val { font-size: 52px; margin-top: 15px; }
+
+
+
+
+
+
+
+
+

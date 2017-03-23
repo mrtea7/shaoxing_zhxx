@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+
+.provider-selector-dialog .dialog-view { width: 900px; height: 600px; }
+.provider-selector-dialog .dialog-view > section { padding: 0px !important; }
+
+.view-provider-selector { height: 100%; padding: 45px 0px 55px; }
+.view-provider-selector > .search { position: absolute; width: 100%; height: 45px; border-bottom: 1px solid #e7e7eb; top: 0px; left: 0px;
+	padding: 6px 10px 0px; }
+.view-provider-selector > .search > .mfh-searchipt { width: 260px; }
+.view-provider-selector > .listview { height: 100%; }
+.view-provider-selector > .listview > .ui-datagrid { border: 0px; }
+.view-provider-selector > .listview .col-code { width: 200px; }
+.view-provider-selector > .foot { position: absolute; left: 0px; right: 0px; bottom: 0px; height: 55px; border-top: 1px solid #e7e7eb; 
+	padding: 10px 10px 0px; }
+.view-provider-selector > .foot > .ui-paginator { margin: 0px; }
+

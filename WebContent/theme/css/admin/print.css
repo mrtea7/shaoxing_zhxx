@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+
+div, header, section, footer { position: relative; }
+span, i, a { display: inline-block; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; border: 1px solid #000; }
+table > thead > tr { height: 26px; }
+table > thead > tr > td { border-bottom: 1px solid #000; border-left: 1px solid #000; text-align: center; }
+table > thead > tr > td:first-child { border-left: 0px; }
+table > tbody > tr { height: 22px; }
+table > tbody > tr > td { border-top: 1px solid #000; border-left: 1px solid #000; text-align: center; }
+table > tbody > tr > td:first-child { border-left: 0px; }
+table > tbody > tr:first-child > td { border-top: 0px; }
+iframe { margin: 5px 0px; }
+
+.print-container { width: 680px; margin: 0px auto; font-size: 14px; }
+.print-container * { box-sizing: border-box; -moz-box-sizing: border-box; }
+.print-container > .print-page { background-color: #fff; margin-bottom: 10px; height: 985px; overflow: hidden; 
+	page-break-before: always; padding: 0px 1px; }
+.print-container > .print-page:first-child { page-break-before: avoid; }
+
+
+
+.mfh-print .print-container > .print-page {padding: 20px; }
+.mfh-print > .printbtn { position: fixed; width: 64px; height: 64px; bottom: 150px; right: 100px; background-color: #fff; 
+	border-radius: 3px; background-image: url('/theme/icons/b/print.png'); background-size: 32px; background-repeat: no-repeat; 
+	background-position: center; cursor: pointer; border: 1px solid #ccc; }
+.mfh-print > .printbtn:hover { background-color: #eee; }
+.mfh-print > .printbtn:active { background-color: #ccc; }
+
+body.mfh-print { min-height: 100%; background-color: #4A4950; }
+body.mfh-print > #main-body > header { display: none; }
+body.mfh-print > #main-body > section { margin: 0px auto; }
+body.mfh-print > #main-body > section > .content { background-color: transparent; border: 0px; }
+body.mfh-print > #main-body > section > .content .main-sidemenu { display: none; }
+body.mfh-print > #main-body > section > .content .mfh-module-content { padding: 0px; }
+body.mfh-print > #main-body > footer { display: none; }

@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+
+.view-provider-prolist .view-pro-cellinfo { width: 160px; }
+.view-ext-promgr .view-provider-prolist .view-pro-cellinfo { width: 320px; }
+
+.view-provider-proadd { width: 420px; margin: 30px auto 0px; }
+.view-provider-proadd > .product .searchbtn { margin-left: 10px; }
+
+.view-provider-proedt { width:  420px; margin: 50px auto 0px; }
+
+.view-price-edit { width: 420px; margin: 30px auto 0px; }

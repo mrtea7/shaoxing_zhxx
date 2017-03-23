@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+
+.view-market-classify { padding-left: 100px; }
+.view-market-classify > .listview { position: fixed; left: 0px; top: 0px; bottom: 0px; width: 100px; }
+
+.view-market-classify > .subview { min-height: 120px; padding: 5px; }
+.view-market-classify > .subview > .loading { height: 100px; background-image: url(/theme/img/loading/04.gif); 
+	background-size: 32px; background-position: center; background-repeat: no-repeat; }
+.view-market-classify > .subview > .item { display: inline-block; width: 50%; padding: 5px; vertical-align: top; }
+.view-market-classify > .subview > .item > .content { background-color: #f6f6f6; }
+.view-market-classify > .subview > .item > .content > .img { font-size: 0px; background-color: #eee; padding-top: 100%; }
+.view-market-classify > .subview > .item > .content > .img > img { position: absolute; top: 0px; left: 0px; }
+.view-market-classify > .subview > .item > .content > .name { font-size: 12px; text-align: center; 
+	overflow: hidden; white-space: nowrap; text-overflow: ellipsis; line-height: 20px; }
+.view-market-classify > .subview > .btns { padding: 50px 10px 0px; }
+
+
+@media screen and (max-width: 320px) { 
+	.view-market-classify { padding-left: 90px; }
+	.view-market-classify > .listview { width: 90px; }
+}
+
+@media screen and (min-width: 376px) {
+	.view-market-classify > .subview > .item { width: 33.333333%; }
+}
+
+

@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+
+.view-company-netlist .col-name .state { display: inline-block; width: 8px; height: 8px; vertical-align: middle; 
+	border-radius: 100px; margin-right: 5px; }
+.view-company-netlist .col-name .state.online { background-color: #03B722; border: 2px solid #81DE88; }
+.view-company-netlist .col-name .state.offline { background-color: #f00; border: 2px solid #F39797; }
+
+
+
+
+

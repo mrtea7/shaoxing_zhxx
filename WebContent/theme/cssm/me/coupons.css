@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+
+.view-me-coupons > .ui-list > .content { background-color: #3bAEF3; }
+.view-me-coupons > .ui-list > .content > ul > li { padding: 10px 12px 5px; }
+.view-me-coupons > .ui-list > .content > ul > li:after { display: none; }
+
+.view-me-coupons .coupon-item { background-color: #fff; font-size: 14px; border-radius: 5px; overflow: hidden; 
+	padding: 0px !important; box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35); }
+.view-me-coupons .coupon-item > .infos { padding: 10px 80px 0px 65px; color: #fff; min-height: 80px; }
+.view-me-coupons .coupon-item > .infos:after { content: ""; position: absolute; left: 0px; right: 0px; bottom: 0px; 
+	height: 15px; background-image: url('/theme/img/market/coupon_005.png'); background-repeat: no-repeat; 
+	background-position: left bottom; background-size: 100%; }
+.view-me-coupons .coupon-item > .infos > .logo { position: absolute; width: 48px; height: 48px; border-radius: 100px; 
+	overflow: hidden; left: 10px; top: 10px; }
+.view-me-coupons .coupon-item > .infos > .owner { color: rgba(255, 255, 255, 0.5); font-size: 12px; 
+	padding-top: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.view-me-coupons .coupon-item > .infos > .title { font-size: 16px; padding-top: 5px; }
+.view-me-coupons .coupon-item > .infos > .price { position: absolute; right: 10px; top: 20px; font-size: 12px; }
+.view-me-coupons .coupon-item > .infos > .price > .val { font-size: 18px; }
+.view-me-coupons .coupon-item > .infos > .condition { position: absolute; right: 10px; top: 40px; font-size: 12px; color: rgba(255, 255, 255, 0.5); }
+.view-me-coupons .coupon-item > .details { color: #787878; padding: 2px 10px; font-size: 12px; min-height: 25px; }
+.view-me-coupons .coupon-item > .details > .subtitle { padding-right: 115px; }
+.view-me-coupons .coupon-item > .details > .date { position: absolute; top: 2px; right: 10px; }
+
+
+
+
+
+

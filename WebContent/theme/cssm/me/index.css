@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+
+.view-me-index { padding-bottom: 50px; }
+.view-me-index > .header { box-shadow: 0px 0px 10px 1px #ccc; font-size: 0px; }
+.view-me-index > .header > .infos { background-color: #04BE02; color: #fff; width: 100%; height: 90px; }
+.view-me-index > .header > .infos:after { content: ""; position: absolute; width: 32px; height: 32px; 
+	right: 10px; top: 50%; margin-top: -16px; background-image: url('/theme/icons/black/arrow2_right.png');
+	background-size: 16px; background-position: center; background-repeat: no-repeat;  }
+.view-me-index > .header > .infos > .headimg { position: absolute; width: 64px; height: 64px; left: 25px; top: 15px;
+	border-radius: 100px; background-color: rgba(255,255,255,.85); padding: 3px; }
+.view-me-index > .header > .infos > .headimg > .headImg { width: 100%; height: 100%; border-radius: 100px; }
+.view-me-index > .header > .infos > .name { position: absolute; font-size: 18px; left: 105px; top: 21px; }
+.view-me-index > .header > .infos > .mobile { position: absolute; left: 105px; top: 48px; font-size: 14px; 
+	color: rgba(255, 255, 255, 0.75); }
+.view-me-index > .header > .status { font-size: 12px; text-align: center; }
+.view-me-index > .header > .status > a { width: 33.333333%; color: #222; padding: 5px 3px 20px; }
+.view-me-index > .header > .status > a:before { top: 10px; bottom: 10px; }
+.view-me-index > .header > .status > a:first-child:before { display: none; }
+.view-me-index > .header > .status > a > label { position: absolute; width: 80px; bottom: 5px; left: 50%; margin-left: -40px; }
+.view-me-index > .header > .status > a > .val { font-size: 20px; }
+.view-me-index > .header > .status > a.blance > .val { color: #FE9402; }
+.view-me-index > .header > .status > a.coupons > .val { color: #FE5000; }
+.view-me-index > .header > .status > a.score > .val { color: #8BC751; }
+
+.view-me-index > .net-bind { position: fixed; left: 0px; top: 0px; right: 0px; bottom: 0px; z-index: 1; background-color: rgba(0, 0, 0, 0.75); }
+.view-me-index > .net-bind .box { width: 80%; margin: 0px auto; background-color: #fff; border-radius: 3px;
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.35); }
+.view-me-index > .net-bind .box > .content { text-align: center; padding: 80px 12px 9px; }
+.view-me-index > .net-bind .box > .content:before { content: ""; position: absolute; width: 64px; height: 64px; 
+	left: 50%; top: 12px; margin-left: -32px; background-image: url('/theme/img/location.png'); background-position: center; 
+	background-repeat: no-repeat; background-size: 64px; }
+.view-me-index > .net-bind .box > .close { position: absolute; top: -5px; right: -5px; width: 40px; height: 40px; }
+
+
+
+

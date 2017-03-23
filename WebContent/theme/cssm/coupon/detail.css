@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+
+.view-coupon-detail { padding: 0px 0px 100px; }
+.view-coupon-detail > .group {}
+.view-coupon-detail > .group > .title { font-size: 14px; color: rgba(0, 0, 0, 0.5); padding: 20px 0px 0px 12px; }
+.view-coupon-detail > .group > .content { background-color: #fff; font-size: 14px; }
+.view-coupon-detail > .group > .content > p { padding: 10px 12px; }
+.view-coupon-detail > .group > .content > pre { padding: 10px 12px; }
+.view-coupon-detail > .group > .content > .items { padding: 5px 12px; }
+.view-coupon-detail > .group > .content > .items > .item { line-height: 32px; }
+
+
+
+
+
+
+
+
+
+
+

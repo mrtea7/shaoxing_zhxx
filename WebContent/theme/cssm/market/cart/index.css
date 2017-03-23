@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+
+.view-market-cart-footer { height: 42px; padding: 0px 120px 0px 70px; }
+.view-market-cart-footer > .chkbox { position: absolute; line-height: 20px; top: 12px; left: 12px; }
+.view-market-cart-footer > .cost { text-align: right; line-height: 18px; padding: 5px 10px 0px 0px; }
+.view-market-cart-footer > .cost > .amount > .val { color: #f00; font-size: 12px; }
+.view-market-cart-footer > .cost > .amount > .val > .val1 { font-size: 16px; }
+.view-market-cart-footer > .cost > .desc { color: rgba(0, 0, 0, 0.35); font-size: 12px; }
+.view-market-cart-footer > .submitbtn { position: absolute; top: 0px; right: 0px; width: 120px; border-radius: 0px; }
+.view-market-cart-footer > .submitbtn:after { display: none; }
+.view-market-cart-footer.dark { background-color: #454545; color: #fff; }
+.view-market-cart-footer.dark > .cost > .amount > .val { color: #fff; }
+.view-market-cart-footer.dark > .cost > .desc { color: rgba(255, 255, 255, .5); }
+
+.view-market-cart { min-height: 100%; }
+.view-market-cart > .addressinfos { background-color: #fff; margin-bottom: 15px; padding: 10px 10px 10px 40px; }
+.view-market-cart > .addressinfos:before { content: ""; position: absolute; width: 20px; height: 20px; left: 10px; 
+	top: 50%; margin-top: -10px; background-image: url('/theme/icons/ic/position.png'); background-size: 20px; opacity: .65; }
+.view-market-cart > .addressinfos > .address { font-size: 14px; color: rgba(0, 0, 0, 0.5); }
+.view-market-cart > .addressinfos > .arrow { position: absolute; font-size: 0px; right: 5px; top: 50%; margin-top: -8px; }
+.view-market-cart > .addressinfos > .arrow > .icon { background-image: url('/theme/icons/ic/arrow_right.png'); }
+.view-market-cart > .cartlist { margin-top: -1px; }
+.view-market-cart > .cartlist > .net-item { background-color: #fff; margin: 0px 0px 10px; }
+.view-market-cart > .cartlist > .net-item > .title { padding-left: 40px; }
+.view-market-cart > .cartlist > .net-item > .title > .chkbox { position: absolute; line-height: 20px; left: 12px; top: 12px; }
+.view-market-cart > .cartlist > .net-item > .title > .name { line-height: 44px; width: 100%; }
+.view-market-cart > .cartlist > .net-item > .pro-items > .pro-item { padding: 8px 60px 40px 150px; 
+	min-height: 120px; overflow: hidden; background-color: #f3f3f3; }
+.view-market-cart > .cartlist > .net-item > .pro-items > .pro-item:before { border-width: 0px 0px 1px; }
+.view-market-cart > .cartlist > .net-item > .pro-items > .pro-item > .chkbox { position: absolute; 
+	line-height: 20px; left: 15px; top: 50%; margin-top: -10px; }
+.view-market-cart > .cartlist > .net-item > .pro-items > .pro-item > .proimg { position: absolute; width: 100px; 
+	height: 100px; left: 45px; top: 10px; }
+.view-market-cart > .cartlist > .net-item > .pro-items > .pro-item > .name { line-height: 20px; font-size: 14px; }
+.view-market-cart > .cartlist > .net-item > .pro-items > .pro-item > .price { position: absolute; top: 10px; 
+	right: 5px; color: #f00; font-size: 14px; line-height: 16px; }
+.view-market-cart > .cartlist > .net-item > .pro-items > .pro-item > .price > .unit { font-size: 12px; 
+	color: rgba(0, 0, 0, 0.3); display: block; text-align: right; }
+.view-market-cart > .cartlist > .net-item > .pro-items > .pro-item > .count { position: absolute; font-size: 0px;
+	right: 15px; bottom: 10px; }
+.view-market-cart > .cartlist > .net-item > .pro-items > .pro-item > .count > .val { font-size: 14px;
+    vertical-align: top; width: 40px; height: 31px; border: 1px solid #ccc; line-height: 31px; 
+    text-align: center; margin: 0px -1px; background-color: #fff; }
+.view-market-cart > .cartlist > .net-item > .pro-items > .pro-item > .count > .unit { font-size: 12px;
+    margin-left: 5px; line-height: 31px; vertical-align: top; color: rgba(0, 0, 0, 0.5); min-width: 20px; }
+.view-market-cart > .cartlist > .net-item > .pro-items > .pro-item > .deletebtn { position: absolute;
+    top: 0px; bottom: 0px; right: -64px; background-color: #f00; color: #fff; width: 65px; 
+    text-align: center; transition: right 200ms; }
+
+
+
+
+

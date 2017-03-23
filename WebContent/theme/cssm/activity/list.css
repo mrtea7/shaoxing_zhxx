@@ -1,0 +1,5 @@
+@charset "utf-8";
+
+.activity-list { height: 100%; }
+.activity-list > .ui-list { height: 100%; }
+

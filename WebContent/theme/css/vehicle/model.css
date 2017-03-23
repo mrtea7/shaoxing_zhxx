@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+
+
+.view-vehicle-model-list .vehiclelist { min-height: 600px; }
+.view-vehicle-model-list .vehiclelist .col-name > div { padding-left: 55px; min-height: 48px; }
+.view-vehicle-model-list .vehiclelist .col-name > div > img { position: absolute; width: 48px; height: 48px; left: 0px; top: 0px; }
+.view-vehicle-model-list .vehiclelist .col-name > div > .name { margin-bottom: 5px; }
+
+
+.view-vehicle-model-edit .prop-items { padding: 5px 10px; }
+.view-vehicle-model-edit .prop-items > .prop-item { padding-left: 80px; margin-bottom: 20px; }
+.view-vehicle-model-edit .prop-items > .prop-item:last-child { margin-bottom: 0px; }
+.view-vehicle-model-edit .prop-items > .prop-item > .title { position: absolute; top: 0px; left: 0px; line-height: 22px; }
+.view-vehicle-model-edit .prop-items > .prop-item > .items > .item { border: 1px solid #ddd; padding: 0px 12px; 
+	text-align: center; min-width: 80px; line-height: 28px; cursor: pointer; margin-right: 10px; margin-bottom: 5px; }
+.view-vehicle-model-edit .prop-items > .prop-item > .items > .item:hover { background-color: #f0f0f0; }
+.view-vehicle-model-edit .prop-items > .prop-item > .items > .item.selected { border-color: #009E4D; background-color: #F5FFF7; }
+.view-vehicle-model-edit .prop-items > .prop-item > .items > .item.selected:after { content: ""; position: absolute; 
+	right: 0; bottom: 0; width: 12px; height: 12px; background-image: url(/theme/icons/m/item_selected.png); background-size: 12px; }
+
+
+
+
+

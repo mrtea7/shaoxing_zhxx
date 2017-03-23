@@ -13,7 +13,7 @@ var Utils = VRender.Utils;
 var RouterAdapter = module.exports = function (context) {
     this.context = context;
 };
-
+//todo 处理返回结果 msg：请登录
 // 数据接口相关受理方法
 RouterAdapter.prototype.action = function (name, params, callback) {
     var service = ServiceManager.getService(name);
@@ -33,7 +33,6 @@ RouterAdapter.prototype.before = function (pathname, params) {
 
 // 路由方法，获取相应的页面视图
 RouterAdapter.prototype.router = function (name, params, path, callback) {
-    //todo name是哪里来的？
     var routers = name.substr(1).split("/");
     if (routers[0] === "admin")
         return routerAsAdmin(routers, params, callback);

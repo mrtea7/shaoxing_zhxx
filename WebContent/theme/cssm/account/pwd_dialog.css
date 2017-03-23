@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+
+.mfh-pwd-dialog { position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 100; 
+	background-color: rgba(0, 0, 0, 0.75); padding-bottom: 200px; }
+.mfh-pwd-dialog > .content > div > .box { width: 85%; max-width: 280px; background-color: #fff; 
+	margin: 0px auto; border-radius: 6px; }
+.mfh-pwd-dialog > .content > div > .box:before { content: ""; position: absolute; width: 200%; height: 200%; 
+	border: 1px solid #f0f0f0; border-radius: 12px; transform: scale(.5); transform-origin: -1px -1px; 
+	-webkit-transform: scale(.5); -webkit-transform-origin: -1px -1px; }
+.mfh-pwd-dialog > .content > div > .box > .head:after { content: ""; position: absolute; left: 0px; right: 0px;
+	bottom: 0px; height: 1px; background-color: #ddd; transform: scaleY(.5); transform-origin: 0 0; 
+	-webkit-transform: scaleY(.5); -webkit-transform-origin: 0 0; }
+.mfh-pwd-dialog > .content > div > .box > .head > .title { text-align: center; line-height: 45px; font-size: 16px; 
+	color: rgba(0, 0, 0, 0.8); }
+.mfh-pwd-dialog > .content > div > .box > .head > .title > .logo { width: 20px; height: 20px; vertical-align: -4px; 
+	margin-right: 5px; background-image: url('/theme/mfh_logo.png'); background-size: 20px; 
+	background-position: center; background-repeat: no-repeat; }
+.mfh-pwd-dialog > .content > div > .box > .head > .close { position: absolute; width: 40px; height: 40px; top: 0px; 
+	right: 0px; background-image: url('/theme/icons/ic/close.png'); background-position: center; 
+	background-repeat: no-repeat; background-size: 12px; opacity: .5; }
+.mfh-pwd-dialog > .content > div > .box > .subtitle { text-align: center; font-size: 14px; padding: 10px 0px 0px; 
+	color: rgba(0, 0, 0, 0.6); line-height: 20px; }
+.mfh-pwd-dialog > .content > div > .box > .price { line-height: 60px; text-align: center; font-size: 36px; 
+	margin: 0px 10px; }
+.mfh-pwd-dialog > .content > div > .box > .price:after { content: ""; position: absolute; left: 0px; right: 0px;
+	bottom: 0px; height: 1px; background-color: #ddd; transform: scaleY(.5); transform-origin: 0 0; 
+	-webkit-transform: scaleY(.5); -webkit-transform-origin: 0 0; }
+.mfh-pwd-dialog > .content > div > .box > .account { margin: 0px 10px; }
+.mfh-pwd-dialog > .content > div > .box > .account > div { line-height: 48px; font-size: 14px; color: rgba(0, 0, 0, .6); }
+.mfh-pwd-dialog > .content > div > .box > .account > div:before { content: ""; position: absolute; left: 0px; right: 0px;
+	bottom: 0px; height: 1px; background-color: #ddd; transform: scaleY(.5); transform-origin: 0 0; 
+	-webkit-transform: scaleY(.5); -webkit-transform-origin: 0 0; }
+.mfh-pwd-dialog > .content > div > .box > .account > div:after { content: ""; position: absolute; width: 24px; 
+	height: 40px; right: 0px; top: 0px; background-image: url('/theme/icons/ic/arrow_right.png'); background-size: 16px; 
+	background-position: center; background-repeat: no-repeat; opacity: .5; }
+.mfh-pwd-dialog > .content > div > .box > .pwd { width: 240px; height: 40px; margin: 10px auto 0px; }
+.mfh-pwd-dialog > .content > div > .box > .pwd:before { content: ""; position: absolute; width: 200%; height: 200%; 
+	border: 1px solid #b3b3b3; transform: scale(.5); transform-origin: 0px 0px; -webkit-transform: scale(.5); 
+	-webkit-transform-origin: 0px 0px; z-index: 1; }
+.mfh-pwd-dialog > .content > div > .box > .pwd > span { width: 40px; height: 40px; text-align: center; line-height: 40px; }
+.mfh-pwd-dialog > .content > div > .box > .pwd > span:before { content: ""; position: absolute; left: 0px; top: 0px; 
+	bottom: 0px; width: 1px; background-color: #ddd; transform: scaleX(.5); transform-origin: 0 0; 
+	-webkit-transform: scaleX(.5); -webkit-transform-origin: 0 0; }
+.mfh-pwd-dialog > .content > div > .box > .pwd > span:first-child:before { display: none; }
+.mfh-pwd-dialog > .content > div > .box > .pwd > span.on:after { content: ""; position: absolute; width: 10px; 
+	height: 10px; background-color: rgba(0, 0, 0, 0.7); border-radius: 100px; left: 15px; top: 15px; }
+.mfh-pwd-dialog > .content > div > .box > .pwdtip { font-size: 12px; text-align: center; padding: 3px 0px 5px; 
+	color: rgba(0, 0, 0, 0.3); }
+.mfh-pwd-dialog > .keyboard { position: absolute; left: 0px; right: 0px; bottom: 0px; background-color: #f4f5f9; }
+.mfh-pwd-dialog > .keyboard > .keys > div:before { content: ""; position: absolute; left: 0px; top: 0px; right: 0px; 
+	height: 1px; background-color: #ddd; transform: scaleY(.5); transform-origin: 0 0; -webkit-transform: scaleY(.5); 
+	-webkit-transform-origin: 0 0; }
+.mfh-pwd-dialog > .keyboard > .keys > div > span { width: 33.333333%; text-align: center; line-height: 50px;
+	font-size: 22px; color: #505050; }
+.mfh-pwd-dialog > .keyboard > .keys > div > span.back { background-image: url('/theme/img/keyboard_back.png');
+    background-position: center; background-repeat: no-repeat; background-size: auto 16px; }
+.mfh-pwd-dialog > .keyboard > .keys > div > span:before { content: ""; position: absolute; left: 0px; top: 0px; 
+	bottom: 0px; width: 1px; background-color: #ddd; transform: scaleX(.5); transform-origin: 0 0; 
+	-webkit-transform: scaleX(.5); -webkit-transform-origin: 0 0; }
+.mfh-pwd-dialog > .keyboard > .keys > div > span:active { background-color: #ddd; }
+.mfh-pwd-dialog > .keyboard > .keys > div > span.disable { background-color: #e0e0e0; }
+
+
+
+

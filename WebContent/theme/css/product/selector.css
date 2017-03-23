@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+
+.view-product-selector > .contentview > .tabs { position: absolute; border-bottom: 1px solid #e7e7eb; background-color: #fcfcfc; 
+	top: 0px; left: 0px; right: 0px; }
+.view-product-selector > .contentview > .tabs > .tab { line-height: 28px; width: 100px; text-align: center; cursor: pointer; color: #999; }
+.view-product-selector > .contentview > .tabs > .tab:hover { border-bottom: 2px solid #ddd; }
+.view-product-selector > .contentview > .tabs > .tab.selected { border-bottom: 2px solid #009E4D; color: #000; cursor: default; }
+.view-product-selector > .contentview > .product-view,
+.view-product-selector > .contentview > .category-view { width: 100%; height: 100%; overflow: auto; }
+.view-product-selector > .contentview > .product-view > .searchbar { background-color: #F4F5F9; padding: 4px 120px 0px 5px; }
+.view-product-selector > .contentview > .product-view > .searchbar > .ui-textview { width: 50%; }
+.view-product-selector > .contentview > .product-view > .searchbar > .ui-textview > .ipt { width: 98%; }
+.view-product-selector > .contentview > .product-view > .searchbar > .searchbtn { position: absolute; right: 5px; top: 4px; }
+.view-product-selector > .contentview > .product-view .col-code { width: 200px; }
+.view-product-selector > .contentview > .category-view > .infos { background-color: #f4f5f9; line-height: 16px; padding: 7px 20px; }
+.view-product-selector.show-tabs > .contentview { padding-top: 30px; }
+
+
+
+

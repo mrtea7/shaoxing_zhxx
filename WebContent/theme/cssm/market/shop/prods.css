@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+/*
+.view-market-prods > .coupon-wrap { position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; 
+	background-color: rgba(0, 0, 0, 0.65); z-index: 100000; }
+.view-market-prods > .coupon-wrap > .coupon { position: absolute; bottom: 0px; left: 0px; right: 0px; font-size: 0px; }
+.view-market-prods > .coupon-wrap > .coupon > img { height: auto; }
+.view-market-prods > .coupon-wrap > .coupon > .close { position: absolute; width: 44px; height: 44px; 
+	top: 0px; right: 4%; padding: 7px 0px 0px 7px; margin-top: -6px; }
+.view-market-prods > .coupon-wrap > .coupon > .close > span { width: 30px; height: 30px; border: 2px solid #fff; 
+	border-radius: 100px; background-color: #46B47D; }
+.view-market-prods > .coupon-wrap > .coupon > .close > span > i { opacity: 1; }
+*/
+
+
+
+
+.view-market-prods-coupon { position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; 
+	background-color: rgba(0, 0, 0, 0.65); z-index: 100000; }
+.view-market-prods-coupon .box { width: 85%; margin: 0px auto; min-height: 320px; }
+.view-market-prods-coupon .box > .fetchBtn { position: absolute; width: 200px; left: 50%; margin-left: -100px; bottom: 45px; }
+.view-market-prods-coupon .box > .closeBtn { position: absolute; left: 0px; top: 12.5%; width: 32px; height: 32px; }
+
+
+
+
+
+
+
+
+

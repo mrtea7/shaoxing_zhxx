@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+
+.view-error.error404 { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; padding-top: 36px; background-color: #F9F9F9; }
+.view-error.error404 > .img { height: 45%; margin-bottom: 30px; background-image: url('/theme/img/error_404.jpg'); background-size: 65%; 
+	background-position: center; background-repeat: no-repeat; }
+
+.view-error.error500 { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; }
+.view-error.error500 > .img { height: 40%; background-image: url('/theme/img/error_500.jpg'); background-repeat: no-repeat; 
+	background-position: center; background-size: 80%; }
+
+
+
+
+

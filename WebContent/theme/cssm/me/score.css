@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+
+.view-me-score > .title { text-align: center; background-color: #fff; line-height: 42px; }
+.view-me-score > .title > .val { margin-left: 5px; }
+.view-me-score > .title { padding: 25px 0px; font-size: 20px; }
+
+
+
+
+
+
+
+

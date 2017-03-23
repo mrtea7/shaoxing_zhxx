@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+
+.view-market-order-feedback > .orderinfos { background-color: #fff; font-size: 14px; }
+.view-market-order-feedback > .orderinfos > .shop { line-height: 44px; padding-left: 35px; background-image: url('/theme/img/shop/store.png'); 
+	background-repeat: no-repeat; background-size: 20px; background-position: 10px center; }
+.view-market-order-feedback > .orderinfos > .order { line-height: 44px; padding-left: 10px; }
+.view-market-order-feedback > .orderinfos > .order > .amount { position: absolute; top: 0px; right: 10px; }
+
+.view-market-order-feedback > .starinfos { background-color: #fff; margin-top: 10px; font-size: 14px; padding: 15px 0px; }
+.view-market-order-feedback > .starinfos > dl { position: relative; line-height: 40px; }
+.view-market-order-feedback > .starinfos > dl > dt { position: absolute; left: 12px; top: 0px; }
+.view-market-order-feedback > .starinfos > dl > dd { height: 40px; padding: 0px 40px 0px 100px; }
+.view-market-order-feedback > .starinfos > dl > dd > i { display: inline-block; width: 20%; height: 40px; max-width: 40px; 
+	background-image: url('/theme/icons/m/star_1.png'); background-size: 22px; background-position: center; background-repeat: no-repeat; }
+.view-market-order-feedback > .starinfos > dl > dd > i.on { background-image: url('/theme/icons/m/star_2.png'); }
+.view-market-order-feedback > .starinfos > dl > dd > .tips { position: absolute; top: 0px; right: 10px; }
+
+
+
+
+
+

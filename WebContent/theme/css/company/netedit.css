@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+
+.view-company-edit-net .abilitylist { padding-top: 8px; }
+.view-company-edit-net .abilitylist .setbtn { display: none; }
+
+.view-company-edit-net .mfh-form-r.timerange { display: none; }
+.view-company-edit-net .mfh-form-r.credit { display: none; }
+
+.view-company-edit-net .localmap { border: 1px solid #eee; }
+.view-company-edit-net .localmap > .toolbar { padding: 6px 10px; background-color: #fdfdfd; border-bottom: 1px solid #eee; }
+.view-company-edit-net .localmap > .toolbar > .btns > button { margin-right: 10px; }
+.view-company-edit-net .localmap > .toolbar > .btns > .markBtn > .icon { background-image: url('/theme/img/map.png');
+	opacity: 1; margin-right: 5px; }
+.view-company-edit-net .localmap > .toolbar > .btns > .areaBtn { display: none; }
+.view-company-edit-net .localmap > .toolbar > .keywordIpt { position: absolute; top: 6px; right: 10px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,12 +22,7 @@ define(function ($, VR, Utils) {
     });
     $(".downloadAttach").on("click", function (e) {
         var attachId = e.currentTarget.id;
-        VR.post("file.upload", attachId, function (err, ret) {
-            if (err)
-                frame.tooltip("下载失败:" + err);
-            else
-                frame.tooltip("下载成功", "success")
-        });
+        window.open("/download/dcdbWorkOrderAttachDown/download?id=" + attachId,"_blank");
     });
 
     $(".optBtn .accept").on("click", function (e) {
@@ -38,6 +33,7 @@ define(function ($, VR, Utils) {
                 frame.tooltip("接收成功", "success");
                 frame.confirm({text: "是否立即回复？", desc: "嘿嘿"}).done(function () {
                     showEditView(orderInfo);
+                    listView.reload();
                 });
 
             }

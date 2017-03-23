@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+
+.view-me-card > .cardlist > a { margin-bottom: 10px; }
+.view-me-card > .cardlist > .empty-box { color: #fff; }
+
+.view-me-card > .cardinfos { padding-top: 14px; }
+.view-me-card > .cardinfos > .title { font-size: 14px; padding-left: 12px; color: #888; }
+.view-me-card > .cardinfos > .status { margin-top: 5px; }
+
+.mfh-card { font-size: 0px; }
+.mfh-card > .cardno { position: absolute; left: 5%; top: 20%; font-size: 12px; line-height: 16px;
+	color: #000; transform-origin: 0 0; -webkit-transform-origin: 0 0; }
+.mfh-card > img { width: 100%; height: auto; }
+.mfh-card.lock:after { content: "冻结"; position: absolute; width: 62px; line-height: 28px; top: 45px; left: 16px; 
+	font-size: 14px; font-weight: bold; color: #f00; background-color: rgba(255, 0, 0, 0.04); text-align: center; 
+	border: 2px solid rgba(255, 0, 0, 0.66); border-radius: 3px; transform: rotate(-21deg); -webkit-transform: rotate(-21deg); }
+.mfh-card.lock > img { -webkit-filter: grayscale(1); }
+
+@media screen and (min-width: 300px) { .mfh-card > .cardno { transform: scale(.65); } }
+@media screen and (min-width: 320px) { .mfh-card > .cardno { transform: scale(.73); } }
+@media screen and (min-width: 360px) { .mfh-card > .cardno { transform: scale(.83); } }
+@media screen and (min-width: 375px) { .mfh-card > .cardno { transform: scale(.86); } }
+@media screen and (min-width: 384px) { .mfh-card > .cardno { transform: scale(.89); } }
+@media screen and (min-width: 414px) { .mfh-card > .cardno { transform: scale(.97); } }
+@media screen and (min-width: 600px) { .mfh-card > .cardno { transform: scale(1.43); } }
+@media screen and (min-width: 768px) { .mfh-card > .cardno { transform: scale(1.85); } }
+@media screen and (min-width: 800px) { .mfh-card > .cardno { transform: scale(1.95); } }
+
+@media screen and (max-width: 299px) { .mfh-card > .cardno { transform: scale(.6); }}

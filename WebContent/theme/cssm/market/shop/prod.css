@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+
+.view-market-shop-product > .infos { background-color: #fff; padding: 0px 10px 6px; margin: 3px 0px 10px; }
+.view-market-shop-product > .infos > .name { margin-bottom: 5px; }
+.view-market-shop-product > .infos > .price { font-size: 14px; color: #f00; }
+.view-market-shop-product > .infos > .price > .val > .val1 { font-size: 20px; }
+.view-market-shop-product > .infos > .price > .unit { color: rgba(0, 0, 0, 0.35); margin-left: 5px; }
+.view-market-shop-product > .infos > .price > .stock { font-size: 12px; color: rgba(0, 0, 0, 0.65); margin-left: 5px; }
+.view-market-shop-product > .infos > .sells { font-size: 12px; line-height: 20px; text-align: right; 
+	color: rgba(0, 0, 0, 0.3); margin-top: -24px; }
+
+
+
+
+
+
+
+
+

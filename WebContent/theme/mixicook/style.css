@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+
+/*********************************************************/
+/* login */
+body.mixicook #view-login { background-color: #009e4d; }
+body.mixicook #view-login > .container:after { background-image: url('/theme/mixicook/logo_03.png'); background-size: 72px; }
+body.mixicook #view-login > .container > .content > .qrcode > .img > .mfh-qrcode { background-image: url('/theme/mixicook/qrcode.jpg'); }
+
+
+/*********************************************************/
+/* main */
+/*body.mixicook #main-body > header { border-top-color: #F18322; }*/
+/*body.mixicook #view-mainheader > .logo { background-image: url('/webroot/theme/mixicook/logo.png'); }*/
+/*body.mixicook #view-sidemenu > .grp.selectable.selected > .title { background-color: #F18322; }*/
+/*body.mixicook #view-sidemenu > .grp > .items > .item.selected > .title { background-color: #F18322; }*/
+/*body.mixicook .main-container > .mfh-module > .mfh-module-header > .menus > .item.selected { border-bottom-color: #F18322; }*/
+
+
+/*********************************************************/
+/* office */
+/*body.mixicook #view-setoffice > .container > .content > .foot > .submitbtn { background-color: #F18322; }*/
+
+
+/*********************************************************/
+/* frame */
+/*body.mixicook .ui-btn-primary { background-color: #F18322; }*/
+/*body.mixicook .ui-btn-primary:hover { background-color: #DA8336; }*/
+/*body.mixicook .ui-tabview > .tabbar > ul > li.selected { border-bottom-color: #F18322; }*/
+/*body.mixicook .mfh-confirm-wrapper > .mfh-confirm > .btns > button:first-child { background-color: #F18322; }*/
+
+
+/*********************************************************/
+/* comps */
+/*body.mixicook .mfh-processor > .process-tabs > .tab.selected { background-color: #F18322; }*/
+/*body.mixicook .mfh-processor > .process-tabs > .tab.selected:after { border-left-color: #F18322; }*/
+
+
+/*********************************************************/
+/* product */
+/*body.mixicook #mfh-mod-proedt .propitem .items .item.selected { border-color: #F18322; }*/
+/*body.mixicook .view-product-selector > .contentview > .tabs > .tab.selected { border-bottom-color: #F18322; }*/
+

@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+
+.view-prolist .col-unit { width: 90px; }
+.view-prolist .col-spec { width: 90px; }
+.view-prolist .col-packnum { width: 90px; }
+.view-prolist .col-startnum { width: 90px; }
+.view-prolist .col-supplyprice { width: 90px; }
+.view-prolist .col-sellprice { width: 90px; }
+
+.view-prolist-chain .col-packnum { width: 65px; min-width: 0px; }
+.view-prolist-chain .col-startnum { width: 65px; min-width: 0px; }
+
+.view-prolist .prolist.lf-t { padding-top: 49px; }
+.view-prolist .prolist > .lf-top { background-color: #f4f5f9; padding: 8px 10px; height: auto; }
+
+
+.view-prolist .view-pro-cellinfo { min-width: 160px; max-width: 250px; }
+
+
+
+.view-price-edit { width: 420px; margin: 30px auto 0px; }
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+
+.view-category-selector { height: 100%; }
+.view-category-selector > .topbar { position: absolute; left: 0px; top: -25px; }
+.view-category-selector > .content { height: 100%; }
+.view-category-selector > .content > .level { display: inline-block; width: 25%; height: 100%; border: 1px solid #e7e7eb; 
+	padding-top: 31px; border-left-width: 0px; vertical-align: top; }
+.view-category-selector > .content > .level:first-child { border-left-width: 1px; }
+.view-category-selector > .content > .level > .mfh-searchipt { position: absolute; left: -1px; top: -1px; right: -1px; width: auto; }
+.view-category-selector > .content > .level > .listview { height: 100%; overflow: auto; }
+.view-category-selector > .content > .level > .listview > .item { line-height: 26px; padding-left: 10px; color: rgba(0, 0, 0, .75);
+	font-size: 13px; cursor: default; }
+.view-category-selector > .content > .level > .listview > .item:hover { background-color: #f4f5f9; }
+.view-category-selector > .content > .level > .listview > .item.selected { background-color: #ddd; }
+

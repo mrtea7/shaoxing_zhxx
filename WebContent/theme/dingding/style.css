@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+
+/*********************************************************/
+/* login */
+body.dingding #view-login { background-color: #9a7201; }
+body.dingding #view-login > .container:after { background-image: url('/webroot/theme/dingding/logo2.png'); }
+body.dingding #view-login > .container > .content > .qrcode > .img > .mfh-qrcode { background-image: url('/webroot/theme/dingding/qrcode.jpeg'); }
+
+
+/*********************************************************/
+/* main */
+body.dingding #main-body > header { border-top-color: #F18322; }
+body.dingding #view-mainheader > .logo { background-image: url('/webroot/theme/dingding/logo.png'); }
+body.dingding #view-sidemenu > .grp.selectable.selected > .title { background-color: #F18322; }
+body.dingding #view-sidemenu > .grp > .items > .item.selected > .title { background-color: #F18322; }
+body.dingding .main-container > .mfh-module > .mfh-module-header > .menus > .item.selected { border-bottom-color: #F18322; }
+
+
+/*********************************************************/
+/* office */
+body.dingding #view-setoffice > .container > .content > .foot > .submitbtn { background-color: #F18322; }
+
+
+/*********************************************************/
+/* frame */
+body.dingding .ui-btn-primary { background-color: #F18322; }
+body.dingding .ui-btn-primary:hover { background-color: #DA8336; }
+body.dingding .ui-tabview > .tabbar > ul > li.selected { border-bottom-color: #F18322; }
+body.dingding .mfh-confirm-wrapper > .mfh-confirm > .btns > button:first-child { background-color: #F18322; }
+
+
+/*********************************************************/
+/* comps */
+body.dingding .mfh-processor > .process-tabs > .tab.selected { background-color: #F18322; }
+body.dingding .mfh-processor > .process-tabs > .tab.selected:after { border-left-color: #F18322; }
+
+
+/*********************************************************/
+/* product */
+body.dingding #mfh-mod-proedt .propitem .items .item.selected { border-color: #F18322; }
+body.dingding .view-product-selector > .contentview > .tabs > .tab.selected { border-bottom-color: #F18322; }
+

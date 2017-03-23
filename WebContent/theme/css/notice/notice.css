@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+.view-mynotice > .listview { margin: -26px -30px 0px; }
+.view-mynotice > .listview > .item { border-bottom: 1px solid #eee; cursor: pointer; }
+.view-mynotice > .listview > .item:hover { background-color: #f4f5f9; }
+.view-mynotice > .listview > .item > .title { padding: 0px 30px 0px 45px; line-height: 36px; }
+.view-mynotice > .listview > .item > .title:before { content: ""; position: absolute; width: 8px; height: 8px; 
+	background-color: #ff4f15; border-radius: 100px; left: 30px; top: 50%; margin-top: -5px; }
+.view-mynotice > .listview > .item > .title:after { content: ""; position: absolute; right: 26px; top: 50%; 
+	margin-top: -3px; border: 0px solid transparent; border-width: 5px 4px 0px 4px; border-top-color: #ccc; }
+.view-mynotice > .listview > .item > .title > .date { position: absolute; line-height: 36px; right: 80px; }
+.view-mynotice > .listview > .item > .desc { padding: 0px 80px 5px 45px; display: none; }
+.view-mynotice > .listview > .item.isread { color: #ababab; }
+.view-mynotice > .listview > .item.isread > .title:before { width: 6px; height: 6px; background-color: #ccc; margin-top: -4px; }
+.view-mynotice > .listview > .item.selected { color: #383838; background-color: #f4f5f9; }
+.view-mynotice > .listview > .item.selected > .desc { display: block; }
+.view-mynotice > .listview > .item.selected > .title:after { border-width: 0px 4px 5px 4px; border-bottom-color: #ccc; }

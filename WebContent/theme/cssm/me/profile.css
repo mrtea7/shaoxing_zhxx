@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+
+.view-me-profile .mfh-cells .item.head > .title { line-height: 80px; }
+.view-me-profile .mfh-cells .item.head > .desc { width: 60px; height: 60px; margin-top: -30px; }
+.view-me-profile .mfh-cells .item.head > .desc > img { border-radius: 100px; }
+
+
+.view-me-profile .mfh-imguploader { display: none; }
+
+
+
+
+
+

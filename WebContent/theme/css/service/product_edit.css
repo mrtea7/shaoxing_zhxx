@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+
+
+.view-serv-prodedt .mfh-form-r.cartype table { width: 600px; border-collapse: collapse; border: 1px solid #eee; }
+.view-serv-prodedt .mfh-form-r.cartype table td { padding: 0px 12px; }
+.view-serv-prodedt .mfh-form-r.cartype table td.op { width: 65px; text-align: right; }
+.view-serv-prodedt .mfh-form-r.cartype table > thead > tr { background-color: #f0f0f0; height: 28px; }
+.view-serv-prodedt .mfh-form-r.cartype table > tbody > tr > td { height: 26px; border-bottom: 1px solid #f4f5f9; }
+.view-serv-prodedt .mfh-form-r.cartype table > tfoot > tr { height: 28px; }
+
+.view-serv-prodedt .processgrp .col-name .desc { position: absolute; display: none; background-color: #fff; min-width: 320px;
+	border: 1px solid #ddd; padding: 10px; z-index: 1; font-size: 12px; max-height: 300px; overflow: auto; }
+.view-serv-prodedt .processgrp .col-name > div:hover > .name { background-color: #fcfcfc; }
+.view-serv-prodedt .processgrp .col-name > div:hover > .desc { display: block; }

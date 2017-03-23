@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+
+.view-purchase-create .view-provideript { width: 320px; }
+.view-purchase-create .mfh-form-r.provider { width: 50%; }
+.view-purchase-create .mfh-form-r.date { width: 50%; }
+
+/*.view-sales-create .productgrp .col-seqno { width: 55px; min-width: 0px; }*/
+/*.view-sales-create .productgrp .col-barcode { white-space: nowrap; }*/
+
+
+.sellChartView { position: absolute; left: 0px; top: 0px; background-color: #eee; padding: 5px; border: 1px solid #e0e0e0;
+	min-width: 50px; min-height: 50px; }
+.sellChartView:before,
+.sellChartView:after { content: ""; position: absolute; border: 0px solid transparent; border-width: 9px 11px 9px 0; top: 12px; }
+.sellChartView:before { left: -12px; border-right-color: #e0e0e0; }
+.sellChartView:after { left: -11px; border-right-color: #eee; }
+.sellChartView > img { width: 32px; height: 32px; }
+.sellChartView > .items { width: 220px; height: 250px; overflow: auto; background-color: #fff; }
+.sellChartView > .items > .item { padding: 0px 40px 0px 35px; line-height: 14px; }
+.sellChartView > .items > .item > .date { position: absolute; left: 0; background-color: #fff; color: #999; 
+	z-index: 1; line-height: 14px; padding-right: 1px; -webkit-transform: scale(.8); transform: scale(.8); }
+.sellChartView > .items > .item > .bar { background-color: #6AB8FB; line-height: 10px; min-width: 1px; }
+.sellChartView > .items > .item > .val { position: absolute; line-height: 14px; -webkit-transform: scale(.8); transform: scale(.8); }
+
+
+
+
+
+
+
+

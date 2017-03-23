@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+
+.view-wx-recharge > .recharge-container { padding-top: 30px; }
+.view-wx-recharge > .recharge-container > .userinfos { background-color: #fff; padding: 10px 0px 10px 75px; margin: 0px 0px 26px; }
+.view-wx-recharge > .recharge-container > .userinfos > .headimg { position: absolute; width: 50px; height: 50px; left: 15px; top: 50%; margin-top: -25px; }
+.view-wx-recharge > .recharge-container > .userinfos > .headimg > img { border-radius: 100px; }
+
+.view-wx-recharge > .recharge-container > .recharges > .title { font-size: 14px; padding-left: 12px; }
+.view-wx-recharge > .recharge-container > .recharges > .items { padding: 0px 7px; }
+.view-wx-recharge > .recharge-container > .recharges > .items > .item { display: inline-block; width: 33.333333%; padding: 5px 7px 10px; }
+.view-wx-recharge > .recharge-container > .recharges > .items > .item > span { width: 100%; line-height: 50px; text-align: center; color: #04BE02;
+	background-color: #fff; }
+.view-wx-recharge > .recharge-container > .recharges > .items > .item > span:before { border-radius: 10px; border-color: #04BE02; }
+.view-wx-recharge > .recharge-container > .recharges > .items > .item > span:active { background-color: #eee; }
+
+.view-wx-recharge > .without-wx > .mfh-qrcode { background-size: 200px; }
+.view-wx-recharge > .without-wx > .lnk { font-size: 12px; }
+
+
+.view-wx-recharge-back > .infos { background-color: #fff; padding-bottom: 10px; }
+.view-wx-recharge-back > .infos > .status { color: rgba(0, 0, 0, 0.45); padding: 10px 0px 0px 12px; }
+.view-wx-recharge-back > .infos > .amount { text-align: center; font-size: 46px; line-height: 55px; margin: 30px 0px 20px; }
+.view-wx-recharge-back > .infos > .amount > span { font-size: 16px; }
+.view-wx-recharge-back > .msg { text-align: center; font-size: 14px; padding: 5px 20px; color: rgba(0, 0, 0, 0.35); }
+.view-wx-recharge-back.error > .infos > .status { color: rgba(255, 0, 0, 0.6); }
+
+

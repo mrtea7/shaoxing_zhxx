@@ -45,7 +45,6 @@ define(function ($, VR, Utils) {
 
 	///////////////////////////////////////////////////////
 	var showEditView = function (data) {
-console.log('<data>',data);		
 		var moduleUrl = "/module/workorder/orders/edit";
 		if (data)
 			moduleUrl += "?id=" + data.id;

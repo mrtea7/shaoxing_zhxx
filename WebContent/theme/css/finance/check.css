@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+
+.view-finance-chkedt > .container { border-top: 1px solid #ddd; margin-top: 40px; padding: 15px 0px 0px; }
+.view-finance-chkedt > .container > .tools { margin-bottom: 10px; }
+.view-finance-chkedt > .container > .tools > a { line-height: 20px; margin-right: 10px; }
+.view-finance-chkedt > .container .basic .company { width: 50%; }
+.view-finance-chkedt > .container .basic .paytype { width: 50%; }
+.view-finance-chkedt > .container .minus { color: #FF5700; }
+.view-finance-chkedt > .container .minus:before { content: "-"; }
+.view-finance-chkedt > .mfh-btnbar { border-top: 0px; }
+
+.view-finance-chkedt > .view-provider-info { position: absolute; border: 1px solid #ddd; background-color: #fff; 
+	top: 335px; left: 105px; padding: 10px 20px; }
+.view-finance-chkedt > .view-provider-info > div { margin-bottom: 0px; padding-left: 90px; }
+
+
+
+

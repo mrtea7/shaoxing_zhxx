@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+
+.view-market-order-buy > .receiveinfos { background-color: #fff; background-image: url('/theme/img/market/order_buy_sep.png'); 
+	background-repeat: repeat-x; background-position: left bottom; background-size: auto 4px; padding: 20px 6px 15px 60px; }
+.view-market-order-buy > .receiveinfos:before { content: ""; position: absolute; width: 20px; height: 20px; left: 20px; 
+	top: 35px; background-image: url('/theme/img/shop/store.png'); background-repeat: no-repeat; background-size: 20px; opacity: .8; }
+.view-market-order-buy > .receiveinfos:after { content: ""; position: absolute; width: 20px; height: 20px; right: 10px; top: 50%; 
+	margin-top: -10px; background-image: url('/theme/icons/light/arrow_right.png'); background-size: 16px; 
+	background-repeat: no-repeat; background-position: center; opacity: .8; }
+.view-market-order-buy > .receiveinfos > .user > .mobile { margin-left: 15px; }
+.view-market-order-buy > .receiveinfos > .address { font-size: 14px; color: rgba(0, 0, 0, 0.5); }
+.view-market-order-buy > .order-details { background-color: #fff; margin-top: 15px; margin-bottom: 30px; padding-left: 15px; }
+.view-market-order-buy > .order-details > .prolist { padding: 10px 10px 10px 0px; }
+.view-market-order-buy > .order-details > .prolist tr { font-size: 12px; color: rgba(0, 0, 0, 0.5); height: 32px; line-height: 16px; }
+.view-market-order-buy > .order-details > .prolist td.name { padding: 5px 3px 5px 0px; }
+.view-market-order-buy > .order-details > .prolist td.count { width: 60px; text-align: right; }
+.view-market-order-buy > .order-details > .prolist td.price { width: 100px; text-align: right; }
+.view-market-order-buy > .order-details > .detail-item { font-size: 14px; padding: 10px 50px 10px 0px; }
+.view-market-order-buy > .order-details > .detail-item > .title { color: #FFAB00; margin-bottom: 5px; }
+.view-market-order-buy > .order-details > .detail-item > .desc { font-size: 12px; color: rgba(0, 0, 0, 0.4); }
+.view-market-order-buy > .order-details > .detail-item > .val { position: absolute; right: 10px; top: 50%; 
+	line-height: 22px; margin-top: -11px; color: #FFAB00; }
+.view-market-buy-footer { background-color: #454545; line-height: 42px; color: #fff; }
+.view-market-buy-footer > .amount { padding: 0px 10px; font-size: 14px; }
+.view-market-buy-footer > .amount > .val { font-size: 12px; }
+.view-market-buy-footer > .amount > .val > .val1 { font-size: 14px; }
+.view-market-buy-footer > .discount { font-size: 12px; line-height: 16px; padding-left: 5px; color: rgba(255, 255, 255, 0.65); }
+.view-market-buy-footer > .submitbtn { position: absolute; top: 0px; right: 0px; width: auto; border-radius: 0px; }
+.view-market-buy-footer > .submitbtn:after { display: none; }
+
+
+.view-market-buy-coupon { position: fixed; left: 0px; top: 0px; right: 0px; bottom: 0px; z-index: 105; background-color: rgba(0, 0, 0, 0.35); }
+.view-market-buy-coupon .box { width: 85%; margin: 0px auto; min-height: 320px; }
+.view-market-buy-coupon .box > .fetchBtn { position: absolute; width: 200px; left: 50%; margin-left: -100px; bottom: 45px; }
+.view-market-buy-coupon .box > .closeBtn { position: absolute; left: 0px; top: 12.5%; width: 32px; height: 32px; }
+
+

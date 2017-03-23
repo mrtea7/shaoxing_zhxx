@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+
+header > .title { text-align: center; font-size: 24px; letter-spacing: 6px; line-height: 32px; margin-bottom: 5px; padding-top: 15px; }
+header > .subtitle { text-align: center; font-size: 16px; line-height: 16px; margin-bottom: 25px; }
+header > .barcode { position: absolute; top: 5px; right: 0px; text-align: center; }
+header > .barcode > .no { font-size: 12px; line-height: 16px; }
+header > .infos { padding: 0px 10px; margin-bottom: 3px; line-height: 16px; }
+header > .infos > span { min-width: 160px; }
+header > .infos > .date { float: right; }
+header > .infos > .date > span { width: 45px; text-align: center; }
+
+section { border: 1px solid #000; }
+section table { border: 0px; }
+section > .infos { border-bottom: 1px solid #000; margin-bottom: 1px; }
+section > .infos tr { height: 30px; }
+section > .infos .lbl { width: 15%; }
+section > .infos .val { width: 35%; padding-left: 5px; text-align: left; }
+section > .prolist { border-top: 1px solid #000; border-bottom: 1px solid #000; }
+section > .prolist:first-child { border-top: 0px; }
+section > .prolist:last-child { border-bottom: 0px; }
+section > .prolist > table > tbody > tr > td { font-size: 13px; }
+section > .prolist td.seqno { width: 40px; white-space: nowrap; }
+section > .prolist td.barcode { width: 145px; white-space: nowrap; text-align: center; }
+section > .prolist td.count { width: 85px; white-space: nowrap; }
+section > .prolist td.price { width: 90px; white-space: nowrap; }
+section > .prolist td.remark { width: 100px; }
+section > .prolist td.rackno { width: 45px; }
+section > .summary tr { height: 28px; }
+section > .summary td.lbl { width: 15%; }
+
+footer { margin-top: 30px; }
+footer > table { border: 0px; }
+footer > table > tbody > tr > td { border-left: 0px; }
+footer > .remark { margin-top: 20px; font-size: 12px; }
+
+
+

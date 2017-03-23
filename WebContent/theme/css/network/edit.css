@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+
+.view-network-edit .companyinfos .abilities { padding-top: 7px; }
+.view-network-edit .companyinfos .abilities > .item { margin-bottom: 5px; }
+.view-network-edit .companyinfos .abilities > .item > .details { margin: 0px 5px; color: #aaa; white-space: nowrap; 
+	max-width: 600px; overflow: hidden; text-overflow: ellipsis; margin-bottom: -3px; display: none; }
+.view-network-edit .companyinfos .abilities > .item > .set { margin-left: 10px; display: none; line-height: 16px; }
+.view-network-edit .companyinfos .abilities > .item.selected > .set { display: inline-block; }
+
+.view-network-edit .positioninfos .localmap { border: 1px solid #e7e7e7; }
+.view-network-edit .positioninfos .localmap > .toolbar { padding: 6px 10px; background-color: #fdfdfd; border-bottom: 1px solid #e7e7e7; }
+.view-network-edit .positioninfos .localmap > .toolbar > .markBtn { margin-right: 5px; }
+.view-network-edit .positioninfos .localmap > .toolbar > .markBtn > .icon { background-image: url('/theme/img/map.png');
+    opacity: 1; margin-right: 5px; }
+.view-network-edit .positioninfos .localmap > .toolbar > .keywardIpt { float: right; }
+.view-network-edit .positioninfos .localmap .amap-info .marktips { display: inline; color: rgba(255, 255, 255, 0.5); font-size: 12px; }
+
+
+
+.abilitySettingView { height: 100%; }
+.abilitySettingView .settings-content { height: 100%; padding-left: 360px; }
+.abilitySettingView .settings-content > .srccodes { position: absolute; left: 0px; top: 0px; bottom: 0px; 
+	width: 360px; background-color: #F4FBFD; padding: 3px 3px 22px; }
+.abilitySettingView .settings-content > .srccodes .addbtn { position: absolute; top: 0px; right: 0px; width: 24px; height: 22px; 
+	background-image: url('/theme/icons/ic/arrow_right4.png'); background-size: 16px; background-position: center; 
+	background-repeat: no-repeat; cursor: pointer; display: none; opacity: .5; }
+.abilitySettingView .settings-content > .srccodes .addbtn:hover { opacity: 1; }
+.abilitySettingView .settings-content > .srccodes .title:hover .addbtn { display: block; }
+.abilitySettingView .settings-content > .srccodes li.selected > .title .addbtn { display: block; }
+.abilitySettingView .settings-content > .srccodes > .ui-tree { height: 100%; overflow: auto; }
+.abilitySettingView .settings-content > .srccodes > .tips { position: absolute; left: 0px; right: 0px; bottom: 0px; 
+	line-height: 22px; background-color: #FBF4EB; font-size: 12px; color: #999; padding-left: 10px; }
+.abilitySettingView .settings-content > .destcodes { width: 100%; height: 100%; padding-top: 26px; }
+.abilitySettingView .settings-content > .destcodes > .title { position: absolute; top: 0px; left: 0px; right: 0px; 
+	line-height: 26px; padding-left: 12px; background-color: #f0f0f0; }
+.abilitySettingView .settings-content > .destcodes > .items { width: 100%; height: 100%; overflow: auto; }
+.abilitySettingView .settings-content > .destcodes > .items > .item { padding: 0px 12px; line-height: 30px; border-bottom: 1px solid #eee; }
+.abilitySettingView .settings-content > .destcodes > .items > .item:hover { background-color: #fafafa; }
+.abilitySettingView .settings-content > .destcodes > .items > .item > .delbtn { position: absolute; top: 0px; right: 12px; }
+
+
+
+

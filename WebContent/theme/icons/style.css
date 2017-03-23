@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+
+i.icon { display: inline-block; width: 16px; height: 16px; background-repeat: no-repeat; background-position: center; 
+	background-size: 16px; vertical-align: -2px; opacity: .5; position: relative; }
+i.icon:hover { opacity: 1; }
+i.icon:active { opacity: 1; }
+i.icon.light { opacity: .1; }
+
+i.icon.center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%,-50%); margin: 0px; }
+i.icon.small { width: 12px; height: 12px; background-size: 12px; }
+i.icon.big { width: 32px; height: 32px; background-size: 32px; }
+i.icon.bigger { width: 48px; height: 48px; background-size: 48px; }
+i.icon.large { width: 64px; height: 64px; background-size: 64px; }
+
+
+/*********************************************************/
+i.ic-add { background-image: url('/theme/icons/ic/add.png'); }
+i.ic-auth { background-image: url('/theme/icons/ic/auth.png'); }
+i.ic-auth_c1 { background-image: url('/theme/icons/ic/auth_c1.png'); opacity: 1; }
+i.ic-chart { background-image: url('/theme/icons/ic/chart.png'); }
+i.ic-close { background-image: url('/theme/icons/ic/close.png'); }
+
+
+
+
+
+
+
+
+/*********************************************************/
+i.ic-cart { background-image: url('/theme/icons/light/cart.png'); }
+i.ic-minus { width: 17px; height: 17px; background-color: #fff; border: 1px solid #0BAD0A; border-radius: 100px; opacity: 1; }
+i.ic-minus:before { content: ""; position: absolute; left: 4px; right: 4px; height: 1px; background-color: #0BAD0A; top: 7px; }
+i.ic-plus { background-color: #0BAD0A; border-radius: 100px; opacity: 1; width: 17px; height: 17px; }
+i.ic-plus:before { content: ""; position: absolute; left: 5px; right: 5px; height: 1px; background-color: #fff; top: 8px; }
+i.ic-plus:after { content: ""; position: absolute; width: 1px; top: 5px; bottom: 5px; background-color: #fff; left: 8px; }
+i.ic-minus2 { width: 21px; height: 21px; border: 1px solid #ccc; background-color: #fff; opacity: 1; }
+i.ic-minus2:before { content: ""; position: absolute; left: 5px; right: 5px; height: 1px; background-color: #ccc; top: 9px; }
+i.ic-minus2.big { width: 31px; height: 31px; }
+i.ic-minus2.big:before { top: 14px; left: 8px; right: 8px; }
+i.ic-plus2 { width: 21px; height: 21px; background-color: #fff; border: 1px solid #ccc; opacity: 1; }
+i.ic-plus2:before { content: ""; position: absolute; left: 5px; right: 5px; height: 1px; background-color: #ccc; top: 9px; }
+i.ic-plus2:after { content: ""; position: absolute; top: 5px; bottom: 5px; width: 1px; left: 9px; background-color: #ccc; }
+i.ic-plus2.big { width: 31px; height: 31px; }
+i.ic-plus2.big:before { top: 14px; left: 8px; right: 8px; }
+i.ic-plus2.big:after { left: 14px; top: 8px; bottom: 8px; }
+
+
+/*********************************************************/
+i.ic-cart.black { background-image: url('/theme/icons/black/cart.png'); }
+i.ic-close2.black { background-image: url('/theme/icons/black/close2.png'); }
+i.ic-close3.black { background-image: url('/theme/icons/black/close3.png'); }
+
+
+i.ic-arrow-right { background-image: url('/theme/icons/light/arrow_right.png'); }
+i.ic-close2, i.ic-close-circle { background-image: url('/theme/icons/b/close2.png'); }
+i.ic-search { background-image: url('/theme/icons/b/search.png'); }
+
+
+i.ic-arrow3-left_w { background-image: url('/theme/icons/w/arrow3_left.png'); }
+i.ic-arrow3-right_w { background-image: url('/theme/icons/w/arrow3_right.png'); }
+i.ic-close_w { background-image: url('/theme/icons/w/close.png'); }
+i.ic-del { background-image: url('/theme/icons/b/close2.png'); }
+i.ic-edit { background-image: url('/theme/icons/b/edit.png'); }
+i.ic-print { background-image: url('/theme/icons/b/print.png'); }
+
+
+/*********************************************************/
+i.ic_animation_loading { -webkit-animation: loading-spinner 1s infinite linear; -moz-animation: loading-spinner 1s infinite linear; 
+	-o-animation: loading-spinner 1s infinite linear; animation: loading-spinner 1s infinite linear; }
+@-webkit-keyframes loading-spinner{0%{-webkit-transform:rotate(0deg); transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg); transform:rotate(360deg)}}
+@-moz-keyframes loading-spinner{0%{-moz-transform:rotate(0deg); transform:rotate(0deg)}100%{-moz-transform:rotate(360deg); transform:rotate(360deg)}}
+@-o-keyframes loading-spinner{0%{-o-transform:rotate(0deg);transform:rotate(0deg)}100%{-o-transform:rotate(360deg);transform:rotate(360deg)}}
+@keyframes loading-spinner{0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)}}
+

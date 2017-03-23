@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+
+.view-market-shop-cart { position: fixed; right: 15px; bottom: 20px; width: 44px; height: 44px; 
+	background-color: rgba(0, 0, 0, 0.8); border-radius: 100px; z-index: 100; background-image: url('/theme/icons/ic/cart2_c0.png'); 
+	background-size: 24px; background-repeat: no-repeat; background-position: center; }
+.view-market-shop-cart > .count { position: absolute; font-size: 12px; color: #fff; background-color: rgba(255, 0, 0, 0.9); 
+	line-height: 14px; border-radius: 100px; padding: 0px 2px 0px 12px; top: 4px; right: 3px; background-image: url('/theme/icons/ic/yuan_c0.png'); 
+	background-size: 8px; background-repeat: no-repeat; background-position: 2px center; transform: scale(.9); -webkit-transform: scale(.9); }
+
+
+.view-market-shop-category > .category > .items { background-color: #fff; white-space: nowrap; overflow: auto; display: none; }
+.view-market-shop-category > .category > .items::-webkit-scrollbar { width: 0px; height: 0px; }
+.view-market-shop-category > .category > .items > .item { line-height: 41px; min-width: 65px; 
+	text-align: center; padding: 0px 5px 3px; }
+.view-market-shop-category > .category > .items > .item.selected { color: #04BE02; }
+.view-market-shop-category > .category > .items > .item.selected:after { content: ""; position: absolute; 
+	left: 3px; right: 3px; bottom: 0; border-bottom: 2px solid #04BE02; }
+.view-market-shop-category > .category > .subitems { padding: 10px 10px 5px; display: none; }
+.view-market-shop-category > .category > .subitems > .item { width: 25%; padding: 0px 5px 10px; }
+.view-market-shop-category > .category > .subitems > .item > span { line-height: 32px;
+    background-color: #fff; width: 100%; text-align: center; font-size: 14px; color: #ccc; }
+.view-market-shop-category > .category > .subitems > .item.selected > span { color: #f00; }
+.view-market-shop-category > .category > .subitems > .item.selected > span:before { border-color: #f00; }
+
+.view-market-shop-category > .products > .item { background-color: #fff; padding: 5px 10px 0px 112px; 
+	margin-bottom: 10px; min-height: 112px; box-shadow: 0px 2px 10px 0 #ddd; }
+.view-market-shop-category > .products > .item > .proimg { position: absolute; width: 100px; height: 100px; top: 6px; 
+	left: 6px; overflow: hidden; }
+/*.view-market-shop-category > .products > .item > .proimg > .mark { position: absolute; font-size: 12px; left: -20px; */
+	/*top: 1px; background-color: #f00; color: #fff; text-align: center; width: 60px; transform: rotate(-45deg) scale(.65); line-height: 18px; }*/
+.view-market-shop-category > .products > .item > .name { line-height: 20px; margin-bottom: 5px; min-height: 32px; }
+.view-market-shop-category > .products > .item > .price { font-size: 14px; margin-top: 10px; }
+.view-market-shop-category > .products > .item > .price > .val > .val1 { font-size: 18px; }
+.view-market-shop-category > .products > .item > .price > .unit { margin-left: 5px; color: rgba(0, 0, 0, 0.35); }
+.view-market-shop-category > .products > .item > .price > .stock { color: rgba(0, 0, 0, 0.65); margin-left: 6px; }
+.view-market-shop-category > .products > .item > .status { font-size: 12px; color: rgba(0, 0, 0, 0.45); }
+.view-market-shop-category > .products > .item > .cart { position: absolute; width: 44px; height: 44px; 
+	right: 10px; bottom: 10px; background-image: url('/theme/icons/ic/cart3_c1.png'); background-size: 32px; 
+	background-repeat: no-repeat; background-position: center; }
+.view-market-shop-category > .products > .item > .mark { position: absolute; right: 17px; bottom: 17px; font-size: 12px; color: #fff; 
+	background-color: #139146; border-radius: 100px; line-height: 30px; width: 30px; text-align: center; }
+.view-market-shop-category > .products > .item > .cart.disabled { opacity: .25; }
+
+
+.market-shop-img-animate { -webkit-animation: market-shop-image .5s; animation: market-shop-image .5s; }
+
+@-webkit-keyframes market-shop-image {
+	0%    { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+	100%  { -webkit-transform: rotate(360deg); transform: rotate(360deg); width: 0px; height: 0px; top: 94%; left: 95%; }
+}
+@keyframes market-shop-image {
+	0%    { transform: rotate(0deg); }
+	100%  { transform: rotate(360deg); width: 0px; height: 0px; top: 94%; left: 95%; }
+}

@@ -17,6 +17,10 @@
  *      sup.detail.send             派发人查询详情
  *      sup.detail.receive          接收人查询详情
  *
+ *      附件删除
+ *      sup.main.delete             主任务附件删除
+ *      sup.task.delete             子任务附件删除
+ *
  *********************************************************/
 "use strict";
 
@@ -50,6 +54,10 @@ SupervisionService.do = function (session, name, data, callback) {
         SupervisionService.detailSend(session, data, callback);
     else if (name === "sup.detail.receive")
         SupervisionService.detailReceive(session, data, callback);
+    else if (name === "sup.main.delete")
+        SupervisionService.mainDelete(session, data, callback);
+    else if (name === "sup.task.delete")
+        SupervisionService.taskDelete(session, data, callback);
     else
         callback("类[DeptService]不支持接口（api）：" + name);
 };
@@ -172,6 +180,15 @@ SupervisionService.detailReceive = function (session, data, callback) {
         }
     });
 };
+SupervisionService.mainDelete = function (session, data, callback) {
+    session.fetch("/upload/dcdbWorkorderAttach/delete?attachId=" + data.id, function (err, ret) {
+        if (err)
+            callback(err);
+        else {
+            callback(false, ret);
+        }
+    });
+};
 //////////////////////////////////////////////////////
 var _formatPage = function (data, type) {
     var _list = {total: data.total, rows: []};
@@ -183,7 +200,8 @@ var _formatPage = function (data, type) {
             item.workOrderTaskId = data.rows[i].bean.workOrderTaskId;
         item.title = data.rows[i].bean.title;
         item.content = data.rows[i].bean.content;
-        item.deadline = data.rows[i].bean.deadline;
+        var deadline = data.rows[i].bean.deadline;
+        item.deadline = (deadline==null)?"" :deadline.replace(/00:00:00/,"");
         item.status = data.rows[i].caption.taskStatus;
         _list.rows.push(item)
     }
@@ -211,13 +229,17 @@ var _formatSendDetail = function (data) {
         else taskItem.hasTaskAttach = true;
         taskItem.completionTime = bean.dcdbWorkorderTaskList[j].completionTime;
         taskItem.isOverdue = bean.dcdbWorkorderTaskList[j].isOverdue;
+        taskItem.tenantName = bean.dcdbWorkorderTaskList[j].tenantName;
+        taskItem.officeId = bean.dcdbWorkorderTaskList[j].officeId;
         _detail.task.push(taskItem)
     }
     return _detail;
 };
 var _formatReceiveDetail = function (data) {
-    var _detail = {info: {}, attach: [], task: [],taskAttaches:[]};
-    _detail.info = data.bean.dcdbWorkorderInfoBean;
+    var _detail = {base: {}, attach: [], task: [],taskAttaches:[]};
+    _detail.base = data.bean.dcdbWorkorderInfoBean;
+    var feedback = data.bean.feedback;
+    _detail.task.push(feedback);
     var bean = data.bean;
     if (bean.dcdbWorkorderAttaches.length > 0)
         for (var i = 0; i < bean.dcdbWorkorderAttaches.length; i++) {

@@ -32,10 +32,11 @@ var receiveCompletedDetailView = BaseView.extend(module, {
         var self = this;
         SupervisionService.detailReceive(params.session, params.taskId, function (err, ret) {
             self.orderInfo = {};
-            self.orderInfo.base = ret.info;
-            self.orderInfo.taskList = ret.task;
-            self.orderInfo.taskAttach = ret.taskAttaches;
+            self.orderInfo.base = ret.base;
             self.orderInfo.attach = ret.attach;
+            self.orderInfo.task = ret.task;
+            self.orderInfo.task.feedback = self.orderInfo.task[0];
+            self.orderInfo.taskAttach = ret.taskAttaches;
             callback(false, params);
         });
     },
@@ -63,7 +64,7 @@ var receiveCompletedDetailView = BaseView.extend(module, {
     renderFootView: function (target) {
         var detailFoot = target.appendAndGet("<div class='detail-foot'></div>");
         var btnGroup = new UIGroup(this, {gap: 10});
-        btnGroup.addChild(new UIHGroup(this, {gap: 10}))
+        btnGroup.addChild(new UIHGroup(this, {gap: 10}));
         var optBtn = VRender.$("<div class='optBtn'></div>").appendTo(detailFoot);
         if (Utils.isNotBlank(btnGroup)) {
             new UIGroup(this, {cls: "preview"}).append(btnGroup).render(optBtn);
@@ -87,7 +88,7 @@ var receiveCompletedDetailView = BaseView.extend(module, {
         var listview = target.appendAndGet("<div id='listview' class='hide'></div>");
         // var listview = target.appendAndGet("<div id='listview'></div>");
 
-        listview.write("<div> 反馈内容：" + this.orderInfo.base.feedback + "</div>");
+        listview.write("<div> 反馈内容：" + this.orderInfo.task.feedback + "</div>");
         for (var i = 1; i < this.orderInfo.taskAttach.length + 1; i++) {
             listview.write("<div> 附件" + i + "：<a class='downloadAttach' id='" + this.orderInfo.taskAttach[i - 1].id + "'>" + this.orderInfo.taskAttach[i - 1].originalFilename + "</a></div>");
         }

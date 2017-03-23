@@ -13,7 +13,7 @@
 .view-supervision-edit > .form > dl > dt { position: absolute; line-height: 32px; top: 0px; left: 0px; }
 .view-supervision-edit > .form > dl > dd > p { padding-top: 7px; }
 .view-supervision-edit > .form > dl > dd > .ui-radgrp { line-height: 32px; }
-.fileinfos {}
+.fileinfos:after { content: url(/theme/icons/b/close.png);cursor: pointer}
 
 
 

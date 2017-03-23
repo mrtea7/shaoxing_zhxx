@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+
+.view-market-cart-footer { line-height: 42px; background-color: #454545; color: #fff; padding-left: 12px; }
+.view-market-cart-footer > .amount { position: absolute; right: 110px; font-size: 12px; }
+.view-market-cart-footer > .amount > .val { font-size: 18px; }
+.view-market-cart-footer > .submitbtn { position: absolute; top: 0px; right: 0px; width: 100px; border-radius: 0px; }
+.view-market-cart-footer > .submitbtn:after { display: none; }
+
+.view-market-cart { padding-bottom: 25px; }
+.view-market-cart .pro-item { padding: 10px 10px 0px 45px !important; }
+.view-market-cart .pro-item > .chkbox { position: absolute; left: 0px; top: 20px; width: 40px; height: 40px; padding: 10px 0px 0px 10px; }
+.view-market-cart .pro-item > .infos { min-height: 60px; padding-left: 65px; }
+.view-market-cart .pro-item > .infos > img { position: absolute; width: 60px; height: 60px; left: 0px; top: 0px; }
+.view-market-cart .pro-item > .infos > .name { line-height: 18px; max-height: 36px; min-height: 24px; margin-bottom: 5px; 
+	font-size: 14px; overflow: hidden; }
+.view-market-cart .pro-item > .infos > .price > .val { font-size: 16px; color: #E80000; }
+.view-market-cart .pro-item > .infos > .price > .unit { font-size: 12px; color: rgba(0, 0, 0, 0.35); margin-left: 3px; }
+.view-market-cart .pro-item > .details { margin-top: 6px; margin-left: -45px; margin: 10px -10px 0px 0px; height: 45px; }
+.view-market-cart .pro-item > .details > .count { position: absolute; top: 6px; right: 10px; }
+.view-market-cart .pro-item > .details > .count > .btn { width: 33px; height: 33px; padding: 6px 0px 0px 6px; }
+.view-market-cart .pro-item > .details > .count > .val { min-width: 30px; text-align: center; line-height: 22px; font-size: 14px; vertical-align: 2px; }
+.view-market-cart .pro-item > .details > .count > .unit { font-size: 14px; color: rgba(0, 0, 0, 0.4); line-height: 22px; 
+	vertical-align: 2px; margin-left: 5px; }
+
+
+
+

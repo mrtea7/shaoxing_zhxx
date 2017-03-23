@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+
+.view-wx-payorder > .pay-container { padding-top: 150px; background-image: url('/theme/img/logo_wx2.png'); 
+	background-repeat: no-repeat; background-position: center 50px; }
+.view-wx-payorder > .pay-container > .title { font-size: 14px; }
+.view-wx-payorder > .pay-container > .amount { line-height: 50px; font-size: 20px; margin-top: 20px; }
+.view-wx-payorder > .pay-container > .amount > .val { font-size: 22px; }
+
+.view-wx-payorder > .without-wx > .mfh-qrcode { background-size: 200px; }
+.view-wx-payorder > .without-wx > .lnk { font-size: 12px; }
+
+
+
+
+
+
+
+
+
+
+

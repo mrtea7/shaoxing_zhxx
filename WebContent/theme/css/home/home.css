@@ -1,0 +1,4 @@
+@charset "utf-8";
+
+#mfh-mod-home .ui-datagrid tbody tr:hover { cursor: pointer; color: #0081FF; }
+

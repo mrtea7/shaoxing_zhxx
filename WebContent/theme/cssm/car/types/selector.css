@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+
+.view-car-type-sel { padding-top: 55px; }
+.view-car-type-sel > .header { position: absolute; left: 0px; top: 0px; right: 0px; height: 55px; background-color: #f7f7fc;
+	padding: 0px 0px 0px 75px; }
+.view-car-type-sel > .header > .backbtn { position: absolute; width: 40px; height: 40px; left: 0px; top: 50%; 
+	margin-top: -20px; background-image: url('/theme/icons/ic/arrow_left.png'); background-position: center; 
+	background-repeat: no-repeat; background-size: 24px; }
+.view-car-type-sel > .header > .backbtn:active { background-color: #ebebeb; }
+.view-car-type-sel > .header > .logo { position: absolute; width: 24px; height: 24px; left: 45px; top: 50%; margin-top: -12px; }
+.view-car-type-sel > .header > .title { height: 55px; }
+.view-car-type-sel > .header > .title > .name { font-size: 16px; line-height: 18px; padding-right: 40px; }
+.view-car-type-sel > .header > .title:after { content: ""; position: absolute; border: 0px solid transparent; 
+	border-width: 10px 8px 0px; border-top-color: #ccc; right: 10px; top: 50%; margin-top: -5px; }
+.view-car-type-sel > .categorys { position: absolute; left: 0px; top: 55px; right: 0px; bottom: 0px; z-index: 1;
+	background-color: rgba(0,0,0,.6); padding-bottom: 120px; }
+.view-car-type-sel > .categorys > .ui-list { background-color: #fff; height: inherit; max-height: 100%; }
+.view-car-type-sel > .categorys .category-item > .grp-ind { background-color: #eee; margin: -7px -12px 5px -12px; 
+	font-size: 12px; line-height: 22px; padding-left: 12px; }
+.view-car-type-sel > .categorys .category-item > .content { text-align: center; line-height: 40px; }
+.view-car-type-sel.brand > .categorys { top: 0px; padding-bottom: 0px; }
+.view-car-type-sel.brand > .categorys > .ui-list { height: 100%; }
+.view-car-type-sel.brand > .categorys .category-item > .content { padding-left: 45px; line-height: 48px; text-align: left;}
+.view-car-type-sel.brand > .categorys .category-item > .content > img { position: absolute; left: 0px; top: 50%; 
+	width: 36px; height: 36px; margin-top: -18px; border-radius: 5px; }
+
+
+
+
+
+

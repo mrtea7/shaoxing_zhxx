@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+
+.activity-result { padding-top: 160px; }
+.activity-result:before { content: ""; position: absolute; width: 104px; height: 104px; top: 36px; left: 50%; 
+	margin-left: -52px; background-size: 104px; background-repeat: no-repeat; background-position: center; }
+.activity-result > .title { font-size: 20px; text-align: center; padding: 0px 20px; margin-bottom: 5px; }
+.activity-result > .desc { font-size: 14px; color: #888; padding: 0px 20px; text-align: center; }
+.activity-result.success:before { background-image: url('/theme/icons/m/state_success2.png'); }
+.activity-result.error:before { background-image: url('/theme/icons/m/state_error2.png'); }

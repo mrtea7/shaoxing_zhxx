@@ -43,7 +43,6 @@ define(function ($, VR, Utils) {
 
     moduleView.on("dialog_submit", function (e) {
         var data = getValidateData();
-        console.log('<data>',data);
         VR.post("sup.feedback", data, function (err, ret) {
             if (err)
                 return frame.tooltip("保存出错啦:"+err);

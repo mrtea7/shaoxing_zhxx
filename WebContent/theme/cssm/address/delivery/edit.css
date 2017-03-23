@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+
+.view-address-edit { padding-top: 1px; }
+.view-address-edit .mfh-form-r.area p { text-align: right; padding-right: 30px !important; }
+.view-address-edit > .address { margin-top: -1px; margin-bottom: -5px; padding: 5px 12px; }
+
+.view-address-edit > .settings > .item { background-color: #fff; line-height: 44px; margin-top: 15px;
+	padding: 0px 12px; }
+.view-address-edit > .settings > .item.setdef > .ui-chkbox { position: absolute; top: 11px; right: 10px; }
+.view-address-edit > .settings > .item.setdel { color: #f00; }
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+
+.print-item { position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; font-size: 9px; }
+.print-item > * { position: absolute; }
+.print-item > .name { left: 32px; top: 5px; padding: 2px 5px 0px; font-size: 12px; }
+.print-item > .price { left: 20px; top: 45px; min-width: 80px; text-align: center; }
+.print-item > .price > .val { font-size: 22px; font-family: monospace; }
+.print-item > .price > .val > .val1 { font-size: 32px; }
+.print-item > .barcode { top: 38px; right: -7px; }
+.print-item > .barcode > .code { text-align: right; font-size: 12px; padding-right: 10px; margin-top: -2px; font-family: monospace; }
+.print-item > .costprice { left: 10px; bottom: 5px; }
+.print-item > .spec { left: 50px; bottom: 5px; }
+.print-item > .unit { left: 95px; bottom: 5px; }
+.print-item > .place { left: 135px; bottom: 5px; }
+.print-item > .level { left: 175px; bottom: 5px; }
+
+
+
+
+
+

@@ -21,8 +21,9 @@ define(function ($, VR, Utils) {
         }
     });
     $(".downloadAttach").on("click", function (e) {
+        console.log('<e>',e);
         var attachId = e.currentTarget.id;
-        window.open("/download/123.zip","_blank");
+        window.open("/download/dcdbWorkOrderAttachDown/download?id=" + attachId + "&clientType=1","_blank");
         // VR.post("/download/dcdbWorkOrderAttachDown/download?id=" + attachId + "&clientType=1", function (err, ret) {
         //     if (err)
         //         frame.tooltip("下载失败:" + err);
@@ -78,7 +79,7 @@ define(function ($, VR, Utils) {
         var dialog = VR.Component.Dialog.create({
             title: "督查督办 > 编辑",
             module: moduleUrl,
-            buttons: [{name: "save", label: "保存"}, {name: "submit", label: "发送"}, {name: "cancel", label: "取消"}]
+            buttons: [{name: "save", label: "暂存"}, {name: "submit", label: "发送"}, {name: "cancel", label: "取消"}]
         });
 
         dialog.on("view_submit", function (e) {

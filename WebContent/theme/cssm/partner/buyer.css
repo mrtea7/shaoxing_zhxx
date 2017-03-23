@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+
+.view-partner-buyer .order-item > .title { line-height: 44px; font-size: 14px; padding-left: 12px; }
+.view-partner-buyer .order-item > .title > .detailbtn { position: absolute; top: 0px; right: 0px; padding-right: 5px; }
+.view-partner-buyer .order-item > .title > .detailbtn > .icon { background-image: url('/theme/icons/ic/arrow_right.png'); 
+	margin-left: 5px; background-size: 12px; }
+.view-partner-buyer .order-item > .infos { font-size: 12px; padding: 5px 60px 5px 12px; }
+.view-partner-buyer .order-item > .infos > .receiver { font-size: 16px; margin-bottom: 6px; }
+.view-partner-buyer .order-item > .infos > .receiver > .mobile { margin-left: 10px; color: rgba(0, 0, 0, 0.65); }
+.view-partner-buyer .order-item > .infos > .amount { position: absolute; top: 5px; right: 10px; }
+.view-partner-buyer .order-item > .infos > .amount > .val > .val1 { font-size: 16px; }
+.view-partner-buyer .order-item > .infos > .count { position: absolute; top: 30px; right: 10px; }
+.view-partner-buyer .order-item > .infos > .phonebtn { position: absolute; width: 32px; height: 32px; left: 155px; 
+	top: -1px; padding: 3px 0px 0px 3px; }
+.view-partner-buyer .order-item > .infos > .phonebtn > .icon { width: 26px; height: 26px; font-size: 0; border: 1px solid #ccc; 
+	border-radius: 100px; background-image: url(/theme/icons/ic/phone.png); background-size: 12px; background-repeat: no-repeat; 
+	background-position: center; opacity: .65; }
+.view-partner-buyer .order-item > .infos > .status { position: absolute; right: 10px; bottom: 5px; }
+.view-partner-buyer .order-item > .infos > .status > .unpay { color: #f00; }
+.view-partner-buyer .order-item > .toolbar { padding: 10px 7px; }
+.view-partner-buyer .order-item > .toolbar > div { padding: 0px 5px; }
+
+/*.view-partner-buyer .order-item.pay-2 > .toolbar { display: none; }*/
+/*.view-partner-buyer .order-item.pay-3 > .toolbar { display: none; }*/
+
+/*.view-partner-buyer[vt=new] .order-item > .infos > .amount > .val > .val1 { font-size: 16px; }*/
+
+/*.view-partner-buyer[vt=task] .order-item > .infos > .count { font-size: 16px; }*/
+.view-partner-buyer[vt=task] .order-item > .toolbar > div { display: inline-block; width: 50%; vertical-align: top; }
+
+/*.view-partner-buyer[vt=finish] .order-item > .toolbar { display: none; }*/
+
+
+.view-partner-buyer[vt=refund] .order-item > .toolbar { display: none; }
+/*.view-partner-buyer[vt=refund] .order-item.pay-1 > .toolbar { display: block; }*/
+
+
+

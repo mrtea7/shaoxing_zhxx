@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+
+.view-sales-create .productgrp .col-seqno { width: 55px; min-width: 0px; }
+.view-sales-create .productgrp .col-barcode { white-space: nowrap; }
+
+

@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+
+/*********************************************************/
+/* login */
+body.lanlj #view-login { background-color: #007cc3; }
+body.lanlj #view-login > .container:after { background-image: url('/webroot/theme/lanlj/logo_03.png'); background-size: 72px; }
+body.lanlj #view-login > .container > .content > .qrcode > .img > .mfh-qrcode { background-image: url('/webroot/theme/lanlj/qrcode.jpg'); }
+
+
+/*********************************************************/
+/* main */
+body.lanlj #main-body > header { border-top-color: #007cc3; }
+body.lanlj #view-mainheader > .logo { background-image: url('/webroot/theme/lanlj/logo.png'); }
+body.lanlj #view-sidemenu > .grp.selectable.selected > .title { background-color: #007cc3; }
+body.lanlj #view-sidemenu > .grp > .items > .item.selected > .title { background-color: #007cc3; }
+body.lanlj .main-container > .mfh-module > .mfh-module-header > .menus > .item.selected { border-bottom-color: #007cc3; }
+
+
+/*********************************************************/
+/* office */
+body.lanlj #view-setoffice > .container > .content > .foot > .submitbtn { background-color: #007cc3; }
+
+
+/*********************************************************/
+/* frame */
+body.lanlj .ui-btn-primary { background-color: #007cc3; }
+body.lanlj .ui-btn-primary:hover { background-color: #0e6394; }
+body.lanlj .ui-tabview > .tabbar > ul > li.selected { border-bottom-color: #007cc3; }
+body.lanlj .mfh-confirm-wrapper > .mfh-confirm > .btns > button:first-child { background-color: #007cc3; }
+
+
+/*********************************************************/
+/* comps */
+body.lanlj .mfh-processor > .process-tabs > .tab.selected { background-color: #007cc3; }
+body.lanlj .mfh-processor > .process-tabs > .tab.selected:after { border-left-color: #007cc3; }
+
+
+/*********************************************************/
+/* product */
+body.lanlj #mfh-mod-proedt .propitem .items .item.selected { border-color: #007cc3; }
+body.lanlj .view-product-selector > .contentview > .tabs > .tab.selected { border-bottom-color: #007cc3; }
+

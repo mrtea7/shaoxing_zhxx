@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+
+/*********************************************************/
+/* frame */
+body.dingding .ui-btn-primary { background-color: #F18322; }
+body.dingding .ui-btn-primary:not(.disabled):active { background-color: #DA8336; }
+body.dingding .ui-btn-text.major { color: #F18322; }
+body.dingding .mfh-logo-bottom:after { background-image: url('/webroot/theme/dingding/logo2.png'); }
+body.dingding .mfh-qrcode { background-image: url('/webroot/theme/dingding/qrcode.jpeg'); }
+body.dingding .mfh-logo { background-image: url('/webroot/theme/dingding/logo.png'); }
+
+
+/*********************************************************/
+/* pwd_dialog */
+body.dingding .mfh-pwd-dialog > .content > div > .box > .head > .title > .logo { background-image: url('/webroot/theme/dingding/logo.png'); }
+
+
+
+/*********************************************************/
+/* me */
+body.dingding .view-me-index > .header > .infos { background-color: #F08300; }
+
+
+
+
+

@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+
+.activity-headimg { padding-bottom: 50px; }
+.activity-headimg > .headbox { padding-top: 45px; margin-bottom: 25px; }
+.activity-headimg > .headbox > .images { height: 80px; }
+.activity-headimg > .headbox > .images:before { content: ""; position: absolute; width: 32px; height: 32px; left: 50%; top: 50%;
+	margin-left: -16px; margin-top: -16px; background-position: center; background-repeat: no-repeat; 
+	background-size: 20px; background-image: url('/theme/icons/m/link_off.png');}
+.activity-headimg > .headbox > .images > img { position: absolute; width: 64px; height: 64px; left: 50%; top: 50%;
+	margin-left: -32px; margin-top: -32px; border-radius: 100px; }
+.activity-headimg > .headbox > .images.size2 > img:first-child { left: 23%; margin-left: auto; }
+.activity-headimg > .headbox > .images.size2 > img:last-child { left: auto; right: 23%; margin-left: auto; }
+.activity-headimg > .headbox > .title { font-size: 16px; text-align: center; }
+.activity-headimg > .headbox > .subtitle { font-size: 14px; text-align: center; color: #999; }
+.activity-headimg > .headbox.linked > .images { background-image: url('/theme/icons/m/link_on.png'); }
+
+.activity-headimg > .headbox.transfer > .images:before { background-image: url('/theme/icons/ic/arrow3_right.png'); opacity: .25; }
+

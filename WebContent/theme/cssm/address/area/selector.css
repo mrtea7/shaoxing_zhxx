@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+
+.view-address-areasel .title { line-height: 44px; padding-left: 12px; }
+.view-address-areasel .province > .title { background-color: rgba(0, 0, 0, 0.08); }
+.view-address-areasel .city > .title { background-color: rgba(0, 0, 0, 0.04); }
+
+.view-address-areasel .subitems { display: none; }
+.view-address-areasel .open > .subitems { display: block; }
+
+
+
+
+
+
+
+

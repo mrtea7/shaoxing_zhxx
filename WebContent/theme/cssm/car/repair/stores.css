@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+
+.view-car-repair-stores { height: 100%; }
+.view-car-repair-stores > .listview { height: 100%; }
+.view-car-repair-stores > .listview > .ui-list { height: 100%; }
+
+.view-car-repair-stores .store-item { padding: 12px 0px 10px 80px; }
+.view-car-repair-stores .store-item > img { position: absolute; left: 10px; top: 10px; width: 64px; 
+	height: 64px; border-radius: 5px; }
+.view-car-repair-stores .store-item > .infos > .name { padding-right: 100px; }
+.view-car-repair-stores .store-item > .infos > .name > .val { font-size: 18px; line-height: 20px; white-space: nowrap; 
+	width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.view-car-repair-stores .store-item > .infos > .status { font-size: 12px; }
+.view-car-repair-stores .store-item > .infos > .status > .stars > i { display: inline-block; width: 16px; height: 16px; 
+	vertical-align: -3px; background-image: url('/theme/icons/m/star_1.png'); background-size: 12px; 
+	background-position: center; background-repeat: no-repeat; }
+.view-car-repair-stores .store-item > .infos > .status > .stars > i.on { background-image: url('/theme/icons/m/star_2.png'); }
+.view-car-repair-stores .store-item > .infos > .status > .stars > i.half { background-image: url('/theme/icons/m/star_3.png'); }
+.view-car-repair-stores .store-item > .infos > .distance { font-size: 12px; line-height: 20px; color: rgba(0, 0, 0, .6); }
+.view-car-repair-stores .store-item > .msgs { margin-top: 10px; padding: 10px 0px 0px; font-size: 14px; }
+.view-car-repair-stores .store-item > .msgs > div { margin-bottom: 5px; }
+.view-car-repair-stores .store-item > .msgs > div.icon { padding-left: 20px; }
+.view-car-repair-stores .store-item > .msgs > div.icon:before { content: ""; position: absolute; width: 16px; height: 16px; 
+	left: 0px; top: 1px; background-position: center; background-repeat: no-repeat; background-size: 16px; }
+.view-car-repair-stores .store-item > .msgs > div.discount:before { background-image: url('/theme/img/shop/jian.png'); }
+.view-car-repair-stores .store-item > .marks { position: absolute; top: 12px; right: 10px; }
+.view-car-repair-stores .store-item > .marks > span { width: 16px; height: 16px; margin-left: 5px; 
+	background-position: right center; background-repeat: no-repeat; background-size: auto 100%; }
+.view-car-repair-stores .store-item > .marks > span.bao { background-image: url('/theme/img/shop/bao.png'); }
+.view-car-repair-stores .store-item > .marks > span.pei { background-image: url('/theme/img/shop/pei.png'); }
+.view-car-repair-stores .store-item > .marks > span.ding { background-image: url('/theme/img/shop/ding.png'); width: 56px; }
+.view-car-repair-stores .store-item > .localbtn { position: absolute; top: 35px; right: 15px; width: 36px; height: 36px; }
+.view-car-repair-stores .store-item > .localbtn:active { background-color: #dedede; }
+
+
+

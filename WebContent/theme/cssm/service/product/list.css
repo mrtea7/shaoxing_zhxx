@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+
+.view-serv-prod-list { padding-left: 100px; }
+.view-serv-prod-list > .typelist { position: fixed; left: 0px; top: 0px; bottom: 0px; width: 100px;
+	background-color: #fff; z-index: 1; }
+.view-serv-prod-list > .typelist li.selected > div { color: #039702; }
+.view-serv-prod-list > .productlist .price { font-size: 14px; color: #fb5700; margin-top: 5px; }
+
+

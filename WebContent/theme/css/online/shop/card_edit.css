@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+
+.shop-card .mfh-imguploader { display: none; }
+.editcontainer img { background-image: url('/theme/icons/ic/add.png'); background-size: 16px; background-position: center;
+	background-repeat: no-repeat; background-color: #fff; cursor: pointer; }
+.editcontainer img:hover { box-shadow: 0px 0px 3px 1px #aaa; }
+
+
+.shop-card-gridedt > .item { margin-bottom: 20px; }
+.shop-card-gridedt > .item > .title { border-bottom: 1px solid #eee; margin-bottom: 10px; padding: 5px 0px; }
+.shop-card-gridedt > .item > .title > span { display: inline; }
+.shop-card-gridedt > .item > img { width: 48px; height: 48px; vertical-align: middle; margin-right: 20px; }
+
+
+.shop-card-scrollimg-edt > .imgs > .item { margin-bottom: 10px; padding: 0px 80px 0px 40px; }
+.shop-card-scrollimg-edt > .imgs > .item > img { position: absolute; width: 32px; height: 32px; left: 0px; top: 0px; }
+.shop-card-scrollimg-edt > .imgs > .item > .shop-card-lnkipt { width: 100%; }
+.shop-card-scrollimg-edt > .imgs > .item > .ops { position: absolute; top: 5px; right: 0px; height: 22px; }
+.shop-card-scrollimg-edt > .imgs > .item > .ops > .op { width: 22px; height: 22px; cursor: pointer; margin-left: 1px; 
+	background-position: center; background-size: 12px; background-repeat: no-repeat; opacity: .35; }
+.shop-card-scrollimg-edt > .imgs > .item > .ops > .op:hover { background-color: #fff; opacity: 1; background-size: 14px; }
+.shop-card-scrollimg-edt > .imgs > .item > .ops > .op.up { background-image: url('/theme/icons/ic/arrow3_up.png'); }
+.shop-card-scrollimg-edt > .imgs > .item > .ops > .op.down { background-image: url('/theme/icons/ic/arrow3_down.png'); }
+.shop-card-scrollimg-edt > .imgs > .item > .ops > .op.del { background-image: url('/theme/icons/ic/delete.png'); }
+.shop-card-scrollimg-edt > .imgs > .item > .ops > .op.upload { background-image: url('/theme/icons/ic/upload.png'); }
+.shop-card-scrollimg-edt > .imgs > .item:first-child > .ops > .op.up { visibility: hidden; }
+.shop-card-scrollimg-edt > .imgs > .item:last-child > .ops > .op.down { visibility: hidden; }
+
+
+.shop-card-catepro-edt > .category { margin-top: 10px; }
+.shop-card-catepro-edt > .category > dt { display: inline-block; }
+.shop-card-catepro-edt > .category > dd { display: inline-block; }
+.shop-card-catepro-edt > .products > dt { line-height: 20px; margin: 20px 0px 10px;}
+.shop-card-catepro-edt > .products > dd > .item { margin-bottom: 5px; }
+
+
+
+
+
+
+

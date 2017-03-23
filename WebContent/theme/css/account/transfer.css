@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+
+.view-account-transfer > .transfer { width: 800px; height: 450px; }
+.view-account-transfer > .transfer > .human { text-align: center; }
+.view-account-transfer > .transfer > .human > .headimg { width: 96px; height: 96px; margin: 65px 0px 5px; }
+.view-account-transfer > .transfer > .values { text-align: center; margin: 50px auto 0px; width: 560px; }
+.view-account-transfer > .transfer > .values > .items { display: inline-block; }
+.view-account-transfer > .transfer > .values > .items > span { width: 100px; line-height: 32px; text-align: center; 
+	border: 1px solid #e7e7eb; margin: 0px 5px; cursor: pointer; }
+.view-account-transfer > .transfer > .values > .items > span:hover { background-color: #f0f0f0; }
+.view-account-transfer > .transfer > .values > .items > span.selected { background-color: #ddd; }
+.view-account-transfer > .transfer > .values > .others { position: absolute; text-align: left; right: 0px; top: 52px; 
+	background-color: #fff; border: 1px solid #e7e7eb; padding: 20px; display: none; }
+.view-account-transfer > .transfer > .values > .others:before,
+.view-account-transfer > .transfer > .values > .others:after { content: ""; position: absolute; border: 0px solid transparent; 
+	border-width: 0px 11px 12px 11px; border-bottom-color: #e7e7eb; top: -13px; right: 48px; }
+.view-account-transfer > .transfer > .values > .others:after { top: -12px; border-bottom-color: #fff; }
+.view-account-transfer > .transfer > .password { position: absolute; top: 0px; left: 0px; width: 800px; height: 450px; 
+	background-color: #fff; text-align: center; display: none; padding: 0px 0px 100px; }
+.view-account-transfer > .transfer > .password .amount { margin-bottom: 60px; }
+.view-account-transfer > .transfer > .password .amount .val { font-size: 48px; color: #FFB300; margin: 0px 10px 0px 0px; }
+
+
+

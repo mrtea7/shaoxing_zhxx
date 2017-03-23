@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+
+.view-finance-prepaylst .col-remark { position: relative; }
+.view-finance-prepaylst .col-remark .preview { width: 120px; cursor: default; }
+.view-finance-prepaylst .col-remark .hint { position: absolute; display: none; width: 360px;
+	background-color: #FFFFEA; border: 1px solid #ddd; padding: 20px; z-index: 1; top: 30px; right: -1px; }
+.view-finance-prepaylst .col-remark .hint:before,
+.view-finance-prepaylst .col-remark .hint:after { content: "";   position: absolute; border: 0px solid transparent; 
+	border-width: 0px 10px 11px 10px; border-bottom-color: #ddd; top: -11px; right: 32px; }
+.view-finance-prepaylst .col-remark .hint:after { border-bottom-color: #FFFFEA; top: -10px; }
+.view-finance-prepaylst .col-remark .preview:hover + .hint { display: inline-block; }
+
+
+.view-finance-prepay-edt { width: 400px; margin: 60px auto 0px; }

@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+
+.view-account-payorder > .infos { background-color: #fff; }
+.view-account-payorder > .infos > .item { padding-left: 100px; line-height: 44px; }
+.view-account-payorder > .infos > .item:before { left: 10px; }
+.view-account-payorder > .infos > .item:first-child:before { display: none; }
+.view-account-payorder > .infos > .item > dt { position: absolute; left: 10px; }
+.view-account-payorder > .infos > .item > dd { text-align: right; font-size: 14px; color: #999; padding-right: 10px; }
+.view-account-payorder > .infos > .item.amount > dd { color: #FF7000; }
+.view-account-payorder > .infos > .item.amount > dd > .val > .val1 { font-size: 16px; }
+
+.view-account-payorder > .account { background-color: #fff; margin-top: 15px; padding: 5px 10px 5px 130px; height: 44px; 
+	margin: 15px 0px 25px; }
+.view-account-payorder > .account > .icon { position: absolute; width: 20px; height: 20px; left: 10px; top: 10px; 
+	background-color: #F90; border-radius: 2px; background-image: url('/theme/icons/ic/yuan_c0.png'); background-size: 12px; 
+	opacity: 1; }
+.view-account-payorder > .account > .lbl { position: absolute; left: 40px; top: 0px; line-height: 42px; }
+.view-account-payorder > .account > .pwdipt { width: 100%; height: 100%; border: 0px; font-size: 16px; letter-spacing: 3px; 
+	-webkit-text-security:disc; text-security:disc; }
+.view-account-payorder > .account > .tips { position: absolute; right: 10px; top: 45px; font-size: 12px; }
+
+.view-account-payorder > .otherpay { margin-top: 26px; }
+.view-account-payorder > .otherpay > .title { font-size: 12px; line-height: 20px; color: rgba(0, 0, 0, 0.5); padding: 0px 0px 1px 12px; }
+.view-account-payorder > .otherpay > .paytypes { background-color: #fff; }
+.view-account-payorder > .otherpay > .paytypes > .item { line-height: 44px; padding-left: 12px; }
+.view-account-payorder > .otherpay > .paytypes > .item:before { left: 10px; }
+.view-account-payorder > .otherpay > .paytypes > .item:first-child:before { display: none; }
+.view-account-payorder > .otherpay > .paytypes > .item.selected:after { content: ""; position: absolute;
+    width: 20px; height: 20px; right: 10px; top: 12px; background-image: url('/theme/icons/ic/selected_c1.png'); 
+    background-size: 20px; background-position: center; background-repeat: no-repeat; }
+.view-account-payorder > .otherpay > .paytypes > .item > .icon { width: 20px; height: 20px; background-size: 20px; 
+	opacity: 1; vertical-align: -4px; margin-right: 10px; }
+.view-account-payorder > .otherpay > .paytypes > .item.mfh > .icon { background-color: #F90;
+	background-image: url('/theme/icons/ic/yuan_c0.png'); background-size: 12px; border-radius: 2px; }
+.view-account-payorder > .otherpay > .paytypes > .item.wx > .icon { background-image: url('/theme/img/logo_wx.png'); }
+
+
+
+
+
+
+
+
+
+

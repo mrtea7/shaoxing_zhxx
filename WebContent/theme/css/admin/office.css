@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+#view-setoffice { display: table; width: 100%; height: 100%; }
+#view-setoffice > .container { display: table-cell; vertical-align: middle; }
+#view-setoffice > .container > .content { background-color: #fff; width: 650px; margin: 0px auto; border: 1px solid #dfdfdf; box-shadow: 0px 2px 3px #ddd; }
+#view-setoffice > .container > .content > .title { line-height: 40px; background-color: #f4f5f9; padding-left: 12px; font-size: 16px; }
+#view-setoffice > .container > .content > .hint { background-color: #E9F0FA; font-size: 12px; padding: 5px 12px; color: #00B8FA; }
+#view-setoffice > .container > .content > .listview { height: 300px; overflow: auto; font-size: 14px; padding: 1px 0px; }
+#view-setoffice > .container > .content > .listview > .item { line-height: 32px; border-bottom: 1px solid #eee; padding: 0px 12px; 
+	color: #787878; position: relative; }
+#view-setoffice > .container > .content > .listview > .item:hover { color: #000; }
+#view-setoffice > .container > .content > .listview > .item.selected { background-color: #f0f0f0; color: #000; }
+#view-setoffice > .container > .content > .listview > .item.selected > .chk { position: absolute; width: 16px; height: 16px; 
+	background-image: url('/theme/icons/m/selected.png'); background-size: 16px; right: 12px; top: 7px; }
+#view-setoffice > .container > .content > .foot { background-color: #f4f5f9; text-align: center; height: 55px; padding-top: 10px; }
+#view-setoffice > .container > .content > .foot > .submitbtn { background-color: #009E4D; border: 0px; color: #fff; width: 120px; 
+	height: 32px; border-radius: 2px; font-size: 14px; cursor: pointer; }
+#view-setoffice > .container > .content > .foot > .submitbtn:hover { background-color: #14A55A; }
+
+
+
+

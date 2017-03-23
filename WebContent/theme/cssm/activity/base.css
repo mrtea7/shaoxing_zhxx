@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+
+#main-container > .header { position: fixed; left: 0px; right: 0px; top: 0px; background-color: #fdfdfd; height: 42px; z-index: 100; }
+#main-container > .header > div > .title { line-height: 42px; text-align: center; }
+#main-container > .header > div > .ui-btn { position: absolute; top: 0px; right: 0px; width: auto; }
+#main-container._head { padding-top: 42px; }
+
+#main-container > .footer { position: fixed; left: 0px; right: 0px; bottom: 0px; height: 42px; z-index: 100; background-color: #fff; }
+#main-container > .footer > .mfh-btns { margin: 0px; }
+#main-container > .footer > .mfh-btns > div { display: inline-block; width: 100%; margin: 0px; }
+#main-container > .footer > .mfh-btns > div > .ui-btn { border-radius: 0px; }
+#main-container > .footer > .mfh-btns > div > .ui-btn:after { border-radius: 0px; }
+#main-container > .footer > .mfh-btns.btns2 > div { width: 50%; }
+#main-container > .mfh-logo-bottom { min-height: 100%; }
+#main-container._foot { padding-bottom: 42px; }
+
+
+
+
+
+
+
+
+
+
+
+
+

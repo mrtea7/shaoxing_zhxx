@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+
+.view-account-payorder { height: 100%; overflow: auto; padding-bottom: 235px; }
+
+.view-account-payorder > .infos { text-align: center; padding: 40px 0px 30px; }
+.view-account-payorder > .infos > .amount { line-height: 60px; font-size: 36px; color: #f00; }
+.view-account-payorder > .infos > .title { font-size: 14px; color: rgba(0, 0, 0, 0.25); margin-top: -10px; }
+
+.view-account-payorder > .paytypes { background-color: #fff; }
+.view-account-payorder > .paytypes > .item { line-height: 50px; }
+.view-account-payorder > .paytypes > .item:before { left: 10px; }
+.view-account-payorder > .paytypes > .item:first-child:before { display: none; }
+.view-account-payorder > .paytypes > .item > .title { padding-left: 40px; }
+.view-account-payorder > .paytypes > .item > .title:before { content: ""; position: absolute; width: 24px;
+    height: 24px; left: 12px; top: 13px; background-size: 20px; background-repeat: no-repeat; background-position: center; }
+.view-account-payorder > .paytypes > .item.selected > .title:after { content: ""; position: absolute; width: 24px;
+    height: 24px; right: 10px; top: 13px; background-size: 16px; background-repeat: no-repeat; background-position: center;
+	background-image: url('/theme/icons/ic/selected_c1.png'); }
+.view-account-payorder > .paytypes > .item.mfh > .title:before { background-image: url('/theme/mfh_logo.png'); }
+.view-account-payorder > .paytypes > .item.wx > .title:before { background-image: url('/theme/img/logo_wx.png'); }
+
+.view-account-payorder > .keyboard { position: fixed; left: 0px; right: 0px; bottom: 0px; }
+.view-account-payorder > .keyboard > .password { text-align: center; line-height: 32px; font-size: 12px; background-color: #fff; }
+.view-account-payorder > .keyboard > .password > span { width: 8px; height: 8px; background-color: #000; 
+	border-radius: 100px; margin: 0px 3px; }
+.view-account-payorder > .keyboard > .keys { background-color: #fff; font-size: 18px; }
+.view-account-payorder > .keyboard > .keys > div { line-height: 50px; }
+.view-account-payorder > .keyboard > .keys > div > span { width: 33.333333%; text-align: center; }
+.view-account-payorder > .keyboard > .keys > div > span:active { background-color: #eee; }
+.view-account-payorder > .keyboard > .keys > div > span.disable { background-color: #f0f0f0; }
+.view-account-payorder > .keyboard > .keys > div > span.back { background-image: url('/theme/img/keyboard_back.png');
+    background-size: 28px auto; background-repeat: no-repeat; background-position: center; }
+

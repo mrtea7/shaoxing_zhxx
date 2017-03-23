@@ -88,6 +88,12 @@ var UnfinishedDetailView = BaseView.extend(module, {
         var listView = target.appendAndGet("<div id='listview'></div>");
 
         var list = this.getListView(this.taskList);
+        if (list) {
+            if (list instanceof VRender.UIView)
+                list.render(listView);
+            else
+                listView.append(list);
+        }
     },
     getListView: function (datas) {
         // console.log('<datas>',datas);

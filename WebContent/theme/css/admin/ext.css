@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+body { overflow: auto; }
+
+#main-body { border-top: 5px solid #009E4D; }
+#main-body > .main-container { width: 1200px; margin: 50px auto 40px; }
+#main-body > .main-container > .content { min-height: 100px; background-color: #fff; border: 1px solid #d9dadc; }
+
+
+.mfh-module > .mfh-module-header > .title { line-height: 55px; padding-left: 30px; font-size: 16px; background-color: #f4f5f9; }
+.mfh-module > .mfh-module-content { padding: 26px 30px 50px; }
+
+
+.mfh-module.singlepage > .mfh-module-header { min-height: 0px; border-bottom: 0px; }
+.mfh-module.singlepage > .mfh-module-header > .title { background-color: #f4f5f9; border-bottom: 0px; line-height: 55px; }
+.mfh-module.singlepage .mfh-form-editor > .group > .title { font-size: 16px; border-bottom: 0px; padding-left: 15px; }
+.mfh-module.singlepage .mfh-form-editor > .group > .title:before { content: ""; position: absolute; 
+	left: 0px; top: 13px; width: 6px; height: 6px; background-color: #aaa; border-radius: 30px; }
+.mfh-module.singlepage .mfh-form-editor > .group > .content { padding-left: 30px; }
+.mfh-module.singlepage .mfh-form-editor > .group > .content > .mfh-form > .mfh-form-r { padding-left: 120px; }
+
+
+/*********************************************************/
+body.dingding #main-body { border-top-color: #F18322; }

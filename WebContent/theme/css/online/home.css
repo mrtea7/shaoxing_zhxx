@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+
+.view-online-home { min-height: 600px; }
+
+.view-online-home > .preview { position: absolute; width: 320px; left: 0px; top: 70px; padding-top: 42px; 
+	background-image: url('/theme/img/wx_title.png'); background-size: 100%; background-repeat: no-repeat; 
+	box-shadow: 0px 3px 10px 0px #999; background-color: #f3f3f3; min-height: 568px; z-index: 1; overflow: auto; }
+.view-online-home > .preview > .empty-box { background-color: #fff; }
+.view-online-home > .preview > .desc { text-align: center; font-size: 12px; margin-top: 40px; color: rgba(0, 0, 0, 0.45); }
+
+.view-online-home > .details { padding-left: 360px; }
+

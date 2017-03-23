@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+
+.view-human-selector { min-width: 600px; min-height: 260px; width: 600px; height: 260px; }
+.view-human-selector > .ui-tabview { border: 0px; width: 100%; height: 100%; }
+.view-human-selector > .ui-tabview .iptview { text-align: center; padding-top: 75px; }
+.view-human-selector > .ui-tabview .iptview input { width: 220px; }
+.view-human-selector > .ui-tabview .error-msg { text-align: center; margin: 20px 100px 0px; }
+
+
+
+
+

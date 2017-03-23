@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+
+#mfh-mod-promotion.singlepage > .mfh-module-content { padding: 0px; }
+
+
+.view-ad-editor .ad-baseview { width: 1000px; margin: 40px auto 0px; }
+.view-ad-editor .ad-baseview .nameipt { width: 400px; }
+.view-ad-editor .ad-baseview .device-items { padding-top: 8px; }
+.view-ad-editor .ad-baseview .device-items .item { margin-bottom: 30px; }
+.view-ad-editor .ad-baseview .device-items .ui-radio { width: 120px; }
+
+.view-ad-editor .ad-sendview { width: 1000px; margin: 0px auto; }
+.view-ad-editor .ad-sendview .send-grp header { line-height: 20px; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 30px; }
+.view-ad-editor .ad-sendview .send-grp section { padding-left: 30px; margin-bottom: 45px; }
+.view-ad-editor .ad-sendview .send-grp .box { margin-top: 10px; }
+.view-ad-editor .ad-sendview .minAge { width: 100px; margin-right: 10px; }
+.view-ad-editor .ad-sendview .maxAge { width: 100px; margin-left: 10px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

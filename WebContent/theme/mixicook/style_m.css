@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+
+/*********************************************************/
+/* frame */
+/*body.mixicook .ui-btn-primary { background-color: #F18322; }*/
+/*body.mixicook .ui-btn-primary:not(.disabled):active { background-color: #DA8336; }*/
+body.mixicook .mfh-logo-bottom:after { background-image: url('/webroot/theme/mixicook/logo2.png'); }
+body.mixicook .mfh-logo-bottom.black:after { background-image: url('/webroot/theme/mixicook/logo3.png'); background-size: 20px; }
+body.mixicook .mfh-qrcode { background-image: url('/webroot/theme/mixicook/qrcode.jpg'); }
+/*body.mixicook .mfh-logo { background-image: url('/webroot/theme/mixicook/logo.png'); }*/
+
+
+/*********************************************************/
+/* pwd_dialog */
+/*body.mixicook .mfh-pwd-dialog > .content > div > .box > .head > .title > .logo { background-image: url('/webroot/theme/mixicook/logo.png'); }*/
+
+
+/*********************************************************/
+/* me */
+body.mixicook .view-me-index > .header > .infos { background-color: #009B4E; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

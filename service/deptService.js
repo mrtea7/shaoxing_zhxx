@@ -25,7 +25,7 @@ DeptService.do = function (session, name, data, callback) {
 ///////////////////////////////////////////////////////////
 // 所有科室列表
 DeptService.officeList = function (session, data, callback) {
-    session.fetch("/sysOmOffice/queryOffices?tenantId=" + data, null, function (err, ret) {
+    session.fetch("/sysOmOffice/queryOffices?tenantId=1,2", null, function (err, ret) {
         if (err) {
             callback(err);
         }

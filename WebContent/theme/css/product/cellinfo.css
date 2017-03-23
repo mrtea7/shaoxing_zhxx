@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+
+.view-pro-cellinfo { padding-left: 55px; min-height: 48px; min-width: 200px; max-width: 400px; }
+.view-pro-cellinfo > img { position: absolute; width: 48px; height: 48px; left: 0px; top: 0px; }
+.view-pro-cellinfo > .name { height: 16px; font-size: 15px; margin: 2px 0px 0px; }
+.view-pro-cellinfo > .name > label { max-width: 100%; white-space: nowrap; overflow: hidden; line-height: 16px;
+	text-overflow: ellipsis; display: inline-block; color: #459ae9; }
+.view-pro-cellinfo > .code { line-height: 16px; color: #aaa; }
+.view-pro-cellinfo > .icons > .ic { width: 16px; height: 16px; margin-right: 5px; opacity: .25;
+	background-position: center; background-repeat: no-repeat; background-size: 16px; cursor: pointer; }
+.view-pro-cellinfo > .icons > .ic:hover { opacity: 1; }
+.view-pro-cellinfo > .icons > .ic-chart { background-image: url('/theme/icons/ic/chart2.png'); }
+.view-pro-cellinfo > .icons > .ic-provider { background-image: url('/theme/icons/b/provider.png'); }
+
+.view-pro-cellinfo > img { cursor: pointer; }
+.view-pro-cellinfo.linkable > .name > label:hover { color: #459ae9; text-decoration: underline; cursor: pointer; }
+
+
+.view-procell-providerinfo { position: absolute; z-index: 100; background-color: #fff; border: 1px solid #ddd;
+	padding: 6px; left: 42px; top: 60px; width: 380px; box-shadow: 0px 2px 5px 0px #eee; }
+.view-procell-providerinfo:before,
+.view-procell-providerinfo:after { content: ""; position: absolute; border: 0px solid transparent;
+    border-width: 0px 10px 11px 10px; border-bottom-color: #ddd; left: 30px; top: -12px; }
+.view-procell-providerinfo:after { border-bottom-color: #fff; top: -11px; }
+.view-procell-providerinfo table { width: 100%; border-collapse: collapse; }
+.view-procell-providerinfo table td { padding-right: 3px; }
+.view-procell-providerinfo table .price { width: 85px; }
+.view-procell-providerinfo table .startnum { width: 65px; }
+.view-procell-providerinfo > .close { position: absolute; top: 0px; right: 0px; width: 16px; height: 16px; 
+	background-image: url('/theme/icons/ic/close.png'); background-size: 8px; background-repeat: no-repeat; 
+	background-position: center; cursor: pointer; opacity: .25; z-index: 1; }
+.view-procell-providerinfo > .close:hover { opacity: 1; }
+.view-procell-providerinfo > .header { border-bottom: 1px solid #eee; }
+.view-procell-providerinfo > .header table td { height: 30px; }
+.view-procell-providerinfo > .header > .addbtn { position: absolute; top: 2px; left: 55px; }
+.view-procell-providerinfo > .listview table tr:hover { background-color: #fcfcfc; }
+.view-procell-providerinfo > .listview table td { height: 26px; font-size: 13px; border-bottom: 1px solid #f5f6f9; }
+
+
+

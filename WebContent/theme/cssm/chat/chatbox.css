@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+
+.view-chatbox { width: 100%; height: 100%; display: flex; flex-direction: column; background-color: #f3f3f3; }
+
+.view-chatbox > .chatbox { flex: 1; }
+.view-chatbox > .chatbox > .status { text-align: center; padding: 10px; font-size: 0px; display: none; }
+.view-chatbox > .chatbox > .status > span { font-size: 12px; color: rgba(0, 0, 0, .5); line-height: 20px; }
+.view-chatbox > .chatbox > .status.loading > span:before { content: "正在加载..."; }
+.view-chatbox > .chatbox > .items { padding: 10px 6px; }
+
+.view-chatbox > .foot { min-height: 45px; background-color: #fff; padding: 4px 65px 4px 10px; }
+.view-chatbox > .foot:before { background-color: #b7b7b7; }
+.view-chatbox > .foot > .ipt { font-size: 0px; padding: 5px 0px 6px; position: relative; }
+.view-chatbox > .foot > .ipt:after { background-color: #04be02; color: #04be02; }
+.view-chatbox > .foot > .ipt > textarea { border: 0px; overflow: hidden; font-size: 16px; line-height: 24px; }
+.view-chatbox > .foot > .sendbtn { position: absolute; width: 50px; height: 32px; right: 5px; top: 50%; 
+	margin-top: -16px; line-height: 30px; font-size: 14px; padding: 0px; }
+
+
+.chat-item { margin-bottom: 10px; }
+.chat-item > .headimg { position: absolute; width: 36px; height: 36px; left: 0px; top: 0px; z-index: 1; }
+.chat-item > .content { padding: 0px 50px; min-height: 36px; font-size: 14px; padding-top: 2px; }
+.chat-item > .content > .box { display: inline-block; background-color: #fff; padding: 0px; min-height: 32px;
+	border-radius: 3px; box-shadow: 0px 1px 1px 0px #ddd; text-align: left; }
+.chat-item > .content > .box:before { content: ""; position: absolute; border: 0px solid transparent; 
+	border-width: 5px 8px 5px 0px; border-right-color: #fff; left: -8px; top: 11px; }
+.chat-item.tips { text-align: center; font-size: 12px; color: #aaa; line-height: 20px; margin-top: 20px; }
+.chat-item.txt > .content > .box { padding: 5px 10px; }
+.chat-item.txt > .content > .box > p { line-height: 22px; }
+.chat-item.txt > .content > .box > p .chat-icon { width: 20px; height: 20px; vertical-align: middle; }
+.chat-item.img > .content > .box > div { font-size: 0px; border-radius: 3px; overflow: hidden; }
+.chat-item.img > .content > .box > div > img { width: auto; height: auto; max-width: 100%; max-height: 200px; }
+.chat-item.unknown > .content > .box { font-size: 12px; line-height: 20px; padding: 6px 10px; color: #999; }
+.chat-item.reply > .headimg { left: auto; right: 0px; }
+.chat-item.reply > .content { text-align: right; }
+.chat-item.reply > .content > .box { background-color: #b2e866; }
+.chat-item.reply > .content > .box:before { border-width: 5px 0px 5px 8px; border-left-color: #b2e866; 
+	left: auto; right: -8px; }
+
+

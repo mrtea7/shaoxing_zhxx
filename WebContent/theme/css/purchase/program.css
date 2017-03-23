@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+
+.view-purchase-edit > .ops > .stores { display: inline-block; vertical-align: middle; }
+.view-purchase-edit > .ops > .stores > .lbl { line-height: 30px; width: 80px; text-align: center; border: 1px solid #e7e7eb;
+	border-radius: 3px; padding-right: 20px; cursor: pointer; background-color: #fff; }
+.view-purchase-edit > .ops > .stores > .lbl:after { content: ""; position: absolute; border: 0px solid transparent; 
+	border-width: 6px 5px 0px; border-top-color: #ddd; top: 13px; right: 8px; }
+.view-purchase-edit > .ops > .stores > .lbl:hover { background-color: #f4f5f9; }
+.view-purchase-edit > .ops > .stores > .dropdown { display: none; position: absolute; background-color: #fff; min-width: 200px;
+	border: 1px solid #e7e7eb; padding: 5px 0px; left: 0px; top: 32px; z-index: 1; }
+.view-purchase-edit > .ops > .stores > .dropdown > .item { white-space: nowrap; padding: 2px 10px; }
+.view-purchase-edit > .ops > .stores > .dropdown > .item:hover { background-color: #f0f0f0; }
+.view-purchase-edit > .ops > .stores:hover > .dropdown { display: block; }
+
+.view-purchase-edit > .ops > .products { margin-left: 10px; }
+
+.view-purchase-edit > .orderinfo { position: absolute; top: -62px; right: -15px; color: #787878; }
+.view-purchase-edit > .submit { position: absolute; top: 0px; right: 0px; }
+
+.view-purchase-edit > .listview { border: 1px solid #e7e7eb; background-color: #f4f5f9; margin-top: 20px; }
+.view-purchase-edit > .listview table { border-spacing: 0px; }
+.view-purchase-edit > .listview .tproduct { position: absolute; width: 510px; left: 0px; top: 0px; }
+.view-purchase-edit > .listview .tproduct table { width: 100%; }
+.view-purchase-edit > .listview .tproduct td { padding: 0px 0px 0px 3px; }
+.view-purchase-edit > .listview .tproduct td.pro { width: 220px; }
+.view-purchase-edit > .listview .tproduct td.packnum { width: 50px; }
+.view-purchase-edit > .listview .tproduct td.stock { width: 70px; }
+.view-purchase-edit > .listview .tproduct td.buycount { width: 55px; }
+.view-purchase-edit > .listview .tproduct td.buyprice { width: 50px; }
+.view-purchase-edit > .listview .tproduct td.totalprice { width: 65px; }
+.view-purchase-edit > .listview .tstore { border-left: 1px solid #ddd; }
+.view-purchase-edit > .listview .tstore table { width: auto; }
+.view-purchase-edit > .listview .tstore td { min-width: 80px; border-right: 1px solid #e7e7eb; }
+.view-purchase-edit > .listview .tstore td > .values { white-space: nowrap; }
+.view-purchase-edit > .listview .tstore td > .values > span { width: 70px; min-width: 70px; text-align: center; }
+.view-purchase-edit > .listview .tstore.cols1 td > .values > span { width: 80px; }
+.view-purchase-edit > .listview > .header { padding-left: 510px; border-bottom: 1px solid #e7e7eb; }
+.view-purchase-edit > .listview > .header > .tproduct > table td { height: 64px; }
+.view-purchase-edit > .listview > .header > .tstore { overflow: hidden; }
+.view-purchase-edit > .listview > .header > .tstore > table { position: relative; }
+.view-purchase-edit > .listview > .header > .tstore > table .name { height: 36px; text-align: center;
+	overflow: hidden; border-bottom: 1px solid #e7e7eb; }
+.view-purchase-edit > .listview > .header > .tstore > table .name > span {  position: absolute; width: 100%; left: 0px; top: 5px; }
+.view-purchase-edit > .listview > .header > .tstore > table .values { height: 28px; }
+.view-purchase-edit > .listview > .header > .tstore > table .values > span { border-right: 1px solid #e7e7eb; line-height: 28px; }
+.view-purchase-edit > .listview > .content { padding-left: 510px; font-size: 13px; }
+.view-purchase-edit > .listview > .content .val.edt { min-width: 26px; text-align: right; }
+.view-purchase-edit > .listview > .content .val.zero { color: #ddd; }
+.view-purchase-edit > .listview > .content .val.minus { color: #FF6100; }
+.view-purchase-edit > .listview > .content > .tproduct > table { background-color: #fff; position: relative; }
+.view-purchase-edit > .listview > .content > .tproduct > table td { height: 36px; border-bottom: 1px solid #f0f0f0; }
+.view-purchase-edit > .listview > .content > .tproduct > table td.pro > .name { width: 200px; white-space: nowrap; 
+	overflow: hidden; text-overflow: ellipsis; line-height: 18px; margin-bottom: -3px; }
+.view-purchase-edit > .listview > .content > .tstore { overflow: auto; padding-bottom: 10px; background-color: #fff; }
+.view-purchase-edit > .listview > .content > .tstore > table td { height: 36px; border-bottom: 1px solid #f0f0f0; }
+.view-purchase-edit > .listview > .content > .tstore > table .values > span { line-height: 35px; }
+.view-purchase-edit > .listview > .content > .tstore .sell { background-color: #EDFCFD; }
+.view-purchase-edit > .listview > .content > .tstore .buy { background-color: #FFFAF1; }
+.view-purchase-edit > .listview > .content > .tstore .stock { background-color: #F6F5FF; }
+.view-purchase-edit > .listview > .content > .tstore .trans { background-color: #F3FFF1; }
+.view-purchase-edit > .listview > .content > .tstore .trans .val.plus { color: #009E4D; }
+.view-purchase-edit > .listview > .content > .tstore .trans .val.plus:before { content: "+"; }
+.view-purchase-edit > .listview > .content > .tstore .trans .val.minus:before { content: "-"; }
+
+.view-purchase-edit.full-screen > .ops { position: fixed; top: 0px; left: 0px; right: 0px; background-color: #f4f5f9; 
+	padding: 5px 10px; z-index: 2; }
+.view-purchase-edit.full-screen > .listview { position: fixed; left: 0px; top: 42px; right: 0px; bottom: 52px; 
+	max-width: none !important; margin: 0px; z-index: 1; padding-top: 65px; }
+.view-purchase-edit.full-screen > .listview > .header { position: absolute; left: 0px; right: 0px; top: 0px; }
+.view-purchase-edit.full-screen > .listview > .content { height: 100%; min-height: 0px !important; }
+.view-purchase-edit.full-screen > .listview > .content > .tproduct { height: 100%; overflow: hidden; }
+.view-purchase-edit.full-screen > .listview > .content > .tstore { height: 100%; padding-bottom: 0px; }
+.view-purchase-edit.full-screen > .ui-paginator { position: fixed; left: 0px; right: 0px; bottom: 0px; margin: 0px; 
+	padding: 10px; background-color: #fff; z-index: 2; border-top: 1px solid #e7e7eb; }
+
+.view-purchase-edit > .listview .ic { width: 14px; height: 14px; vertical-align: -2px; margin-left: 5px; 
+	background-size: 12px; background-position: center; background-repeat: no-repeat; opacity: .25; cursor: pointer; }
+.view-purchase-edit > .listview .ic:hover { opacity: 1; }
+.view-purchase-edit > .listview .ic-edit { background-image: url('/theme/icons/b/edit.png'); }
+.view-purchase-edit > .listview .ic-chart { background-image: url(/theme/icons/ic/chart2.png); }
+.view-purchase-edit > .listview .ic-trans { background-image: url(/theme/icons/b/refresh.png); opacity: .35; }
+
+.view-purchase-edit > .mfh-translistview { width: 300px; }
+.view-purchase-edit > .mfh-translistview > .item { line-height: 24px; }
+.view-purchase-edit > .mfh-translistview > .item > .name { width: 170px; white-space: nowrap; overflow: hidden; 
+	text-overflow: ellipsis; margin-bottom: -4px; }
+.view-purchase-edit > .mfh-translistview > .item > .stock { width: 45px; padding-left: 10px; }

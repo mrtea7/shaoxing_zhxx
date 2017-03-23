@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+
+.view-market-order-detail { padding-bottom: 20px; }
+.view-market-order-detail > .orderinfo { background-color: #fff; }
+.view-market-order-detail > .orderinfo > .content { padding: 20px 0 15px 60px; font-size: 14px; }
+.view-market-order-detail > .orderinfo > .content:before { content: ""; position: absolute; width: 20px; height: 20px; 
+	left: 22px; top: 36px; background-image: url('/theme/img/shop/store.png'); background-size: 20px; background-repeat: no-repeat; }
+.view-market-order-detail > .orderinfo > .content > .address { color: rgba(0, 0, 0, 0.6); }
+
+.view-market-order-detail > .partners { background-color: #fff; margin-top: 10px; }
+.view-market-order-detail > .partners > .item { padding: 14px 55px 5px 70px; font-size: 14px; min-height: 72px; }
+.view-market-order-detail > .partners > .item:first-child:before { display: none; }
+.view-market-order-detail > .partners > .item > img { position: absolute; width: 48px; height: 48px; border-radius: 100px; left: 10px; top: 12px; }
+.view-market-order-detail > .partners > .item > .desc { color: rgba(0, 0, 0, 0.5); }
+.view-market-order-detail > .partners > .item > .phonebtn { position: absolute; width: 40px; height: 40px; right: 10px; top: 16px; 
+	background-image: url(/theme/icons/ic/phone_c1.png); background-size: 16px; background-repeat: no-repeat; background-position: center; 
+	border: 1px solid #139145; border-radius: 100px; }
+
+.view-market-order-detail > .products { margin-top: 12px; }
+.view-market-order-detail > .products > .items { background-color: #fff; }
+.view-market-order-detail > .products > .items > .pro-item { padding: 6px 0px 6px 65px; font-size: 14px; min-height: 68px; }
+.view-market-order-detail > .products > .items > .pro-item:before { border-width: 0px 0px 1px; }
+.view-market-order-detail > .products > .items > .pro-item > .proimg { position: absolute; width: 48px; 
+	height: 48px; left: 10px; top: 10px; }
+.view-market-order-detail > .products > .items > .pro-item > .name { line-height: 18px; min-height: 28px; 
+	max-height: 36px; overflow: hidden; }
+.view-market-order-detail > .products > .items > .pro-item > .price { font-size: 12px; }
+.view-market-order-detail > .products > .items > .pro-item > .price > .val { color: #FF5900; }
+.view-market-order-detail > .products > .items > .pro-item > .price > .val > .val1 { font-size: 14px; }
+.view-market-order-detail > .products > .items > .pro-item > .price > .unit { color: rgba(0, 0, 0, 0.35); margin-left: 3px; }
+.view-market-order-detail > .products > .items > .pro-item > .count { position: absolute; bottom: 10px; right: 10px; 
+	font-size: 12px; color: rgba(0, 0, 0, 0.5); }
+
+.view-market-order-detail > .summary { background-color: #fff; margin-top: 10px; font-size: 14px; padding: 15px 10px; }
+.view-market-order-detail > .summary > dl { position: relative; width: 50%; line-height: 26px; }
+.view-market-order-detail > .summary > dl > dd { position: absolute; top: 0px; right: 10px; }
+.view-market-order-detail > .summary > dl.pay { position: absolute; right: 0px; top: 50%; text-align: center; margin-top: -29px; }
+.view-market-order-detail > .summary > dl.pay > dd { position: relative; line-height: 32px; font-size: 26px; right: 0px; }
+
+.view-market-order-footer > .amount { line-height: 42px; padding-left: 12px; font-size: 14px; }
+.view-market-order-footer > .amount > .val { color: #FF5900; font-size: 16px; }
+.view-market-order-footer > .paybtn { position: absolute; top: 0px; right: 0px; width: 120px; border-radius: 0px; }
+.view-market-order-footer > .paybtn:after { display: none; }
+
+
+
